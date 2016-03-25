@@ -7,12 +7,93 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610DE2F21C92578100A38B8B /* PWDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE2F11C92578100A38B8B /* PWDView.m */; };
+		610DE2F41C92579100A38B8B /* PWDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610DE2F31C92579100A38B8B /* PWDView.xib */; };
+		610DE3201C92679C00A38B8B /* CALayer+BLayerBorderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE3111C92679C00A38B8B /* CALayer+BLayerBorderColor.m */; };
+		610DE3211C92679C00A38B8B /* MSBlureEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE3131C92679C00A38B8B /* MSBlureEffectView.m */; };
+		610DE3221C92679C00A38B8B /* NSTimer+MSTFAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE3151C92679C00A38B8B /* NSTimer+MSTFAddition.m */; };
+		610DE3231C92679C00A38B8B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE3171C92679C00A38B8B /* UIColor+Hex.m */; };
+		610DE3241C92679C00A38B8B /* UINavigationItem+BMargin.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE3191C92679C00A38B8B /* UINavigationItem+BMargin.m */; };
+		610DE3251C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31B1C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m */; };
+		610DE3261C92679C00A38B8B /* UIView+loadNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31D1C92679C00A38B8B /* UIView+loadNib.m */; };
+		610DE3271C92679C00A38B8B /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31F1C92679C00A38B8B /* UIViewController+Tracking.m */; };
 		615D01D51C91A1A8001EF35C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D01D41C91A1A8001EF35C /* main.m */; };
 		615D01D81C91A1A8001EF35C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D01D71C91A1A8001EF35C /* AppDelegate.m */; };
 		615D01DB1C91A1A8001EF35C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D01DA1C91A1A8001EF35C /* ViewController.m */; };
 		615D01DE1C91A1A8001EF35C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 615D01DC1C91A1A8001EF35C /* Main.storyboard */; };
 		615D01E01C91A1A8001EF35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 615D01DF1C91A1A8001EF35C /* Assets.xcassets */; };
 		615D01E31C91A1A8001EF35C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 615D01E11C91A1A8001EF35C /* LaunchScreen.storyboard */; };
+		6167B4A61CA5286700117606 /* MSActionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B41D1CA5286700117606 /* MSActionBase.m */; };
+		6167B4A71CA5286700117606 /* MSActionFindPWD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B41F1CA5286700117606 /* MSActionFindPWD.m */; };
+		6167B4A81CA5286700117606 /* MSActivityDetailAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4211CA5286700117606 /* MSActivityDetailAction.m */; };
+		6167B4A91CA5286700117606 /* MSAddCulbAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4231CA5286700117606 /* MSAddCulbAction.m */; };
+		6167B4AA1CA5286700117606 /* MSAdminConfirmCheckInAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4251CA5286700117606 /* MSAdminConfirmCheckInAction.m */; };
+		6167B4AB1CA5286700117606 /* MSAdminPartyDetailAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4271CA5286700117606 /* MSAdminPartyDetailAction.m */; };
+		6167B4AC1CA5286700117606 /* MSAdminPartyStausAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4291CA5286700117606 /* MSAdminPartyStausAction.m */; };
+		6167B4AD1CA5286700117606 /* MSAdminPayHistorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B42B1CA5286700117606 /* MSAdminPayHistorys.m */; };
+		6167B4AE1CA5286700117606 /* MSAdminPayHistorysWithUserAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B42D1CA5286700117606 /* MSAdminPayHistorysWithUserAction.m */; };
+		6167B4AF1CA5286700117606 /* MSAdminRechargeToCardAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B42F1CA5286700117606 /* MSAdminRechargeToCardAction.m */; };
+		6167B4B01CA5286700117606 /* MSAdminSetAdminEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4311CA5286700117606 /* MSAdminSetAdminEmail.m */; };
+		6167B4B11CA5286700117606 /* MSCancelEnrollAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4331CA5286700117606 /* MSCancelEnrollAction.m */; };
+		6167B4B21CA5286700117606 /* MSChangePasswordAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4351CA5286700117606 /* MSChangePasswordAction.m */; };
+		6167B4B31CA5286700117606 /* MSCheckinAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4371CA5286700117606 /* MSCheckinAction.m */; };
+		6167B4B41CA5286700117606 /* MSClubsMembersAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4391CA5286700117606 /* MSClubsMembersAction.m */; };
+		6167B4B51CA5286700117606 /* MSClubsMineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B43B1CA5286700117606 /* MSClubsMineAction.m */; };
+		6167B4B61CA5286700117606 /* MSClubsNearWithMeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B43D1CA5286700117606 /* MSClubsNearWithMeAction.m */; };
+		6167B4B71CA5286700117606 /* MSConfirmCodeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B43F1CA5286700117606 /* MSConfirmCodeAction.m */; };
+		6167B4B81CA5286700117606 /* MSCreateActivityAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4411CA5286700117606 /* MSCreateActivityAction.m */; };
+		6167B4B91CA5286700117606 /* MSCreateCulbAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4431CA5286700117606 /* MSCreateCulbAction.m */; };
+		6167B4BA1CA5286700117606 /* MSDel_addressAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4451CA5286700117606 /* MSDel_addressAction.m */; };
+		6167B4BB1CA5286700117606 /* MSDeleteAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4471CA5286700117606 /* MSDeleteAddress.m */; };
+		6167B4BC1CA5286700117606 /* MSEditSelfAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4491CA5286700117606 /* MSEditSelfAction.m */; };
+		6167B4BD1CA5286700117606 /* MSEnrollAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B44B1CA5286700117606 /* MSEnrollAction.m */; };
+		6167B4BE1CA5286700117606 /* MSFriendsAcceptAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B44D1CA5286700117606 /* MSFriendsAcceptAction.m */; };
+		6167B4BF1CA5286700117606 /* MSFriendsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B44F1CA5286700117606 /* MSFriendsAction.m */; };
+		6167B4C01CA5286700117606 /* MSFriendsMineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4511CA5286700117606 /* MSFriendsMineAction.m */; };
+		6167B4C11CA5286700117606 /* MSFriendsSendAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4531CA5286700117606 /* MSFriendsSendAction.m */; };
+		6167B4C21CA5286700117606 /* MSGetClubInfoAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4551CA5286700117606 /* MSGetClubInfoAction.m */; };
+		6167B4C31CA5286700117606 /* MSGetTeamMineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4571CA5286700117606 /* MSGetTeamMineAction.m */; };
+		6167B4C41CA5286700117606 /* MSGetTeamMyMatchAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4591CA5286700117606 /* MSGetTeamMyMatchAction.m */; };
+		6167B4C51CA5286700117606 /* MSGetUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B45B1CA5286700117606 /* MSGetUserInfo.m */; };
+		6167B4C61CA5286700117606 /* MSHomeListAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B45D1CA5286700117606 /* MSHomeListAction.m */; };
+		6167B4C71CA5286700117606 /* MSLeaveCulbAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B45F1CA5286700117606 /* MSLeaveCulbAction.m */; };
+		6167B4C81CA5286700117606 /* MSLoginAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4611CA5286700117606 /* MSLoginAction.m */; };
+		6167B4C91CA5286700117606 /* MSMSObtainCulbAddressListAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4631CA5286700117606 /* MSMSObtainCulbAddressListAction.m */; };
+		6167B4CA1CA5286700117606 /* MSMineScoresSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4651CA5286700117606 /* MSMineScoresSingle.m */; };
+		6167B4CB1CA5286700117606 /* MSMineScoresSingleWithUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4671CA5286700117606 /* MSMineScoresSingleWithUser.m */; };
+		6167B4CC1CA5286700117606 /* MSMineScoresTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4691CA5286700117606 /* MSMineScoresTeam.m */; };
+		6167B4CD1CA5286700117606 /* MSMineScoresTeamWithUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B46B1CA5286700117606 /* MSMineScoresTeamWithUser.m */; };
+		6167B4CE1CA5286700117606 /* MSMyMatchAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B46D1CA5286700117606 /* MSMyMatchAddress.m */; };
+		6167B4CF1CA5286700117606 /* MSNotifysReadCheckinAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B46F1CA5286700117606 /* MSNotifysReadCheckinAction.m */; };
+		6167B4D01CA5286700117606 /* MSNotifysReadWithTypeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4711CA5286700117606 /* MSNotifysReadWithTypeAction.m */; };
+		6167B4D11CA5286700117606 /* MSNotifysUnreadsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4731CA5286700117606 /* MSNotifysUnreadsAction.m */; };
+		6167B4D21CA5286700117606 /* MSPartyAddressList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4751CA5286700117606 /* MSPartyAddressList.m */; };
+		6167B4D31CA5286700117606 /* MSParty_addressAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4771CA5286700117606 /* MSParty_addressAction.m */; };
+		6167B4D41CA5286700117606 /* MSPartysEnrollsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4791CA5286700117606 /* MSPartysEnrollsAction.m */; };
+		6167B4D51CA5286700117606 /* MSPartysMineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B47B1CA5286700117606 /* MSPartysMineAction.m */; };
+		6167B4D61CA5286700117606 /* MSPublishPartys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B47D1CA5286700117606 /* MSPublishPartys.m */; };
+		6167B4D71CA5286700117606 /* MSScoreTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B47F1CA5286700117606 /* MSScoreTeam.m */; };
+		6167B4D81CA5286700117606 /* MSScoreTeamConfirm.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4811CA5286700117606 /* MSScoreTeamConfirm.m */; };
+		6167B4D91CA5286700117606 /* MSScoresSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4831CA5286700117606 /* MSScoresSingle.m */; };
+		6167B4DA1CA5286700117606 /* MSScoresSingleConfirm.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4851CA5286700117606 /* MSScoresSingleConfirm.m */; };
+		6167B4DB1CA5286700117606 /* MSSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4871CA5286700117606 /* MSSearch.m */; };
+		6167B4DC1CA5286700117606 /* MSSearchTeamsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4891CA5286700117606 /* MSSearchTeamsAction.m */; };
+		6167B4DD1CA5286700117606 /* MSSearchUsersAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B48B1CA5286700117606 /* MSSearchUsersAction.m */; };
+		6167B4DE1CA5286700117606 /* MSSignoutAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B48D1CA5286700117606 /* MSSignoutAction.m */; };
+		6167B4DF1CA5286700117606 /* MSSignupWithPhoneAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B48F1CA5286700117606 /* MSSignupWithPhoneAction.m */; };
+		6167B4E01CA5286700117606 /* MSTeamAcceptAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4911CA5286700117606 /* MSTeamAcceptAction.m */; };
+		6167B4E11CA5286700117606 /* MSTeamSend.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4931CA5286700117606 /* MSTeamSend.m */; };
+		6167B4E21CA5286700117606 /* MSTopsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4951CA5286700117606 /* MSTopsAction.m */; };
+		6167B4E31CA5286700117606 /* MSUpdateDeviceToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4971CA5286700117606 /* MSUpdateDeviceToken.m */; };
+		6167B4E41CA5286700117606 /* MSUpdatePostion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4991CA5286700117606 /* MSUpdatePostion.m */; };
+		6167B4E51CA5286700117606 /* MSUsersNearWithMeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B49B1CA5286700117606 /* MSUsersNearWithMeAction.m */; };
+		6167B4E61CA5286700117606 /* MSVerficationCodeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B49D1CA5286700117606 /* MSVerficationCodeAction.m */; };
+		6167B4E71CA5286700117606 /* MSWhoAmIAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B49F1CA5286700117606 /* MSWhoAmIAction.m */; };
+		6167B4E81CA5286700117606 /* MSHttpActionMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4A11CA5286700117606 /* MSHttpActionMgr.m */; };
+		6167B4E91CA5286700117606 /* MSResponeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4A31CA5286700117606 /* MSResponeResult.m */; };
+		6167B4EA1CA5286700117606 /* MyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4A51CA5286700117606 /* MyLocationManager.m */; };
+		6167B4ED1CA5297500117606 /* TestAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EC1CA5297500117606 /* TestAction.m */; };
+		6167B4F01CA52BE800117606 /* TestAction2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EF1CA52BE800117606 /* TestAction2.m */; };
 		61ED82511C91A5C7007817C8 /* ZTUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ED82501C91A5C7007817C8 /* ZTUntil.m */; };
 		F844041BB6FE211CD0422E37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA230626FF842A95B9BBEB6 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -20,6 +101,25 @@
 /* Begin PBXFileReference section */
 		332BD20BFF5412E9BB4806A9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5520DA60A34DF6F3986BB20F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		610DE2F01C92578100A38B8B /* PWDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWDView.h; sourceTree = "<group>"; };
+		610DE2F11C92578100A38B8B /* PWDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDView.m; sourceTree = "<group>"; };
+		610DE2F31C92579100A38B8B /* PWDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PWDView.xib; sourceTree = "<group>"; };
+		610DE3101C92679C00A38B8B /* CALayer+BLayerBorderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+BLayerBorderColor.h"; sourceTree = "<group>"; };
+		610DE3111C92679C00A38B8B /* CALayer+BLayerBorderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+BLayerBorderColor.m"; sourceTree = "<group>"; };
+		610DE3121C92679C00A38B8B /* MSBlureEffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBlureEffectView.h; sourceTree = "<group>"; };
+		610DE3131C92679C00A38B8B /* MSBlureEffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBlureEffectView.m; sourceTree = "<group>"; };
+		610DE3141C92679C00A38B8B /* NSTimer+MSTFAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+MSTFAddition.h"; sourceTree = "<group>"; };
+		610DE3151C92679C00A38B8B /* NSTimer+MSTFAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+MSTFAddition.m"; sourceTree = "<group>"; };
+		610DE3161C92679C00A38B8B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		610DE3171C92679C00A38B8B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		610DE3181C92679C00A38B8B /* UINavigationItem+BMargin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+BMargin.h"; sourceTree = "<group>"; };
+		610DE3191C92679C00A38B8B /* UINavigationItem+BMargin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+BMargin.m"; sourceTree = "<group>"; };
+		610DE31A1C92679C00A38B8B /* UITableViewCell+BGetCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BGetCellHeight.h"; sourceTree = "<group>"; };
+		610DE31B1C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BGetCellHeight.m"; sourceTree = "<group>"; };
+		610DE31C1C92679C00A38B8B /* UIView+loadNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+loadNib.h"; sourceTree = "<group>"; };
+		610DE31D1C92679C00A38B8B /* UIView+loadNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+loadNib.m"; sourceTree = "<group>"; };
+		610DE31E1C92679C00A38B8B /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
+		610DE31F1C92679C00A38B8B /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
 		615D01D01C91A1A8001EF35C /* ZTBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZTBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		615D01D41C91A1A8001EF35C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		615D01D61C91A1A8001EF35C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,6 +130,148 @@
 		615D01DF1C91A1A8001EF35C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		615D01E21C91A1A8001EF35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		615D01E41C91A1A8001EF35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6167B41C1CA5286700117606 /* MSActionBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSActionBase.h; sourceTree = "<group>"; };
+		6167B41D1CA5286700117606 /* MSActionBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSActionBase.m; sourceTree = "<group>"; };
+		6167B41E1CA5286700117606 /* MSActionFindPWD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSActionFindPWD.h; sourceTree = "<group>"; };
+		6167B41F1CA5286700117606 /* MSActionFindPWD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSActionFindPWD.m; sourceTree = "<group>"; };
+		6167B4201CA5286700117606 /* MSActivityDetailAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSActivityDetailAction.h; sourceTree = "<group>"; };
+		6167B4211CA5286700117606 /* MSActivityDetailAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSActivityDetailAction.m; sourceTree = "<group>"; };
+		6167B4221CA5286700117606 /* MSAddCulbAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAddCulbAction.h; sourceTree = "<group>"; };
+		6167B4231CA5286700117606 /* MSAddCulbAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAddCulbAction.m; sourceTree = "<group>"; };
+		6167B4241CA5286700117606 /* MSAdminConfirmCheckInAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAdminConfirmCheckInAction.h; sourceTree = "<group>"; };
+		6167B4251CA5286700117606 /* MSAdminConfirmCheckInAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAdminConfirmCheckInAction.m; sourceTree = "<group>"; };
+		6167B4261CA5286700117606 /* MSAdminPartyDetailAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAdminPartyDetailAction.h; sourceTree = "<group>"; };
+		6167B4271CA5286700117606 /* MSAdminPartyDetailAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAdminPartyDetailAction.m; sourceTree = "<group>"; };
+		6167B4281CA5286700117606 /* MSAdminPartyStausAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAdminPartyStausAction.h; sourceTree = "<group>"; };
+		6167B4291CA5286700117606 /* MSAdminPartyStausAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAdminPartyStausAction.m; sourceTree = "<group>"; };
+		6167B42A1CA5286700117606 /* MSAdminPayHistorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAdminPayHistorys.h; sourceTree = "<group>"; };
+		6167B42B1CA5286700117606 /* MSAdminPayHistorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAdminPayHistorys.m; sourceTree = "<group>"; };
+		6167B42C1CA5286700117606 /* MSAdminPayHistorysWithUserAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAdminPayHistorysWithUserAction.h; sourceTree = "<group>"; };
+		6167B42D1CA5286700117606 /* MSAdminPayHistorysWithUserAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAdminPayHistorysWithUserAction.m; sourceTree = "<group>"; };
+		6167B42E1CA5286700117606 /* MSAdminRechargeToCardAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAdminRechargeToCardAction.h; sourceTree = "<group>"; };
+		6167B42F1CA5286700117606 /* MSAdminRechargeToCardAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAdminRechargeToCardAction.m; sourceTree = "<group>"; };
+		6167B4301CA5286700117606 /* MSAdminSetAdminEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAdminSetAdminEmail.h; sourceTree = "<group>"; };
+		6167B4311CA5286700117606 /* MSAdminSetAdminEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAdminSetAdminEmail.m; sourceTree = "<group>"; };
+		6167B4321CA5286700117606 /* MSCancelEnrollAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCancelEnrollAction.h; sourceTree = "<group>"; };
+		6167B4331CA5286700117606 /* MSCancelEnrollAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCancelEnrollAction.m; sourceTree = "<group>"; };
+		6167B4341CA5286700117606 /* MSChangePasswordAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSChangePasswordAction.h; sourceTree = "<group>"; };
+		6167B4351CA5286700117606 /* MSChangePasswordAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSChangePasswordAction.m; sourceTree = "<group>"; };
+		6167B4361CA5286700117606 /* MSCheckinAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCheckinAction.h; sourceTree = "<group>"; };
+		6167B4371CA5286700117606 /* MSCheckinAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCheckinAction.m; sourceTree = "<group>"; };
+		6167B4381CA5286700117606 /* MSClubsMembersAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSClubsMembersAction.h; sourceTree = "<group>"; };
+		6167B4391CA5286700117606 /* MSClubsMembersAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSClubsMembersAction.m; sourceTree = "<group>"; };
+		6167B43A1CA5286700117606 /* MSClubsMineAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSClubsMineAction.h; sourceTree = "<group>"; };
+		6167B43B1CA5286700117606 /* MSClubsMineAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSClubsMineAction.m; sourceTree = "<group>"; };
+		6167B43C1CA5286700117606 /* MSClubsNearWithMeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSClubsNearWithMeAction.h; sourceTree = "<group>"; };
+		6167B43D1CA5286700117606 /* MSClubsNearWithMeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSClubsNearWithMeAction.m; sourceTree = "<group>"; };
+		6167B43E1CA5286700117606 /* MSConfirmCodeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSConfirmCodeAction.h; sourceTree = "<group>"; };
+		6167B43F1CA5286700117606 /* MSConfirmCodeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSConfirmCodeAction.m; sourceTree = "<group>"; };
+		6167B4401CA5286700117606 /* MSCreateActivityAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCreateActivityAction.h; sourceTree = "<group>"; };
+		6167B4411CA5286700117606 /* MSCreateActivityAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCreateActivityAction.m; sourceTree = "<group>"; };
+		6167B4421CA5286700117606 /* MSCreateCulbAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCreateCulbAction.h; sourceTree = "<group>"; };
+		6167B4431CA5286700117606 /* MSCreateCulbAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCreateCulbAction.m; sourceTree = "<group>"; };
+		6167B4441CA5286700117606 /* MSDel_addressAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDel_addressAction.h; sourceTree = "<group>"; };
+		6167B4451CA5286700117606 /* MSDel_addressAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDel_addressAction.m; sourceTree = "<group>"; };
+		6167B4461CA5286700117606 /* MSDeleteAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDeleteAddress.h; sourceTree = "<group>"; };
+		6167B4471CA5286700117606 /* MSDeleteAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDeleteAddress.m; sourceTree = "<group>"; };
+		6167B4481CA5286700117606 /* MSEditSelfAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEditSelfAction.h; sourceTree = "<group>"; };
+		6167B4491CA5286700117606 /* MSEditSelfAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEditSelfAction.m; sourceTree = "<group>"; };
+		6167B44A1CA5286700117606 /* MSEnrollAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEnrollAction.h; sourceTree = "<group>"; };
+		6167B44B1CA5286700117606 /* MSEnrollAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEnrollAction.m; sourceTree = "<group>"; };
+		6167B44C1CA5286700117606 /* MSFriendsAcceptAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFriendsAcceptAction.h; sourceTree = "<group>"; };
+		6167B44D1CA5286700117606 /* MSFriendsAcceptAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFriendsAcceptAction.m; sourceTree = "<group>"; };
+		6167B44E1CA5286700117606 /* MSFriendsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFriendsAction.h; sourceTree = "<group>"; };
+		6167B44F1CA5286700117606 /* MSFriendsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFriendsAction.m; sourceTree = "<group>"; };
+		6167B4501CA5286700117606 /* MSFriendsMineAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFriendsMineAction.h; sourceTree = "<group>"; };
+		6167B4511CA5286700117606 /* MSFriendsMineAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFriendsMineAction.m; sourceTree = "<group>"; };
+		6167B4521CA5286700117606 /* MSFriendsSendAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFriendsSendAction.h; sourceTree = "<group>"; };
+		6167B4531CA5286700117606 /* MSFriendsSendAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFriendsSendAction.m; sourceTree = "<group>"; };
+		6167B4541CA5286700117606 /* MSGetClubInfoAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGetClubInfoAction.h; sourceTree = "<group>"; };
+		6167B4551CA5286700117606 /* MSGetClubInfoAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGetClubInfoAction.m; sourceTree = "<group>"; };
+		6167B4561CA5286700117606 /* MSGetTeamMineAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGetTeamMineAction.h; sourceTree = "<group>"; };
+		6167B4571CA5286700117606 /* MSGetTeamMineAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGetTeamMineAction.m; sourceTree = "<group>"; };
+		6167B4581CA5286700117606 /* MSGetTeamMyMatchAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGetTeamMyMatchAction.h; sourceTree = "<group>"; };
+		6167B4591CA5286700117606 /* MSGetTeamMyMatchAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGetTeamMyMatchAction.m; sourceTree = "<group>"; };
+		6167B45A1CA5286700117606 /* MSGetUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGetUserInfo.h; sourceTree = "<group>"; };
+		6167B45B1CA5286700117606 /* MSGetUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGetUserInfo.m; sourceTree = "<group>"; };
+		6167B45C1CA5286700117606 /* MSHomeListAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHomeListAction.h; sourceTree = "<group>"; };
+		6167B45D1CA5286700117606 /* MSHomeListAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSHomeListAction.m; sourceTree = "<group>"; };
+		6167B45E1CA5286700117606 /* MSLeaveCulbAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLeaveCulbAction.h; sourceTree = "<group>"; };
+		6167B45F1CA5286700117606 /* MSLeaveCulbAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLeaveCulbAction.m; sourceTree = "<group>"; };
+		6167B4601CA5286700117606 /* MSLoginAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoginAction.h; sourceTree = "<group>"; };
+		6167B4611CA5286700117606 /* MSLoginAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoginAction.m; sourceTree = "<group>"; };
+		6167B4621CA5286700117606 /* MSMSObtainCulbAddressListAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMSObtainCulbAddressListAction.h; sourceTree = "<group>"; };
+		6167B4631CA5286700117606 /* MSMSObtainCulbAddressListAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMSObtainCulbAddressListAction.m; sourceTree = "<group>"; };
+		6167B4641CA5286700117606 /* MSMineScoresSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMineScoresSingle.h; sourceTree = "<group>"; };
+		6167B4651CA5286700117606 /* MSMineScoresSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMineScoresSingle.m; sourceTree = "<group>"; };
+		6167B4661CA5286700117606 /* MSMineScoresSingleWithUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMineScoresSingleWithUser.h; sourceTree = "<group>"; };
+		6167B4671CA5286700117606 /* MSMineScoresSingleWithUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMineScoresSingleWithUser.m; sourceTree = "<group>"; };
+		6167B4681CA5286700117606 /* MSMineScoresTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMineScoresTeam.h; sourceTree = "<group>"; };
+		6167B4691CA5286700117606 /* MSMineScoresTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMineScoresTeam.m; sourceTree = "<group>"; };
+		6167B46A1CA5286700117606 /* MSMineScoresTeamWithUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMineScoresTeamWithUser.h; sourceTree = "<group>"; };
+		6167B46B1CA5286700117606 /* MSMineScoresTeamWithUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMineScoresTeamWithUser.m; sourceTree = "<group>"; };
+		6167B46C1CA5286700117606 /* MSMyMatchAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMyMatchAddress.h; sourceTree = "<group>"; };
+		6167B46D1CA5286700117606 /* MSMyMatchAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMyMatchAddress.m; sourceTree = "<group>"; };
+		6167B46E1CA5286700117606 /* MSNotifysReadCheckinAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNotifysReadCheckinAction.h; sourceTree = "<group>"; };
+		6167B46F1CA5286700117606 /* MSNotifysReadCheckinAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNotifysReadCheckinAction.m; sourceTree = "<group>"; };
+		6167B4701CA5286700117606 /* MSNotifysReadWithTypeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNotifysReadWithTypeAction.h; sourceTree = "<group>"; };
+		6167B4711CA5286700117606 /* MSNotifysReadWithTypeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNotifysReadWithTypeAction.m; sourceTree = "<group>"; };
+		6167B4721CA5286700117606 /* MSNotifysUnreadsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNotifysUnreadsAction.h; sourceTree = "<group>"; };
+		6167B4731CA5286700117606 /* MSNotifysUnreadsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNotifysUnreadsAction.m; sourceTree = "<group>"; };
+		6167B4741CA5286700117606 /* MSPartyAddressList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPartyAddressList.h; sourceTree = "<group>"; };
+		6167B4751CA5286700117606 /* MSPartyAddressList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPartyAddressList.m; sourceTree = "<group>"; };
+		6167B4761CA5286700117606 /* MSParty_addressAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSParty_addressAction.h; sourceTree = "<group>"; };
+		6167B4771CA5286700117606 /* MSParty_addressAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSParty_addressAction.m; sourceTree = "<group>"; };
+		6167B4781CA5286700117606 /* MSPartysEnrollsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPartysEnrollsAction.h; sourceTree = "<group>"; };
+		6167B4791CA5286700117606 /* MSPartysEnrollsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPartysEnrollsAction.m; sourceTree = "<group>"; };
+		6167B47A1CA5286700117606 /* MSPartysMineAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPartysMineAction.h; sourceTree = "<group>"; };
+		6167B47B1CA5286700117606 /* MSPartysMineAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPartysMineAction.m; sourceTree = "<group>"; };
+		6167B47C1CA5286700117606 /* MSPublishPartys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPublishPartys.h; sourceTree = "<group>"; };
+		6167B47D1CA5286700117606 /* MSPublishPartys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPublishPartys.m; sourceTree = "<group>"; };
+		6167B47E1CA5286700117606 /* MSScoreTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSScoreTeam.h; sourceTree = "<group>"; };
+		6167B47F1CA5286700117606 /* MSScoreTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSScoreTeam.m; sourceTree = "<group>"; };
+		6167B4801CA5286700117606 /* MSScoreTeamConfirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSScoreTeamConfirm.h; sourceTree = "<group>"; };
+		6167B4811CA5286700117606 /* MSScoreTeamConfirm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSScoreTeamConfirm.m; sourceTree = "<group>"; };
+		6167B4821CA5286700117606 /* MSScoresSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSScoresSingle.h; sourceTree = "<group>"; };
+		6167B4831CA5286700117606 /* MSScoresSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSScoresSingle.m; sourceTree = "<group>"; };
+		6167B4841CA5286700117606 /* MSScoresSingleConfirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSScoresSingleConfirm.h; sourceTree = "<group>"; };
+		6167B4851CA5286700117606 /* MSScoresSingleConfirm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSScoresSingleConfirm.m; sourceTree = "<group>"; };
+		6167B4861CA5286700117606 /* MSSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSearch.h; sourceTree = "<group>"; };
+		6167B4871CA5286700117606 /* MSSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSearch.m; sourceTree = "<group>"; };
+		6167B4881CA5286700117606 /* MSSearchTeamsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSearchTeamsAction.h; sourceTree = "<group>"; };
+		6167B4891CA5286700117606 /* MSSearchTeamsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSearchTeamsAction.m; sourceTree = "<group>"; };
+		6167B48A1CA5286700117606 /* MSSearchUsersAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSearchUsersAction.h; sourceTree = "<group>"; };
+		6167B48B1CA5286700117606 /* MSSearchUsersAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSearchUsersAction.m; sourceTree = "<group>"; };
+		6167B48C1CA5286700117606 /* MSSignoutAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSignoutAction.h; sourceTree = "<group>"; };
+		6167B48D1CA5286700117606 /* MSSignoutAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSignoutAction.m; sourceTree = "<group>"; };
+		6167B48E1CA5286700117606 /* MSSignupWithPhoneAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSignupWithPhoneAction.h; sourceTree = "<group>"; };
+		6167B48F1CA5286700117606 /* MSSignupWithPhoneAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSignupWithPhoneAction.m; sourceTree = "<group>"; };
+		6167B4901CA5286700117606 /* MSTeamAcceptAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTeamAcceptAction.h; sourceTree = "<group>"; };
+		6167B4911CA5286700117606 /* MSTeamAcceptAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTeamAcceptAction.m; sourceTree = "<group>"; };
+		6167B4921CA5286700117606 /* MSTeamSend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTeamSend.h; sourceTree = "<group>"; };
+		6167B4931CA5286700117606 /* MSTeamSend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTeamSend.m; sourceTree = "<group>"; };
+		6167B4941CA5286700117606 /* MSTopsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTopsAction.h; sourceTree = "<group>"; };
+		6167B4951CA5286700117606 /* MSTopsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTopsAction.m; sourceTree = "<group>"; };
+		6167B4961CA5286700117606 /* MSUpdateDeviceToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUpdateDeviceToken.h; sourceTree = "<group>"; };
+		6167B4971CA5286700117606 /* MSUpdateDeviceToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUpdateDeviceToken.m; sourceTree = "<group>"; };
+		6167B4981CA5286700117606 /* MSUpdatePostion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUpdatePostion.h; sourceTree = "<group>"; };
+		6167B4991CA5286700117606 /* MSUpdatePostion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUpdatePostion.m; sourceTree = "<group>"; };
+		6167B49A1CA5286700117606 /* MSUsersNearWithMeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUsersNearWithMeAction.h; sourceTree = "<group>"; };
+		6167B49B1CA5286700117606 /* MSUsersNearWithMeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUsersNearWithMeAction.m; sourceTree = "<group>"; };
+		6167B49C1CA5286700117606 /* MSVerficationCodeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVerficationCodeAction.h; sourceTree = "<group>"; };
+		6167B49D1CA5286700117606 /* MSVerficationCodeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVerficationCodeAction.m; sourceTree = "<group>"; };
+		6167B49E1CA5286700117606 /* MSWhoAmIAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWhoAmIAction.h; sourceTree = "<group>"; };
+		6167B49F1CA5286700117606 /* MSWhoAmIAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWhoAmIAction.m; sourceTree = "<group>"; };
+		6167B4A01CA5286700117606 /* MSHttpActionMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHttpActionMgr.h; sourceTree = "<group>"; };
+		6167B4A11CA5286700117606 /* MSHttpActionMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSHttpActionMgr.m; sourceTree = "<group>"; };
+		6167B4A21CA5286700117606 /* MSResponeResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSResponeResult.h; sourceTree = "<group>"; };
+		6167B4A31CA5286700117606 /* MSResponeResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSResponeResult.m; sourceTree = "<group>"; };
+		6167B4A41CA5286700117606 /* MyLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocationManager.h; sourceTree = "<group>"; };
+		6167B4A51CA5286700117606 /* MyLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocationManager.m; sourceTree = "<group>"; };
+		6167B4EB1CA5297500117606 /* TestAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAction.h; sourceTree = "<group>"; };
+		6167B4EC1CA5297500117606 /* TestAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAction.m; sourceTree = "<group>"; };
+		6167B4EE1CA52BE800117606 /* TestAction2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAction2.h; sourceTree = "<group>"; };
+		6167B4EF1CA52BE800117606 /* TestAction2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAction2.m; sourceTree = "<group>"; };
 		61ED824B1C91A412007817C8 /* zt_head.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zt_head.h; sourceTree = "<group>"; };
 		61ED824E1C91A447007817C8 /* ZT.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZT.pch; sourceTree = "<group>"; };
 		61ED824F1C91A5C7007817C8 /* ZTUntil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTUntil.h; sourceTree = "<group>"; };
@@ -56,6 +298,29 @@
 				5520DA60A34DF6F3986BB20F /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		610DE30F1C92679C00A38B8B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				610DE3101C92679C00A38B8B /* CALayer+BLayerBorderColor.h */,
+				610DE3111C92679C00A38B8B /* CALayer+BLayerBorderColor.m */,
+				610DE3121C92679C00A38B8B /* MSBlureEffectView.h */,
+				610DE3131C92679C00A38B8B /* MSBlureEffectView.m */,
+				610DE3141C92679C00A38B8B /* NSTimer+MSTFAddition.h */,
+				610DE3151C92679C00A38B8B /* NSTimer+MSTFAddition.m */,
+				610DE3161C92679C00A38B8B /* UIColor+Hex.h */,
+				610DE3171C92679C00A38B8B /* UIColor+Hex.m */,
+				610DE3181C92679C00A38B8B /* UINavigationItem+BMargin.h */,
+				610DE3191C92679C00A38B8B /* UINavigationItem+BMargin.m */,
+				610DE31A1C92679C00A38B8B /* UITableViewCell+BGetCellHeight.h */,
+				610DE31B1C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m */,
+				610DE31C1C92679C00A38B8B /* UIView+loadNib.h */,
+				610DE31D1C92679C00A38B8B /* UIView+loadNib.m */,
+				610DE31E1C92679C00A38B8B /* UIViewController+Tracking.h */,
+				610DE31F1C92679C00A38B8B /* UIViewController+Tracking.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		615D01C71C91A1A8001EF35C = {
@@ -85,6 +350,9 @@
 				615D01D71C91A1A8001EF35C /* AppDelegate.m */,
 				615D01D91C91A1A8001EF35C /* ViewController.h */,
 				615D01DA1C91A1A8001EF35C /* ViewController.m */,
+				610DE2F01C92578100A38B8B /* PWDView.h */,
+				610DE2F11C92578100A38B8B /* PWDView.m */,
+				610DE2F31C92579100A38B8B /* PWDView.xib */,
 				61ED824E1C91A447007817C8 /* ZT.pch */,
 				61ED824B1C91A412007817C8 /* zt_head.h */,
 				615D01DC1C91A1A8001EF35C /* Main.storyboard */,
@@ -104,13 +372,171 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6167B41A1CA5286700117606 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6167B41B1CA5286700117606 /* Actions */,
+				6167B4A01CA5286700117606 /* MSHttpActionMgr.h */,
+				6167B4A11CA5286700117606 /* MSHttpActionMgr.m */,
+				6167B4A21CA5286700117606 /* MSResponeResult.h */,
+				6167B4A31CA5286700117606 /* MSResponeResult.m */,
+				6167B4A41CA5286700117606 /* MyLocationManager.h */,
+				6167B4A51CA5286700117606 /* MyLocationManager.m */,
+				6167B4EE1CA52BE800117606 /* TestAction2.h */,
+				6167B4EF1CA52BE800117606 /* TestAction2.m */,
+				6167B4EB1CA5297500117606 /* TestAction.h */,
+				6167B4EC1CA5297500117606 /* TestAction.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6167B41B1CA5286700117606 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				6167B41C1CA5286700117606 /* MSActionBase.h */,
+				6167B41D1CA5286700117606 /* MSActionBase.m */,
+				6167B41E1CA5286700117606 /* MSActionFindPWD.h */,
+				6167B41F1CA5286700117606 /* MSActionFindPWD.m */,
+				6167B4201CA5286700117606 /* MSActivityDetailAction.h */,
+				6167B4211CA5286700117606 /* MSActivityDetailAction.m */,
+				6167B4221CA5286700117606 /* MSAddCulbAction.h */,
+				6167B4231CA5286700117606 /* MSAddCulbAction.m */,
+				6167B4241CA5286700117606 /* MSAdminConfirmCheckInAction.h */,
+				6167B4251CA5286700117606 /* MSAdminConfirmCheckInAction.m */,
+				6167B4261CA5286700117606 /* MSAdminPartyDetailAction.h */,
+				6167B4271CA5286700117606 /* MSAdminPartyDetailAction.m */,
+				6167B4281CA5286700117606 /* MSAdminPartyStausAction.h */,
+				6167B4291CA5286700117606 /* MSAdminPartyStausAction.m */,
+				6167B42A1CA5286700117606 /* MSAdminPayHistorys.h */,
+				6167B42B1CA5286700117606 /* MSAdminPayHistorys.m */,
+				6167B42C1CA5286700117606 /* MSAdminPayHistorysWithUserAction.h */,
+				6167B42D1CA5286700117606 /* MSAdminPayHistorysWithUserAction.m */,
+				6167B42E1CA5286700117606 /* MSAdminRechargeToCardAction.h */,
+				6167B42F1CA5286700117606 /* MSAdminRechargeToCardAction.m */,
+				6167B4301CA5286700117606 /* MSAdminSetAdminEmail.h */,
+				6167B4311CA5286700117606 /* MSAdminSetAdminEmail.m */,
+				6167B4321CA5286700117606 /* MSCancelEnrollAction.h */,
+				6167B4331CA5286700117606 /* MSCancelEnrollAction.m */,
+				6167B4341CA5286700117606 /* MSChangePasswordAction.h */,
+				6167B4351CA5286700117606 /* MSChangePasswordAction.m */,
+				6167B4361CA5286700117606 /* MSCheckinAction.h */,
+				6167B4371CA5286700117606 /* MSCheckinAction.m */,
+				6167B4381CA5286700117606 /* MSClubsMembersAction.h */,
+				6167B4391CA5286700117606 /* MSClubsMembersAction.m */,
+				6167B43A1CA5286700117606 /* MSClubsMineAction.h */,
+				6167B43B1CA5286700117606 /* MSClubsMineAction.m */,
+				6167B43C1CA5286700117606 /* MSClubsNearWithMeAction.h */,
+				6167B43D1CA5286700117606 /* MSClubsNearWithMeAction.m */,
+				6167B43E1CA5286700117606 /* MSConfirmCodeAction.h */,
+				6167B43F1CA5286700117606 /* MSConfirmCodeAction.m */,
+				6167B4401CA5286700117606 /* MSCreateActivityAction.h */,
+				6167B4411CA5286700117606 /* MSCreateActivityAction.m */,
+				6167B4421CA5286700117606 /* MSCreateCulbAction.h */,
+				6167B4431CA5286700117606 /* MSCreateCulbAction.m */,
+				6167B4441CA5286700117606 /* MSDel_addressAction.h */,
+				6167B4451CA5286700117606 /* MSDel_addressAction.m */,
+				6167B4461CA5286700117606 /* MSDeleteAddress.h */,
+				6167B4471CA5286700117606 /* MSDeleteAddress.m */,
+				6167B4481CA5286700117606 /* MSEditSelfAction.h */,
+				6167B4491CA5286700117606 /* MSEditSelfAction.m */,
+				6167B44A1CA5286700117606 /* MSEnrollAction.h */,
+				6167B44B1CA5286700117606 /* MSEnrollAction.m */,
+				6167B44C1CA5286700117606 /* MSFriendsAcceptAction.h */,
+				6167B44D1CA5286700117606 /* MSFriendsAcceptAction.m */,
+				6167B44E1CA5286700117606 /* MSFriendsAction.h */,
+				6167B44F1CA5286700117606 /* MSFriendsAction.m */,
+				6167B4501CA5286700117606 /* MSFriendsMineAction.h */,
+				6167B4511CA5286700117606 /* MSFriendsMineAction.m */,
+				6167B4521CA5286700117606 /* MSFriendsSendAction.h */,
+				6167B4531CA5286700117606 /* MSFriendsSendAction.m */,
+				6167B4541CA5286700117606 /* MSGetClubInfoAction.h */,
+				6167B4551CA5286700117606 /* MSGetClubInfoAction.m */,
+				6167B4561CA5286700117606 /* MSGetTeamMineAction.h */,
+				6167B4571CA5286700117606 /* MSGetTeamMineAction.m */,
+				6167B4581CA5286700117606 /* MSGetTeamMyMatchAction.h */,
+				6167B4591CA5286700117606 /* MSGetTeamMyMatchAction.m */,
+				6167B45A1CA5286700117606 /* MSGetUserInfo.h */,
+				6167B45B1CA5286700117606 /* MSGetUserInfo.m */,
+				6167B45C1CA5286700117606 /* MSHomeListAction.h */,
+				6167B45D1CA5286700117606 /* MSHomeListAction.m */,
+				6167B45E1CA5286700117606 /* MSLeaveCulbAction.h */,
+				6167B45F1CA5286700117606 /* MSLeaveCulbAction.m */,
+				6167B4601CA5286700117606 /* MSLoginAction.h */,
+				6167B4611CA5286700117606 /* MSLoginAction.m */,
+				6167B4621CA5286700117606 /* MSMSObtainCulbAddressListAction.h */,
+				6167B4631CA5286700117606 /* MSMSObtainCulbAddressListAction.m */,
+				6167B4641CA5286700117606 /* MSMineScoresSingle.h */,
+				6167B4651CA5286700117606 /* MSMineScoresSingle.m */,
+				6167B4661CA5286700117606 /* MSMineScoresSingleWithUser.h */,
+				6167B4671CA5286700117606 /* MSMineScoresSingleWithUser.m */,
+				6167B4681CA5286700117606 /* MSMineScoresTeam.h */,
+				6167B4691CA5286700117606 /* MSMineScoresTeam.m */,
+				6167B46A1CA5286700117606 /* MSMineScoresTeamWithUser.h */,
+				6167B46B1CA5286700117606 /* MSMineScoresTeamWithUser.m */,
+				6167B46C1CA5286700117606 /* MSMyMatchAddress.h */,
+				6167B46D1CA5286700117606 /* MSMyMatchAddress.m */,
+				6167B46E1CA5286700117606 /* MSNotifysReadCheckinAction.h */,
+				6167B46F1CA5286700117606 /* MSNotifysReadCheckinAction.m */,
+				6167B4701CA5286700117606 /* MSNotifysReadWithTypeAction.h */,
+				6167B4711CA5286700117606 /* MSNotifysReadWithTypeAction.m */,
+				6167B4721CA5286700117606 /* MSNotifysUnreadsAction.h */,
+				6167B4731CA5286700117606 /* MSNotifysUnreadsAction.m */,
+				6167B4741CA5286700117606 /* MSPartyAddressList.h */,
+				6167B4751CA5286700117606 /* MSPartyAddressList.m */,
+				6167B4761CA5286700117606 /* MSParty_addressAction.h */,
+				6167B4771CA5286700117606 /* MSParty_addressAction.m */,
+				6167B4781CA5286700117606 /* MSPartysEnrollsAction.h */,
+				6167B4791CA5286700117606 /* MSPartysEnrollsAction.m */,
+				6167B47A1CA5286700117606 /* MSPartysMineAction.h */,
+				6167B47B1CA5286700117606 /* MSPartysMineAction.m */,
+				6167B47C1CA5286700117606 /* MSPublishPartys.h */,
+				6167B47D1CA5286700117606 /* MSPublishPartys.m */,
+				6167B47E1CA5286700117606 /* MSScoreTeam.h */,
+				6167B47F1CA5286700117606 /* MSScoreTeam.m */,
+				6167B4801CA5286700117606 /* MSScoreTeamConfirm.h */,
+				6167B4811CA5286700117606 /* MSScoreTeamConfirm.m */,
+				6167B4821CA5286700117606 /* MSScoresSingle.h */,
+				6167B4831CA5286700117606 /* MSScoresSingle.m */,
+				6167B4841CA5286700117606 /* MSScoresSingleConfirm.h */,
+				6167B4851CA5286700117606 /* MSScoresSingleConfirm.m */,
+				6167B4861CA5286700117606 /* MSSearch.h */,
+				6167B4871CA5286700117606 /* MSSearch.m */,
+				6167B4881CA5286700117606 /* MSSearchTeamsAction.h */,
+				6167B4891CA5286700117606 /* MSSearchTeamsAction.m */,
+				6167B48A1CA5286700117606 /* MSSearchUsersAction.h */,
+				6167B48B1CA5286700117606 /* MSSearchUsersAction.m */,
+				6167B48C1CA5286700117606 /* MSSignoutAction.h */,
+				6167B48D1CA5286700117606 /* MSSignoutAction.m */,
+				6167B48E1CA5286700117606 /* MSSignupWithPhoneAction.h */,
+				6167B48F1CA5286700117606 /* MSSignupWithPhoneAction.m */,
+				6167B4901CA5286700117606 /* MSTeamAcceptAction.h */,
+				6167B4911CA5286700117606 /* MSTeamAcceptAction.m */,
+				6167B4921CA5286700117606 /* MSTeamSend.h */,
+				6167B4931CA5286700117606 /* MSTeamSend.m */,
+				6167B4941CA5286700117606 /* MSTopsAction.h */,
+				6167B4951CA5286700117606 /* MSTopsAction.m */,
+				6167B4961CA5286700117606 /* MSUpdateDeviceToken.h */,
+				6167B4971CA5286700117606 /* MSUpdateDeviceToken.m */,
+				6167B4981CA5286700117606 /* MSUpdatePostion.h */,
+				6167B4991CA5286700117606 /* MSUpdatePostion.m */,
+				6167B49A1CA5286700117606 /* MSUsersNearWithMeAction.h */,
+				6167B49B1CA5286700117606 /* MSUsersNearWithMeAction.m */,
+				6167B49C1CA5286700117606 /* MSVerficationCodeAction.h */,
+				6167B49D1CA5286700117606 /* MSVerficationCodeAction.m */,
+				6167B49E1CA5286700117606 /* MSWhoAmIAction.h */,
+				6167B49F1CA5286700117606 /* MSWhoAmIAction.m */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		61ED82401C91A32B007817C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6167B41A1CA5286700117606 /* Services */,
+				610DE30F1C92679C00A38B8B /* Category */,
 				61ED82471C91A39D007817C8 /* Controller */,
 				61ED82461C91A396007817C8 /* Global */,
 				61ED82451C91A38F007817C8 /* Model */,
-				61ED82441C91A385007817C8 /* Services */,
 				61ED82421C91A36E007817C8 /* Views */,
 			);
 			path = Resources;
@@ -131,13 +557,6 @@
 			children = (
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		61ED82441C91A385007817C8 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		61ED82451C91A38F007817C8 /* Model */ = {
@@ -225,6 +644,7 @@
 				TargetAttributes = {
 					615D01CF1C91A1A8001EF35C = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = E5EJ3R9VNE;
 					};
 				};
 			};
@@ -253,6 +673,7 @@
 			files = (
 				615D01E31C91A1A8001EF35C /* LaunchScreen.storyboard in Resources */,
 				615D01E01C91A1A8001EF35C /* Assets.xcassets in Resources */,
+				610DE2F41C92579100A38B8B /* PWDView.xib in Resources */,
 				615D01DE1C91A1A8001EF35C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,10 +718,90 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6167B4D11CA5286700117606 /* MSNotifysUnreadsAction.m in Sources */,
+				6167B4D21CA5286700117606 /* MSPartyAddressList.m in Sources */,
+				610DE3261C92679C00A38B8B /* UIView+loadNib.m in Sources */,
+				6167B4DF1CA5286700117606 /* MSSignupWithPhoneAction.m in Sources */,
+				6167B4E51CA5286700117606 /* MSUsersNearWithMeAction.m in Sources */,
+				6167B4C81CA5286700117606 /* MSLoginAction.m in Sources */,
+				6167B4A81CA5286700117606 /* MSActivityDetailAction.m in Sources */,
+				6167B4C01CA5286700117606 /* MSFriendsMineAction.m in Sources */,
+				6167B4E41CA5286700117606 /* MSUpdatePostion.m in Sources */,
+				6167B4D01CA5286700117606 /* MSNotifysReadWithTypeAction.m in Sources */,
+				6167B4CF1CA5286700117606 /* MSNotifysReadCheckinAction.m in Sources */,
 				615D01DB1C91A1A8001EF35C /* ViewController.m in Sources */,
+				6167B4CA1CA5286700117606 /* MSMineScoresSingle.m in Sources */,
+				6167B4CD1CA5286700117606 /* MSMineScoresTeamWithUser.m in Sources */,
+				6167B4BC1CA5286700117606 /* MSEditSelfAction.m in Sources */,
+				6167B4CE1CA5286700117606 /* MSMyMatchAddress.m in Sources */,
+				6167B4BF1CA5286700117606 /* MSFriendsAction.m in Sources */,
+				6167B4C61CA5286700117606 /* MSHomeListAction.m in Sources */,
+				6167B4E31CA5286700117606 /* MSUpdateDeviceToken.m in Sources */,
+				6167B4B51CA5286700117606 /* MSClubsMineAction.m in Sources */,
+				6167B4C11CA5286700117606 /* MSFriendsSendAction.m in Sources */,
+				6167B4DA1CA5286700117606 /* MSScoresSingleConfirm.m in Sources */,
+				610DE3241C92679C00A38B8B /* UINavigationItem+BMargin.m in Sources */,
+				6167B4B11CA5286700117606 /* MSCancelEnrollAction.m in Sources */,
+				610DE3271C92679C00A38B8B /* UIViewController+Tracking.m in Sources */,
+				6167B4D51CA5286700117606 /* MSPartysMineAction.m in Sources */,
+				6167B4DC1CA5286700117606 /* MSSearchTeamsAction.m in Sources */,
+				6167B4B91CA5286700117606 /* MSCreateCulbAction.m in Sources */,
+				6167B4A61CA5286700117606 /* MSActionBase.m in Sources */,
+				6167B4BD1CA5286700117606 /* MSEnrollAction.m in Sources */,
+				6167B4C51CA5286700117606 /* MSGetUserInfo.m in Sources */,
+				6167B4AE1CA5286700117606 /* MSAdminPayHistorysWithUserAction.m in Sources */,
+				6167B4A71CA5286700117606 /* MSActionFindPWD.m in Sources */,
+				6167B4E61CA5286700117606 /* MSVerficationCodeAction.m in Sources */,
+				6167B4D41CA5286700117606 /* MSPartysEnrollsAction.m in Sources */,
+				6167B4CB1CA5286700117606 /* MSMineScoresSingleWithUser.m in Sources */,
+				6167B4DD1CA5286700117606 /* MSSearchUsersAction.m in Sources */,
 				615D01D81C91A1A8001EF35C /* AppDelegate.m in Sources */,
+				6167B4EA1CA5286700117606 /* MyLocationManager.m in Sources */,
+				6167B4BB1CA5286700117606 /* MSDeleteAddress.m in Sources */,
+				6167B4C31CA5286700117606 /* MSGetTeamMineAction.m in Sources */,
+				6167B4D81CA5286700117606 /* MSScoreTeamConfirm.m in Sources */,
+				6167B4B61CA5286700117606 /* MSClubsNearWithMeAction.m in Sources */,
+				6167B4DE1CA5286700117606 /* MSSignoutAction.m in Sources */,
+				6167B4F01CA52BE800117606 /* TestAction2.m in Sources */,
+				6167B4AA1CA5286700117606 /* MSAdminConfirmCheckInAction.m in Sources */,
+				6167B4DB1CA5286700117606 /* MSSearch.m in Sources */,
+				6167B4C91CA5286700117606 /* MSMSObtainCulbAddressListAction.m in Sources */,
+				6167B4B31CA5286700117606 /* MSCheckinAction.m in Sources */,
+				610DE3201C92679C00A38B8B /* CALayer+BLayerBorderColor.m in Sources */,
+				6167B4E81CA5286700117606 /* MSHttpActionMgr.m in Sources */,
+				6167B4E91CA5286700117606 /* MSResponeResult.m in Sources */,
+				6167B4BA1CA5286700117606 /* MSDel_addressAction.m in Sources */,
+				6167B4D31CA5286700117606 /* MSParty_addressAction.m in Sources */,
+				610DE3251C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m in Sources */,
 				61ED82511C91A5C7007817C8 /* ZTUntil.m in Sources */,
+				6167B4D71CA5286700117606 /* MSScoreTeam.m in Sources */,
+				6167B4B41CA5286700117606 /* MSClubsMembersAction.m in Sources */,
+				6167B4C21CA5286700117606 /* MSGetClubInfoAction.m in Sources */,
+				6167B4B81CA5286700117606 /* MSCreateActivityAction.m in Sources */,
+				6167B4E01CA5286700117606 /* MSTeamAcceptAction.m in Sources */,
+				6167B4AB1CA5286700117606 /* MSAdminPartyDetailAction.m in Sources */,
+				610DE3231C92679C00A38B8B /* UIColor+Hex.m in Sources */,
+				6167B4B01CA5286700117606 /* MSAdminSetAdminEmail.m in Sources */,
+				610DE3221C92679C00A38B8B /* NSTimer+MSTFAddition.m in Sources */,
+				6167B4B21CA5286700117606 /* MSChangePasswordAction.m in Sources */,
+				6167B4D91CA5286700117606 /* MSScoresSingle.m in Sources */,
+				6167B4E71CA5286700117606 /* MSWhoAmIAction.m in Sources */,
+				6167B4C71CA5286700117606 /* MSLeaveCulbAction.m in Sources */,
+				6167B4AD1CA5286700117606 /* MSAdminPayHistorys.m in Sources */,
 				615D01D51C91A1A8001EF35C /* main.m in Sources */,
+				6167B4ED1CA5297500117606 /* TestAction.m in Sources */,
+				6167B4B71CA5286700117606 /* MSConfirmCodeAction.m in Sources */,
+				6167B4E21CA5286700117606 /* MSTopsAction.m in Sources */,
+				610DE3211C92679C00A38B8B /* MSBlureEffectView.m in Sources */,
+				610DE2F21C92578100A38B8B /* PWDView.m in Sources */,
+				6167B4A91CA5286700117606 /* MSAddCulbAction.m in Sources */,
+				6167B4E11CA5286700117606 /* MSTeamSend.m in Sources */,
+				6167B4BE1CA5286700117606 /* MSFriendsAcceptAction.m in Sources */,
+				6167B4CC1CA5286700117606 /* MSMineScoresTeam.m in Sources */,
+				6167B4D61CA5286700117606 /* MSPublishPartys.m in Sources */,
+				6167B4AC1CA5286700117606 /* MSAdminPartyStausAction.m in Sources */,
+				6167B4AF1CA5286700117606 /* MSAdminRechargeToCardAction.m in Sources */,
+				6167B4C41CA5286700117606 /* MSGetTeamMyMatchAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,12 +912,16 @@
 			baseConfigurationReference = 332BD20BFF5412E9BB4806A9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ZTBaseProject/ZT.pch;
 				INFOPLIST_FILE = ZTBaseProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.com.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -425,12 +930,16 @@
 			baseConfigurationReference = 5520DA60A34DF6F3986BB20F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ZTBaseProject/ZT.pch;
 				INFOPLIST_FILE = ZTBaseProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.com.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
