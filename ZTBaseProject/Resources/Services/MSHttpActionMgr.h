@@ -17,6 +17,9 @@
  *  @return
  */
 +(id)shared;
+
++(id)sharedCustomURL;
+
 /**
  *  获取http操作管理器
  *
@@ -29,6 +32,9 @@
  *  @return
  */
 - (AFHTTPSessionManager *)getHttpsRequestMgr;
+
+- (AFHTTPSessionManager *)getHttpXMLRequestMgr;
+
 /**
  *  清除缓存
  */

@@ -7,115 +7,66 @@
 //
 
 #import "ViewController.h"
+#import "MSHttpActionMgr.h"
 
 #import "PWDView.h"
 #import "TestAction.h"
 #import "TestAction2.h"
 
 @interface ViewController ()<PwdViewDelegate>
-{
-  int _shazhisou;
-  int _bugshouji;
-  
-}
-@property (nonatomic,weak) IBOutlet  UILabel *label;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  _shazhisou = 0;
-  _bugshouji = 0;
-  [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(action) userInfo:nil repeats:YES];
-  
-  NSTimer *timer  = [NSTimer scheduledTimerWithTimeInterval:2*60*60+60 target:self selector:@selector(yaoqing) userInfo:nil repeats:YES];
-  [timer fire];
-  
-}
-- (void)action{
-  TestAction *action = [[TestAction alloc]init];
-  [action DoActionWithSuccess:^(MSActionBase *action, id responseObject, NSURLSessionDataTask *operation) {
-    NSLog(@"action %@",responseObject);
-    NSDictionary *dic = (NSDictionary *)responseObject;
-    self.label.text = dic.description;
-    if (dic[@"error"]) {
-      NSLog(@"失效");
-      [self keeplive];
-    }
+
+    [super viewDidLoad];
     
-  } Failure:^(MSActionBase *action, NSError *error, NSURLSessionDataTask *operation) {
-    NSLog(@"error %@",error.description);
-  }];
-  
-  //    NSString *url = [NSString stringWithFormat:@"http://115.159.34.132:8010/game?cmd=remove&type=1&index=%d&token=e3d49e3e02a2c2f56cb70926a371a190",_shazhisou];
-  
-  //    shazhisou
-  NSString *url = @"http://115.159.48.85:8000/game?cmd=zhiSou&type=2&token=c4aa3e45edbf9db4de62411211a7c33b";
-  
-  TestAction2 *action2 = [[TestAction2 alloc]initWithUrl:url];
-  [action2 DoActionWithSuccess:^(MSActionBase *action, id responseObject, NSURLSessionDataTask *operation) {
-    NSDictionary *dic = responseObject;
-    if (!dic[@"error"]) {
-      _shazhisou++;
-      NSNumber  *blitz = dic[@"blitz"];
-      if (blitz.intValue<3) {
-        [self bugshandian];
-      }
-      NSLog(@" shaleyigezhisou %@",responseObject);
-    }
-    NSLog(@"_shazhisou is %d",_shazhisou);
+    NSString *urlString = BaseURLString;
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
     
-  } Failure:^(MSActionBase *action, NSError *error, NSURLSessionDataTask *operation) {
-    NSLog(@"error %@",error.description);
-  }];
-  
-//  NSString *url2 = @"http://115.159.48.85:8000/game?cmd=buyBuild&count=1&index=12&token=c4aa3e45edbf9db4de62411211a7c33b";
-//  TestAction2 *action3 = [[TestAction2 alloc]initWithUrl:url2];
-//  [action3 DoActionWithSuccess:^(MSActionBase *action, id responseObject, NSURLSessionDataTask *operation) {
-//    NSDictionary *dic = responseObject;
-//    if (!dic[@"error"]) {
-//      
-//      _bugshouji++;
-//    }
-//    NSLog(@"_bugshouji is %d",_bugshouji);
-//    
-//  } Failure:^(MSActionBase *action, NSError *error, NSURLSessionDataTask *operation) {
-//    NSLog(@"error %@",error.description);
-//  }];
-}
-- (void)bugshandian{
-  NSString *url  = @"http://115.159.34.132:8011/game?cmd=buyBlitz&token=c4aa3e45edbf9db4de62411211a7c33b";
-  
-  TestAction2 *action2 = [[TestAction2 alloc]initWithUrl:url];
-  [action2 DoActionWithSuccess:^(MSActionBase *action, id responseObject, NSURLSessionDataTask *operation) {
-    NSLog(@"maiyigeshandian  %@",responseObject);
-  } Failure:^(MSActionBase *action, NSError *error, NSURLSessionDataTask *operation) {
-    NSLog(@"error %@",error.description);
-  }];
-}
-- (void)keeplive{
-  
-  NSString *url = @"http://115.159.48.85:8000/game?cmd=keepLive&token=c4aa3e45edbf9db4de62411211a7c33b";
-  TestAction2 *action2 = [[TestAction2 alloc]initWithUrl:url];
-  [action2 DoActionWithSuccess:^(MSActionBase *action, id responseObject, NSURLSessionDataTask *operation) {
-    NSLog(@"激活");
+    NSString *value = @"<r_PM act=\"login\" loginname=\"1234\" password=\"12345678\" />";
     
-  } Failure:^(MSActionBase *action, NSError *error, NSURLSessionDataTask *operation) {
-    NSLog(@"error %@",error.description);
-  }];
-}
-- (void)yaoqing{
-  NSString *url = @"http://115.159.48.85:8001/game?cmd=share&token=c4aa3e45edbf9db4de62411211a7c33b";
-    TestAction2 *action2 = [[TestAction2 alloc]initWithUrl:url];
-  [action2 DoActionWithSuccess:^(MSActionBase *action, id responseObject, NSURLSessionDataTask *operation) {
-    NSLog(@"邀请----%@",responseObject);
+    NSString *message = [value stringByReplacingOccurrencesOfString:@"[\\\"" withString:@""];
     
-  } Failure:^(MSActionBase *action, NSError *error, NSURLSessionDataTask *operation) {
-    NSLog(@"error %@",error.description);
-  }];
-  
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    
+    [request setHTTPMethod: @"POST"];
+    [request setValue:@"text/xml" forHTTPHeaderField:@"content-type"];
+    [request setHTTPBody:[[NSString stringWithFormat:@"%@",message] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager alloc
+    
+    // Make sure to set the responseSerializer correctly
+    operation.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSXMLParser *XMLParser = (NSXMLParser *)responseObject;
+        [XMLParser setShouldProcessNamespaces:YES];
+        
+        // Leave these commented for now (you first need to add the delegate methods)
+        XMLParser.delegate = self;
+        [XMLParser parse];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        
+    }];
+    
+    [operation start];
+
 }
+
 - (IBAction)showPwdView:(id)sender{
   
   PWDView *pwd = [PWDView loadSelfWithNibOwner:self];

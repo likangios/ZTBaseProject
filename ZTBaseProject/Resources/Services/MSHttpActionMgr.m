@@ -12,6 +12,9 @@
 
 @property (nonatomic,strong)AFHTTPSessionManager *httpRequestMgr;
 
+
+@property (nonatomic,strong)AFHTTPSessionManager *httpCustomUrlRequestMgr;
+
 @end
 
 static MSHttpActionMgr *shareMgr = nil;
@@ -47,6 +50,20 @@ static MSHttpActionMgr *shareMgr = nil;
     });
     return shareMgr;
 }
++(id)sharedCustomURL{
+    
+    static dispatch_once_t predicate;
+    
+    dispatch_once(&predicate, ^{
+        shareMgr = [[MSHttpActionMgr alloc]init];
+        AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]init];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        shareMgr.httpCustomUrlRequestMgr = manager;
+        
+    });
+    return shareMgr;
+}
+
 - (AFHTTPSessionManager *)getHttpRequestMgr{
     shareMgr.httpRequestMgr.securityPolicy.allowInvalidCertificates = NO;
     return shareMgr.httpRequestMgr;
@@ -55,6 +72,11 @@ static MSHttpActionMgr *shareMgr = nil;
 - (AFHTTPSessionManager *)getHttpsRequestMgr{
     shareMgr.httpRequestMgr.securityPolicy.allowInvalidCertificates = YES;
     return shareMgr.httpRequestMgr;
+}
+- (AFHTTPSessionManager *)getHttpXMLRequestMgr{
+    shareMgr.httpCustomUrlRequestMgr.securityPolicy.allowInvalidCertificates = NO;
+    shareMgr.httpCustomUrlRequestMgr.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    return shareMgr.httpCustomUrlRequestMgr;
 }
 -(void) ClearCookies
 {

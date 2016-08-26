@@ -91,3 +91,15 @@ typedef void(^ActionFailureBlock)(MSActionBase *action,NSError *error,NSURLSessi
 @property (nonatomic,assign) CGSize    upload_image_max_size;
 
 @end
+
+@interface MSActionXMLBase : MSActionBase
+
+@end
+
+@interface MSActionXMLGet : MSActionXMLBase
+
+@end
+
+@interface MSActionXMLPost : MSActionXMLBase
+
+@end

@@ -181,7 +181,16 @@
 @end
 
 
+@implementation  MSActionXMLBase
 
+
+- (BOOL)DoActionWithSuccess:(ActionSuccessBlock)success Failure:(ActionFailureBlock)failure{
+    
+    return NO;
+    
+}
+
+@end
 
 
 
