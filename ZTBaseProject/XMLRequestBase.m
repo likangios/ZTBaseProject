@@ -26,11 +26,15 @@
 }
 - (AFHTTPSessionManager *)httpMgr{
     if (!_httpMgr) {
+        _httpMgr =[AFHTTPSessionManager manager];
         _httpMgr.requestSerializer=  [AFHTTPRequestSerializer serializer];
         _httpMgr.responseSerializer = [AFXMLParserResponseSerializer serializer];
         AFSecurityPolicy *securityPolicy = [[AFSecurityPolicy alloc] init];
+        
         [securityPolicy setAllowInvalidCertificates:YES];
+        
         [_httpMgr setSecurityPolicy:securityPolicy];
+        
         _httpMgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/xml", nil];
     }
     return _httpMgr;

@@ -35,7 +35,9 @@
         block(nil,self.code,self.message);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+      
+        block(nil,@"-1",error.description);
+
     }];
     
     
