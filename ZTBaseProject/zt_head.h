@@ -21,7 +21,7 @@
 #import <NBPhoneNumber.h>
 #import <MWPhotoBrowser.h>
 #import <MJRefresh/MJRefresh.h>
-
+#import <GDataXMLNode.h>
 #import "CALayer+BLayerBorderColor.h"
 #import "UIColor+Hex.h"
 #import "UIView+loadNib.h"

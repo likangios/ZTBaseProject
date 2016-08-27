@@ -95,12 +95,11 @@
 		6167B4ED1CA5297500117606 /* TestAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EC1CA5297500117606 /* TestAction.m */; };
 		6167B4F01CA52BE800117606 /* TestAction2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EF1CA52BE800117606 /* TestAction2.m */; };
 		61ED82511C91A5C7007817C8 /* ZTUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ED82501C91A5C7007817C8 /* ZTUntil.m */; };
-		F844041BB6FE211CD0422E37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA230626FF842A95B9BBEB6 /* libPods.a */; };
+		9524E3F81C632CCA6269F038 /* libPods-ZTBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C89BA3DF4A797FDC41CF0CF2 /* libPods-ZTBaseProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		332BD20BFF5412E9BB4806A9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		5520DA60A34DF6F3986BB20F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		57034EC8AD485BCA13220DC7 /* Pods-ZTBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTBaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZTBaseProject/Pods-ZTBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 		610DE2F01C92578100A38B8B /* PWDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWDView.h; sourceTree = "<group>"; };
 		610DE2F11C92578100A38B8B /* PWDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDView.m; sourceTree = "<group>"; };
 		610DE2F31C92579100A38B8B /* PWDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PWDView.xib; sourceTree = "<group>"; };
@@ -276,7 +275,8 @@
 		61ED824E1C91A447007817C8 /* ZT.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZT.pch; sourceTree = "<group>"; };
 		61ED824F1C91A5C7007817C8 /* ZTUntil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTUntil.h; sourceTree = "<group>"; };
 		61ED82501C91A5C7007817C8 /* ZTUntil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTUntil.m; sourceTree = "<group>"; };
-		7AA230626FF842A95B9BBEB6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1C2FBB7B4366AC8CA32AEF4 /* Pods-ZTBaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTBaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZTBaseProject/Pods-ZTBaseProject.release.xcconfig"; sourceTree = "<group>"; };
+		C89BA3DF4A797FDC41CF0CF2 /* libPods-ZTBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZTBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,22 +284,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F844041BB6FE211CD0422E37 /* libPods.a in Frameworks */,
+				9524E3F81C632CCA6269F038 /* libPods-ZTBaseProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E7C7D52CC40F4B3541DC4C8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				332BD20BFF5412E9BB4806A9 /* Pods.debug.xcconfig */,
-				5520DA60A34DF6F3986BB20F /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		610DE30F1C92679C00A38B8B /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,8 +319,8 @@
 			children = (
 				615D01D21C91A1A8001EF35C /* ZTBaseProject */,
 				615D01D11C91A1A8001EF35C /* Products */,
-				0E7C7D52CC40F4B3541DC4C8 /* Pods */,
-				FDC53864122D68DE616588B3 /* Frameworks */,
+				8E450BFE6CDCF806EEB3F5B6 /* Pods */,
+				9152664845CF8CF9978A8572 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -603,10 +594,19 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
-		FDC53864122D68DE616588B3 /* Frameworks */ = {
+		8E450BFE6CDCF806EEB3F5B6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7AA230626FF842A95B9BBEB6 /* libPods.a */,
+				57034EC8AD485BCA13220DC7 /* Pods-ZTBaseProject.debug.xcconfig */,
+				B1C2FBB7B4366AC8CA32AEF4 /* Pods-ZTBaseProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9152664845CF8CF9978A8572 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C89BA3DF4A797FDC41CF0CF2 /* libPods-ZTBaseProject.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -618,11 +618,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 615D01E71C91A1A8001EF35C /* Build configuration list for PBXNativeTarget "ZTBaseProject" */;
 			buildPhases = (
-				F0CE896B49C2F08DE1CBEF01 /* Check Pods Manifest.lock */,
+				645F2D9EBB6BD0A979F56BE3 /* 📦 Check Pods Manifest.lock */,
 				615D01CC1C91A1A8001EF35C /* Sources */,
 				615D01CD1C91A1A8001EF35C /* Frameworks */,
 				615D01CE1C91A1A8001EF35C /* Resources */,
-				CB84F1A9FA31543C2DD21FA2 /* Copy Pods Resources */,
+				0DC7F304953041A5992D16C1 /* 📦 Embed Pods Frameworks */,
+				DDF2BBEBDC863681CA9E1F27 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -681,34 +682,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CB84F1A9FA31543C2DD21FA2 /* Copy Pods Resources */ = {
+		0DC7F304953041A5992D16C1 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZTBaseProject/Pods-ZTBaseProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F0CE896B49C2F08DE1CBEF01 /* Check Pods Manifest.lock */ = {
+		645F2D9EBB6BD0A979F56BE3 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DDF2BBEBDC863681CA9E1F27 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZTBaseProject/Pods-ZTBaseProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -866,6 +882,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -902,6 +919,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -909,7 +927,7 @@
 		};
 		615D01E81C91A1A8001EF35C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 332BD20BFF5412E9BB4806A9 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 57034EC8AD485BCA13220DC7 /* Pods-ZTBaseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -927,7 +945,7 @@
 		};
 		615D01E91C91A1A8001EF35C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5520DA60A34DF6F3986BB20F /* Pods.release.xcconfig */;
+			baseConfigurationReference = B1C2FBB7B4366AC8CA32AEF4 /* Pods-ZTBaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -937,6 +955,92 @@
 				INFOPLIST_FILE = ZTBaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"GeTuiSdk-1.3.2\"",
+					"-l\"MobClickLibrary\"",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-AFSoundManager\"",
+					"-l\"Pods-BlocksKit\"",
+					"-l\"Pods-CocoaLumberjack\"",
+					"-l\"Pods-DACircularProgress\"",
+					"-l\"Pods-IHKeyboardAvoiding\"",
+					"-l\"Pods-JSBadgeView\"",
+					"-l\"Pods-JSONModel\"",
+					"-l\"Pods-MBProgressHUD\"",
+					"-l\"Pods-MJRefresh\"",
+					"-l\"Pods-MWPhotoBrowser\"",
+					"-l\"Pods-Masonry\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"Pods-TTTAttributedLabel\"",
+					"-l\"Pods-UICKeyChainStore\"",
+					"-l\"Pods-ZBarSDK\"",
+					"-l\"Pods-libPhoneNumber-iOS\"",
+					"-l\"iconv\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++.6.0.9\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreBluetooth\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"Photos\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.com.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
