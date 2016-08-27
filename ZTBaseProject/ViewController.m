@@ -12,7 +12,7 @@
 #import "PWDView.h"
 #import "TestAction.h"
 #import "TestAction2.h"
-
+#import "XMLLogout.h"
 @interface ViewController ()<PwdViewDelegate,NSXMLParserDelegate>
 
 @end
@@ -22,6 +22,12 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    
+    [[XMLLogout shared] LogOut:^(id obj, NSString *code, NSString *message) {
+       
+        NSLog(@"obj %@ code %@ message %@",obj,code,message);
+        
+    }];
     
 }
 - (IBAction)showPwdView:(id)sender{

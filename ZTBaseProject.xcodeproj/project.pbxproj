@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61057C321D71963C0099CE62 /* XMLRequestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C311D71963C0099CE62 /* XMLRequestBase.m */; };
+		61057C351D7197580099CE62 /* XMLLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C341D7197580099CE62 /* XMLLogin.m */; };
+		61057C381D7198A00099CE62 /* XMLLogout.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C371D7198A00099CE62 /* XMLLogout.m */; };
 		610DE2F21C92578100A38B8B /* PWDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE2F11C92578100A38B8B /* PWDView.m */; };
 		610DE2F41C92579100A38B8B /* PWDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610DE2F31C92579100A38B8B /* PWDView.xib */; };
 		610DE3201C92679C00A38B8B /* CALayer+BLayerBorderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE3111C92679C00A38B8B /* CALayer+BLayerBorderColor.m */; };
@@ -100,6 +103,12 @@
 
 /* Begin PBXFileReference section */
 		57034EC8AD485BCA13220DC7 /* Pods-ZTBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTBaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZTBaseProject/Pods-ZTBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
+		61057C301D71963C0099CE62 /* XMLRequestBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRequestBase.h; sourceTree = "<group>"; };
+		61057C311D71963C0099CE62 /* XMLRequestBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRequestBase.m; sourceTree = "<group>"; };
+		61057C331D7197580099CE62 /* XMLLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLLogin.h; sourceTree = "<group>"; };
+		61057C341D7197580099CE62 /* XMLLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLLogin.m; sourceTree = "<group>"; };
+		61057C361D7198A00099CE62 /* XMLLogout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLLogout.h; sourceTree = "<group>"; };
+		61057C371D7198A00099CE62 /* XMLLogout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLLogout.m; sourceTree = "<group>"; };
 		610DE2F01C92578100A38B8B /* PWDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWDView.h; sourceTree = "<group>"; };
 		610DE2F11C92578100A38B8B /* PWDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDView.m; sourceTree = "<group>"; };
 		610DE2F31C92579100A38B8B /* PWDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PWDView.xib; sourceTree = "<group>"; };
@@ -341,6 +350,12 @@
 				615D01D71C91A1A8001EF35C /* AppDelegate.m */,
 				615D01D91C91A1A8001EF35C /* ViewController.h */,
 				615D01DA1C91A1A8001EF35C /* ViewController.m */,
+				61057C301D71963C0099CE62 /* XMLRequestBase.h */,
+				61057C311D71963C0099CE62 /* XMLRequestBase.m */,
+				61057C331D7197580099CE62 /* XMLLogin.h */,
+				61057C341D7197580099CE62 /* XMLLogin.m */,
+				61057C361D7198A00099CE62 /* XMLLogout.h */,
+				61057C371D7198A00099CE62 /* XMLLogout.m */,
 				610DE2F01C92578100A38B8B /* PWDView.h */,
 				610DE2F11C92578100A38B8B /* PWDView.m */,
 				610DE2F31C92579100A38B8B /* PWDView.xib */,
@@ -746,8 +761,10 @@
 				6167B4D01CA5286700117606 /* MSNotifysReadWithTypeAction.m in Sources */,
 				6167B4CF1CA5286700117606 /* MSNotifysReadCheckinAction.m in Sources */,
 				615D01DB1C91A1A8001EF35C /* ViewController.m in Sources */,
+				61057C321D71963C0099CE62 /* XMLRequestBase.m in Sources */,
 				6167B4CA1CA5286700117606 /* MSMineScoresSingle.m in Sources */,
 				6167B4CD1CA5286700117606 /* MSMineScoresTeamWithUser.m in Sources */,
+				61057C351D7197580099CE62 /* XMLLogin.m in Sources */,
 				6167B4BC1CA5286700117606 /* MSEditSelfAction.m in Sources */,
 				6167B4CE1CA5286700117606 /* MSMyMatchAddress.m in Sources */,
 				6167B4BF1CA5286700117606 /* MSFriendsAction.m in Sources */,
@@ -778,6 +795,7 @@
 				6167B4D81CA5286700117606 /* MSScoreTeamConfirm.m in Sources */,
 				6167B4B61CA5286700117606 /* MSClubsNearWithMeAction.m in Sources */,
 				6167B4DE1CA5286700117606 /* MSSignoutAction.m in Sources */,
+				61057C381D7198A00099CE62 /* XMLLogout.m in Sources */,
 				6167B4F01CA52BE800117606 /* TestAction2.m in Sources */,
 				6167B4AA1CA5286700117606 /* MSAdminConfirmCheckInAction.m in Sources */,
 				6167B4DB1CA5286700117606 /* MSSearch.m in Sources */,
