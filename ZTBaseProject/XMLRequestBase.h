@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define SessionID @"SessionID"
+
+#define PINSCODE  @"PINSCODE"
+
+#define RETCODE   @"RETCODE"
+
+#define DEVICEID   @"iE816009A-1483-4252-8EE0-6B6C12ABFC4D"
 typedef void(^SuccessBlocks)(id obj , NSString *code , NSString *message);
 
 @interface XMLRequestBase : NSObject<NSXMLParserDelegate>

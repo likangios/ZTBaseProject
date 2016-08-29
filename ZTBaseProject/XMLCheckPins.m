@@ -1,15 +1,14 @@
 //
-//  XMLLogin.m
+//  XMLCheckPins.m
 //  ZTBaseProject
 //
-//  Created by FengLing on 16/8/27.
+//  Created by FengLing on 16/8/29.
 //  Copyright © 2016年 lk. All rights reserved.
 //
 
-#import "XMLLogin.h"
+#import "XMLCheckPins.h"
 
-@implementation XMLLogin
-
+@implementation XMLCheckPins
 +(instancetype)shared{
     static id _sharedInstance=  nil;
     static dispatch_once_t  onceToken;
@@ -18,11 +17,11 @@
     });
     return _sharedInstance;
 }
-- (void)RequestWithPhone:(NSString *)phone AndPassword:(NSString *)pwd Blocks:(SuccessBlocks)block{
+- (void)RequestWithPinscode:(NSString *)pinscode Blocks:(SuccessBlocks)block{
     
     NSString *url =  @"http://m.zongyihui.cn:30200/nuclear/communicateServlet";
     
-    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='logon'><USERID>%@</USERID><PASSWORD>%@</PASSWORD><LOGONWAY>2</LOGONWAY><LOGONTYPE>2</LOGONTYPE><DEVICEID>%@</DEVICEID><MARKETID>-1</MARKETID></REQ></MEBS_MOBILE>",phone,pwd,DEVICEID];
+    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='checkpins'><PINSCODE>%@</PINSCODE><DEVICEID>%@</DEVICEID></REQ></MEBS_MOBILE",pinscode,DEVICEID];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     

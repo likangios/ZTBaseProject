@@ -20,6 +20,9 @@
 		610DE3251C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31B1C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m */; };
 		610DE3261C92679C00A38B8B /* UIView+loadNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31D1C92679C00A38B8B /* UIView+loadNib.m */; };
 		610DE3271C92679C00A38B8B /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31F1C92679C00A38B8B /* UIViewController+Tracking.m */; };
+		6159541C1D73BC010064E66E /* XMLIsLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6159541B1D73BC010064E66E /* XMLIsLogin.m */; };
+		6159541F1D73CE890064E66E /* XMLCheckPins.m in Sources */ = {isa = PBXBuildFile; fileRef = 6159541E1D73CE890064E66E /* XMLCheckPins.m */; };
+		615954221D73F7BF0064E66E /* XMLStoreService.m in Sources */ = {isa = PBXBuildFile; fileRef = 615954211D73F7BF0064E66E /* XMLStoreService.m */; };
 		615D01D51C91A1A8001EF35C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D01D41C91A1A8001EF35C /* main.m */; };
 		615D01D81C91A1A8001EF35C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D01D71C91A1A8001EF35C /* AppDelegate.m */; };
 		615D01DB1C91A1A8001EF35C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D01DA1C91A1A8001EF35C /* ViewController.m */; };
@@ -128,6 +131,12 @@
 		610DE31D1C92679C00A38B8B /* UIView+loadNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+loadNib.m"; sourceTree = "<group>"; };
 		610DE31E1C92679C00A38B8B /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
 		610DE31F1C92679C00A38B8B /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
+		6159541A1D73BC010064E66E /* XMLIsLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLIsLogin.h; sourceTree = "<group>"; };
+		6159541B1D73BC010064E66E /* XMLIsLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLIsLogin.m; sourceTree = "<group>"; };
+		6159541D1D73CE890064E66E /* XMLCheckPins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLCheckPins.h; sourceTree = "<group>"; };
+		6159541E1D73CE890064E66E /* XMLCheckPins.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLCheckPins.m; sourceTree = "<group>"; };
+		615954201D73F7BF0064E66E /* XMLStoreService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLStoreService.h; sourceTree = "<group>"; };
+		615954211D73F7BF0064E66E /* XMLStoreService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLStoreService.m; sourceTree = "<group>"; };
 		615D01D01C91A1A8001EF35C /* ZTBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZTBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		615D01D41C91A1A8001EF35C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		615D01D61C91A1A8001EF35C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -350,10 +359,16 @@
 				615D01D71C91A1A8001EF35C /* AppDelegate.m */,
 				615D01D91C91A1A8001EF35C /* ViewController.h */,
 				615D01DA1C91A1A8001EF35C /* ViewController.m */,
+				615954201D73F7BF0064E66E /* XMLStoreService.h */,
+				615954211D73F7BF0064E66E /* XMLStoreService.m */,
 				61057C301D71963C0099CE62 /* XMLRequestBase.h */,
 				61057C311D71963C0099CE62 /* XMLRequestBase.m */,
 				61057C331D7197580099CE62 /* XMLLogin.h */,
 				61057C341D7197580099CE62 /* XMLLogin.m */,
+				6159541D1D73CE890064E66E /* XMLCheckPins.h */,
+				6159541E1D73CE890064E66E /* XMLCheckPins.m */,
+				6159541A1D73BC010064E66E /* XMLIsLogin.h */,
+				6159541B1D73BC010064E66E /* XMLIsLogin.m */,
 				61057C361D7198A00099CE62 /* XMLLogout.h */,
 				61057C371D7198A00099CE62 /* XMLLogout.m */,
 				610DE2F01C92578100A38B8B /* PWDView.h */,
@@ -762,6 +777,7 @@
 				6167B4CF1CA5286700117606 /* MSNotifysReadCheckinAction.m in Sources */,
 				615D01DB1C91A1A8001EF35C /* ViewController.m in Sources */,
 				61057C321D71963C0099CE62 /* XMLRequestBase.m in Sources */,
+				6159541C1D73BC010064E66E /* XMLIsLogin.m in Sources */,
 				6167B4CA1CA5286700117606 /* MSMineScoresSingle.m in Sources */,
 				6167B4CD1CA5286700117606 /* MSMineScoresTeamWithUser.m in Sources */,
 				61057C351D7197580099CE62 /* XMLLogin.m in Sources */,
@@ -775,6 +791,7 @@
 				6167B4DA1CA5286700117606 /* MSScoresSingleConfirm.m in Sources */,
 				610DE3241C92679C00A38B8B /* UINavigationItem+BMargin.m in Sources */,
 				6167B4B11CA5286700117606 /* MSCancelEnrollAction.m in Sources */,
+				615954221D73F7BF0064E66E /* XMLStoreService.m in Sources */,
 				610DE3271C92679C00A38B8B /* UIViewController+Tracking.m in Sources */,
 				6167B4D51CA5286700117606 /* MSPartysMineAction.m in Sources */,
 				6167B4DC1CA5286700117606 /* MSSearchTeamsAction.m in Sources */,
@@ -831,6 +848,7 @@
 				6167B4A91CA5286700117606 /* MSAddCulbAction.m in Sources */,
 				6167B4E11CA5286700117606 /* MSTeamSend.m in Sources */,
 				6167B4BE1CA5286700117606 /* MSFriendsAcceptAction.m in Sources */,
+				6159541F1D73CE890064E66E /* XMLCheckPins.m in Sources */,
 				6167B4CC1CA5286700117606 /* MSMineScoresTeam.m in Sources */,
 				6167B4D61CA5286700117606 /* MSPublishPartys.m in Sources */,
 				6167B4AC1CA5286700117606 /* MSAdminPartyStausAction.m in Sources */,

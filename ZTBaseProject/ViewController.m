@@ -13,6 +13,8 @@
 #import "TestAction.h"
 #import "TestAction2.h"
 #import "XMLLogout.h"
+#import "XMLIsLogin.h"
+
 @interface ViewController ()<PwdViewDelegate,NSXMLParserDelegate>
 
 @end
@@ -23,12 +25,23 @@
 
     [super viewDidLoad];
     
+    
     [[XMLLogout shared] LogOut:^(id obj, NSString *code, NSString *message) {
        
+        
         NSLog(@"obj %@ code %@ message %@",obj,code,message);
         
     }];
     
+    [[XMLIsLogin shared] Request:^(id obj, NSString *code, NSString *message) {
+        
+        NSLog(@"XMLIsLogin %@ code %@ message %@",obj,code,message);
+    }];
+    
+}
+- (void)hideHUD{
+    
+    [ZTUntil hideAllHUDsForView:self.view];
 }
 - (IBAction)showPwdView:(id)sender{
   

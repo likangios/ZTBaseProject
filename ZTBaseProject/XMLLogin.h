@@ -10,4 +10,6 @@
 
 @interface XMLLogin : XMLRequestBase
 
+- (void)RequestWithPhone:(NSString *)phone AndPassword:(NSString *)pwd Blocks:(SuccessBlocks)block;
+
 @end

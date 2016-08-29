@@ -1,14 +1,15 @@
 //
-//  XMLLogin.m
+//  XMLIsLogin.m
 //  ZTBaseProject
 //
-//  Created by FengLing on 16/8/27.
+//  Created by FengLing on 16/8/29.
 //  Copyright © 2016年 lk. All rights reserved.
 //
 
-#import "XMLLogin.h"
+#import "XMLIsLogin.h"
 
-@implementation XMLLogin
+@implementation XMLIsLogin
+
 
 +(instancetype)shared{
     static id _sharedInstance=  nil;
@@ -18,11 +19,18 @@
     });
     return _sharedInstance;
 }
-- (void)RequestWithPhone:(NSString *)phone AndPassword:(NSString *)pwd Blocks:(SuccessBlocks)block{
+
+- (void)Request:(SuccessBlocks)block{
     
     NSString *url =  @"http://m.zongyihui.cn:30200/nuclear/communicateServlet";
     
-    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='logon'><USERID>%@</USERID><PASSWORD>%@</PASSWORD><LOGONWAY>2</LOGONWAY><LOGONTYPE>2</LOGONTYPE><DEVICEID>%@</DEVICEID><MARKETID>-1</MARKETID></REQ></MEBS_MOBILE>",phone,pwd,DEVICEID];
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    
+    NSString *obj = [def  valueForKey:SessionID];
+    
+    NSString *sessionID = obj;
+    
+    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='islogon'><SESSIONID>%@</SESSIONID></REQ></MEBS_MOBILE>",sessionID];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
