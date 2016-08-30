@@ -24,45 +24,49 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextfield;
 
+@property (nonatomic,assign) NSInteger             viewDisplayCount;
 @end
 
 @implementation ViewController
+
+
+-(BOOL) IsFirstTimeDisplay
+{
+    if( self.viewDisplayCount == 1 )
+        return YES;
+    return NO;
+}
 
 - (void)viewDidLoad {
 
     [super viewDidLoad];
     
+    self.phoneTextfield.text = [XMLStoreService phone];
     
-//    [[XMLLogout shared] LogOut:^(id obj, NSString *code, NSString *message) {
-//       
-//        
-//        NSLog(@"obj %@ code %@ message %@",obj,code,message);
-//        
-//    }];
-    
-//    [[XMLIsLogin shared] Request:^(id obj, NSString *code, NSString *message) {
-//        
-//        NSLog(@"XMLIsLogin %@ code %@ message %@",obj,code,message);
-//    }];
+    self.passwordTextfield.text = [XMLStoreService password];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.view.userInteractionEnabled = NO;
-    
-    [ZTUntil showHUDAddedTo:self.view];
-    
-    [[XMLIsLogin shared] Request:^(id obj, NSString *code, NSString *message) {
-        [ZTUntil hideAllHUDsForView:self.view];
-        self.view.userInteractionEnabled = YES;
-        if ([code isEqualToString:@"0"]) {
-            LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
-            [self.navigationController pushViewController:login animated:YES];
-        }else{
-            [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
-        }
+    self.viewDisplayCount += 1;
+    if ([self IsFirstTimeDisplay]) {
+        
+        self.view.userInteractionEnabled = NO;
+        [ZTUntil showHUDAddedTo:self.view];
+        
+        [[XMLIsLogin shared] Request:^(id obj, NSString *code, NSString *message) {
+            [ZTUntil hideAllHUDsForView:self.view];
+            self.view.userInteractionEnabled = YES;
+            if ([code isEqualToString:@"0"]) {
+                LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+                [self.navigationController pushViewController:login animated:YES];
+            }else{
+                [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
+            }
+            
+        }];
+    }
 
-    }];
 }
 
 - (IBAction)logonClick:(id)sender{
@@ -72,6 +76,15 @@
     [[XMLLogin shared] RequestWithPhone:self.phoneTextfield.text AndPassword:self.passwordTextfield.text Blocks:^(id obj, NSString *code, NSString *message) {
         [ZTUntil hideAllHUDsForView:self.view];
         if ([code isEqualToString:@"0"]) {
+            
+            [XMLStoreService Storephone:self.phoneTextfield.text];
+            
+            [XMLStoreService Storepassword:self.passwordTextfield.text];
+            
+            
+            LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:login animated:YES];
             
         }else{
             

@@ -1,16 +1,14 @@
 //
-//  XMLIsLogin.m
+//  XMLEncryptStr.m
 //  ZTBaseProject
 //
-//  Created by FengLing on 16/8/29.
+//  Created by FengLing on 16/8/30.
 //  Copyright © 2016年 lk. All rights reserved.
 //
 
-#import "XMLIsLogin.h"
+#import "XMLEncryptStr.h"
 
-@implementation XMLIsLogin
-
-
+@implementation XMLEncryptStr
 +(instancetype)shared{
     static id _sharedInstance=  nil;
     static dispatch_once_t  onceToken;
@@ -20,13 +18,11 @@
     return _sharedInstance;
 }
 
-- (void)Request:(SuccessBlocks)block{
+- (void)RequestWithName:(NSString *)name AndPassword:(NSString *)password MarkID:(NSString *)markId Blocks:(SuccessBlocks)block{
     
     NSString *url =  @"http://m.zongyihui.cn:30200/nuclear/communicateServlet";
     
-    NSString *sessionID = [XMLStoreService SESSIONID];
-    
-    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='islogon'><SESSIONID>%@</SESSIONID></REQ></MEBS_MOBILE>",sessionID];
+    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='encryptstr'><PINSCODE>%@</PINSCODE><SESSIONID>%@</SESSIONID><MARKETID>%@</MARKETID><TRADERID>%@</TRADERID><PASSWORD>%@</PASSWORD></REQ></MEBS_MOBILE>",[XMLStoreService PINSCODE],[XMLStoreService SESSIONID],markId,name,password];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -63,11 +59,17 @@
     if ([self.currentElementName isEqualToString:@"RETCODE"]) {
         self.code = string;
     }
+    
+    if ([self.currentElementName isEqualToString:@"ENCRYPTION"]) {
+        
+        [XMLStoreService StoreENCRYPTION:string];
+    }
+    
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
     
-
+    
 }
 @end

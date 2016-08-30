@@ -24,6 +24,10 @@
     
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='logon'><USERID>%@</USERID><PASSWORD>%@</PASSWORD><LOGONWAY>2</LOGONWAY><LOGONTYPE>2</LOGONTYPE><DEVICEID>%@</DEVICEID><MARKETID>-1</MARKETID></REQ></MEBS_MOBILE>",phone,pwd,DEVICEID];
     
+    /*
+     <?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='logon'><USERID>13675158507</USERID><PASSWORD>123456</PASSWORD><LOGONWAY>2</LOGONWAY><LOGONTYPE>2</LOGONTYPE><DEVICEID>iE816009A-1483-4252-8EE1-6B6C02ABFC3E</DEVICEID><MARKETID>-1</MARKETID></REQ></MEBS_MOBILE>
+     */
+    
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
     [self.httpMgr POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -50,11 +54,34 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
 {
+    
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
+    
 }
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string;
 {
     [super parser:parser foundCharacters:string];
+    
+    if ([self.currentElementName isEqualToString:@"RETCODE"]) {
+        
+        if (string.length>10) {
+            [XMLStoreService StoreRETCODE:string];
+            [XMLStoreService StoreSESSIONID:string];
+
+            self.code = @"0";
+        }else{
+            self.code = @"-1";
+        }
+        
+        
+    }
+    if ([self.currentElementName isEqualToString:@"PINSCODE"]) {
+        
+        [XMLStoreService StorePINSCODE:string];
+        
+    }
+    
+    
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {

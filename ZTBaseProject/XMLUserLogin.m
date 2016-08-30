@@ -1,16 +1,14 @@
 //
-//  XMLIsLogin.m
+//  XMLUserLogin.m
 //  ZTBaseProject
 //
-//  Created by FengLing on 16/8/29.
+//  Created by FengLing on 16/8/30.
 //  Copyright © 2016年 lk. All rights reserved.
 //
 
-#import "XMLIsLogin.h"
+#import "XMLUserLogin.h"
 
-@implementation XMLIsLogin
-
-
+@implementation XMLUserLogin
 +(instancetype)shared{
     static id _sharedInstance=  nil;
     static dispatch_once_t  onceToken;
@@ -20,13 +18,11 @@
     return _sharedInstance;
 }
 
-- (void)Request:(SuccessBlocks)block{
+- (void)RequestWithName:(NSString *)name AndPassword:(NSString *)password Blocks:(SuccessBlocks)block{
     
-    NSString *url =  @"http://m.zongyihui.cn:30200/nuclear/communicateServlet";
+    NSString *url =  @"http://123.59.9.211:16978/Issue4ariesMobileServer/communicateServlet";
     
-    NSString *sessionID = [XMLStoreService SESSIONID];
-    
-    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='islogon'><SESSIONID>%@</SESSIONID></REQ></MEBS_MOBILE>",sessionID];
+    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='user_login'><U>%@</U><PASSWORD>%@</PASSWORD><IC>%@</IC><RANDOM_KEY>%@</RANDOM_KEY></REQ></MEBS_MOBILE>",name,password,[XMLStoreService ENCRYPTION],[XMLStoreService RANDOM_KEY]];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -61,13 +57,24 @@
     [super parser:parser foundCharacters:string];
     
     if ([self.currentElementName isEqualToString:@"RETCODE"]) {
-        self.code = string;
+        if (string.length>10) {
+            [XMLStoreService StoreRETCODE:string];
+        }else{
+            self.code = nil;
+        }
+
     }
+    
+    if ([self.currentElementName isEqualToString:@"RANDOM_KEY"]) {
+        
+        [XMLStoreService StoreRANDOM_KEY:string];
+    }
+    
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
     
-
+    
 }
 @end

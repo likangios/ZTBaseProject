@@ -1,14 +1,14 @@
 //
-//  XMLIsLogin.m
+//  XMLOrderSubmit.m
 //  ZTBaseProject
 //
-//  Created by FengLing on 16/8/29.
+//  Created by FengLing on 16/8/30.
 //  Copyright © 2016年 lk. All rights reserved.
 //
 
-#import "XMLIsLogin.h"
+#import "XMLOrderSubmit.h"
 
-@implementation XMLIsLogin
+@implementation XMLOrderSubmit
 
 
 +(instancetype)shared{
@@ -20,13 +20,11 @@
     return _sharedInstance;
 }
 
-- (void)Request:(SuccessBlocks)block{
+- (void)RequestWithBuy_Sell:(NSString *)buy_sell commodityID:(NSString *)commodityid Price:(NSString *)price  Amount:(NSString *)amount Blocks:(SuccessBlocks)block{
     
-    NSString *url =  @"http://m.zongyihui.cn:30200/nuclear/communicateServlet";
-    
-    NSString *sessionID = [XMLStoreService SESSIONID];
-    
-    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='islogon'><SESSIONID>%@</SESSIONID></REQ></MEBS_MOBILE>",sessionID];
+    NSString *url =  @"http://123.59.9.211:16978/Issue4ariesMobileServer/communicateServlet ";
+
+    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='order_submit'><U>%@</U><BUY_SELL>%@</BUY_SELL><COMMODITY_ID>%@</COMMODITY_ID><PRICE>%@</PRICE><QTY>%@</QTY><S_I>%@</S_I></REQ></MEBS_MOBILE>",[XMLStoreService account],buy_sell,commodityid,price,amount,[XMLStoreService RETCODE]];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -60,14 +58,14 @@
 {
     [super parser:parser foundCharacters:string];
     
-    if ([self.currentElementName isEqualToString:@"RETCODE"]) {
-        self.code = string;
-    }
+    
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
     
-
+    
 }
+
+
 @end

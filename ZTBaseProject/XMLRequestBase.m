@@ -63,30 +63,27 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
 {
-    
+    self.currentElementName = elementName;
     
 }
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string;
 {
-    if (!mstrXMLString) {
-        mstrXMLString = [[NSMutableString alloc] initWithString:string];
+    
+    if ([self.currentElementName isEqualToString:@"RETCODE"]) {
+        self.code = string;
     }
-    else {
-        [mstrXMLString appendString:string];
+    
+    if ([self.currentElementName isEqualToString:@"MESSAGE"]) {
+        self.message = string;
     }
     
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {
-    if ([elementName isEqualToString:@"RETCODE"]) {
-        self.code = mstrXMLString;
 
-    }
     
-    if ([elementName isEqualToString:@"MESSAGE"]) {
-        self.message = mstrXMLString;
-    }
-    
+    mstrXMLString = nil;
+    self.currentElementName = nil;
     
 }
 
