@@ -17,4 +17,7 @@
 + (NSString *)RETCODE;
 + (void)StoreRETCODE:(NSString *)string;
 
++ (NSString *)SESSIONID;
++ (void)StoreSESSIONID:(NSString *)string;
+
 @end

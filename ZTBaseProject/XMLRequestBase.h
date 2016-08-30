@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "XMLStoreService.h"
 #define SessionID @"SessionID"
 
 #define PINSCODE  @"PINSCODE"

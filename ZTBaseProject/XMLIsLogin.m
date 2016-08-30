@@ -28,7 +28,7 @@
     
     NSString *obj = [def  valueForKey:SessionID];
     
-    NSString *sessionID = obj;
+    NSString *sessionID = [;
     
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='islogon'><SESSIONID>%@</SESSIONID></REQ></MEBS_MOBILE>",sessionID];
     

@@ -39,4 +39,17 @@
     [def setValue:string forKey:@"RETCODE"];
     [def  synchronize];
 }
+
+
++ (NSString *)SESSIONID{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSString *obj = [def objectForKey:@"SESSIONID"];
+    return obj;
+}
++ (void)StoreSESSIONID:(NSString *)string{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setValue:string forKey:@"SESSIONID"];
+    [def  synchronize];
+}
+
 @end
