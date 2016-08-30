@@ -45,6 +45,7 @@
     
     self.passwordTextfield.text = [XMLStoreService password];
     
+  
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
