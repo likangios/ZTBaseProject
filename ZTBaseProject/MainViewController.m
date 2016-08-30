@@ -15,6 +15,12 @@
     dispatch_queue_t queue;
 }
 
+@property (nonatomic,weak) IBOutlet  UIActivityIndicatorView                   *Activity1;
+@property (nonatomic,weak) IBOutlet  UIActivityIndicatorView                   *Activity2;
+@property (nonatomic,weak) IBOutlet  UIActivityIndicatorView                   *Activity3;
+@property (nonatomic,weak) IBOutlet  UIActivityIndicatorView                   *Activity4;
+@property (nonatomic,weak) IBOutlet  UIActivityIndicatorView                   *Activity5;
+
 @property (nonatomic,weak) IBOutlet  UIButton                   *btn1;
 @property (nonatomic,weak) IBOutlet  UIButton                   *btn2;
 @property (nonatomic,weak) IBOutlet  UIButton                   *btn3;
@@ -51,15 +57,13 @@
     queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
     
 }
-- (IBAction)buttonClick:(UIButton *)sender{
-    
-    sender.selected = !sender.selected;
+- (void)requestWithIndex:(NSInteger)index WithRect:(BOOL)rect{
     
     NSString *code;
     NSString *price;
     NSString *amount;
     
-    switch (sender.tag) {
+    switch (index) {
         case 1:
             code = self.code1.text;
             price=  self.price1.text;
@@ -86,12 +90,85 @@
             amount = self.amount5.text;
             break;
     }
-    
-    if (sender.selected) {
+    if (rect) {
         
-        [self startRequestWithIndex:sender.tag Code:code Price:price Amount:amount Count:1];
+        switch (index) {
+            case 1:
+                [self.Activity1 startAnimating];
+                break;
+            case 2:
+                [self.Activity2 startAnimating];
+                break;
+            case 3:
+                [self.Activity3 startAnimating];
+                break;
+            case 4:
+                [self.Activity4 startAnimating];
+                break;
+            case 5:
+                [self.Activity5 startAnimating];
+                break;
+        }
+        [self startRequestWithIndex:index Code:code Price:price Amount:amount Count:1];
+    }else{
+        switch (index) {
+            case 1:
+                [self.Activity1 stopAnimating];
+                break;
+            case 2:
+                [self.Activity2 stopAnimating];
+                break;
+            case 3:
+                [self.Activity3 stopAnimating];
+                break;
+            case 4:
+                [self.Activity4 stopAnimating];
+                break;
+            case 5:
+                [self.Activity5 stopAnimating];
+                break;
+        }
     }
+
+    
 }
+- (IBAction)buttonClick:(UIButton *)sender{
+    
+    
+    switch (sender.tag) {
+        case 1:
+            if (!self.code1.text.length || !self.price1.text.length || !self.amount1.text.length) {
+                return;
+            }
+            break;
+        case 2:
+            if (!self.code2.text.length || !self.price2.text.length || !self.amount2.text.length) {
+                return;
+            }
+            break;
+        case 3:
+            if (!self.code3.text.length || !self.price3.text.length || !self.amount3.text.length) {
+                return;
+            }
+            break;
+        case 4:
+            if (!self.code4.text.length || !self.price4.text.length || !self.amount4.text.length) {
+                return;
+            }
+            break;
+        case 5:
+            if (!self.code5.text.length || !self.price5.text.length || !self.amount5.text.length) {
+                return;
+            }
+            break;
+    }
+    
+    sender.selected = !sender.selected;
+    
+    [self  requestWithIndex:sender.tag WithRect:sender.selected];
+    
+}
+
 
 - (void)startRequestWithIndex:(NSInteger)index Code:(NSString *)code Price:(NSString *)price Amount:(NSString *)amount Count:(NSInteger)count{
     
@@ -102,7 +179,7 @@
         [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:code Price:price Amount:amount Blocks:^(id obj, NSString *code, NSString *message) {
             NSTimeInterval end = CACurrentMediaTime();
             
-            NSLog(@"code:%@  price:%@  amout :%@  time: %f",self.code1.text,self.price1,self.amount1,end-start);
+            NSLog(@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count);
             
             [self  updateUIWithIndex:index Code:code message:message Count:count];
             
@@ -112,15 +189,59 @@
     
 }
 - (void)updateUIWithIndex:(NSInteger)index Code:(NSString *)code message:(NSString *)message Count:(NSInteger)count{
-    
+    count ++;
     if ([code isEqualToString:@"0"]) {
-       
-
         
+        switch (index) {
+            case 1:
+                self.btn1.selected = NO;
+                self.btn1.backgroundColor = [UIColor blueColor];
+                break;
+            case 2:
+                self.btn2.selected = NO;
+                self.btn2.backgroundColor = [UIColor blueColor];
+                break;
+            case 3:
+                self.btn3.selected = NO;
+                self.btn3.backgroundColor = [UIColor blueColor];
+                break;
+            case 4:
+                self.btn4.selected = NO;
+                self.btn4.backgroundColor = [UIColor blueColor];
+                break;
+            case 5:
+                self.btn5.selected = NO;
+                self.btn5.backgroundColor = [UIColor blueColor];
+                break;
+
+        }
         
         
         
     }else{
+        
+        switch (index) {
+            case 1:
+                [self requestWithIndex:index WithRect:self.btn1.selected];
+                break;
+            case 2:
+                [self requestWithIndex:index WithRect:self.btn2.selected];
+
+                break;
+            case 3:
+                [self requestWithIndex:index WithRect:self.btn3.selected];
+
+                break;
+            case 4:
+                [self requestWithIndex:index WithRect:self.btn4.selected];
+
+                break;
+            case 5:
+                [self requestWithIndex:index WithRect:self.btn5.selected];
+
+                break;
+                
+        }
         
         
         
@@ -160,13 +281,14 @@
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    for (int i = 0; i<10; i++) {
-        
-        NSString *amount = [NSString stringWithFormat:@"%d",i];
-        
-        [self requestWithCode:@"605005" AndPrice:@"52" amount:amount];
-        
-    }
+    [self.view endEditing:YES];
+//    for (int i = 0; i<10; i++) {
+//        
+//        NSString *amount = [NSString stringWithFormat:@"%d",i];
+//        
+//        [self requestWithCode:@"605005" AndPrice:@"52" amount:amount];
+//        
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
