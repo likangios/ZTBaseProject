@@ -15,7 +15,7 @@
 #import "XMLLogout.h"
 #import "XMLIsLogin.h"
 #import "XMLLogin.h"
-#import "LoginViewController.h"
+#import "MarkViewController.h"
 
 
 @interface ViewController ()<PwdViewDelegate,NSXMLParserDelegate>
@@ -59,7 +59,7 @@
             [ZTUntil hideAllHUDsForView:self.view];
             self.view.userInteractionEnabled = YES;
             if ([code isEqualToString:@"0"]) {
-                LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+                MarkViewController *login = [[MarkViewController alloc]initWithNibName:@"MarkViewController" bundle:nil];
                 [self.navigationController pushViewController:login animated:YES];
             }else{
                 [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
@@ -83,7 +83,7 @@
             [XMLStoreService Storepassword:self.passwordTextfield.text];
             
             
-            LoginViewController *login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+            MarkViewController *login = [[MarkViewController alloc]initWithNibName:@"MarkViewController" bundle:nil];
             
             [self.navigationController pushViewController:login animated:YES];
             

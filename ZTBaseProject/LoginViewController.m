@@ -47,7 +47,7 @@
     
     [ZTUntil showHUDAddedTo:self.view];
     
-    [[XMLEncryptStr shared] RequestWithName:self.phoneTextfield.text AndPassword:self.passwordTextfield.text MarkID:@"64" Blocks:^(id obj, NSString *code, NSString *message) {
+    [[XMLEncryptStr shared] RequestWithName:self.phoneTextfield.text AndPassword:self.passwordTextfield.text MarkID:[NSString stringWithFormat:@"%ld",self.markId] Blocks:^(id obj, NSString *code, NSString *message) {
         [ZTUntil hideAllHUDsForView:self.view];
         
         if ([code isEqualToString:@"0"]) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
@@ -32,6 +32,7 @@
                 <outlet property="price3" destination="ARa-Rp-Jiq" id="I5L-Of-1Q1"/>
                 <outlet property="price4" destination="ad4-9S-KV3" id="Omd-HE-3Sh"/>
                 <outlet property="price5" destination="n3M-Gb-GeE" id="wE4-O8-4pR"/>
+                <outlet property="startTime" destination="d5Z-SX-GoV" id="UQV-Ku-JUJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,23 +41,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-SX-GoV">
+                    <rect key="frame" x="20" y="10" width="280" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUl-cQ-Hxd">
-                    <rect key="frame" x="0.0" y="20" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="50" width="320" height="40"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1q-bY-ZFq" userLabel="2">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="26" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1q-bY-ZFq" userLabel="2">
                             <rect key="frame" x="107" y="0.0" width="66" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Zdp-Tp-cuv"/>
+                            </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OnW-va-ikS" userLabel="3">
-                            <rect key="frame" x="30" y="0.0" width="67" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eLy-Fe-P5d" userLabel="1">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eLy-Fe-P5d" userLabel="1">
                             <rect key="frame" x="183" y="0.0" width="67" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="mK5-yW-DND"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-tc-pw4">
                             <rect key="frame" x="260" y="2" width="50" height="36"/>
@@ -72,6 +79,14 @@
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lb4-8e-pE0">
                             <rect key="frame" x="8" y="10" width="20" height="20"/>
                         </activityIndicatorView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="605004" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OnW-va-ikS" userLabel="3">
+                            <rect key="frame" x="32" y="0.0" width="67" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="IuR-yW-Th5"/>
+                            </connections>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -98,22 +113,23 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntb-ab-gVU">
-                    <rect key="frame" x="0.0" y="70" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="100" width="320" height="40"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3oc-gI-97w" userLabel="2">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="52" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3oc-gI-97w" userLabel="2">
                             <rect key="frame" x="107" y="0.0" width="66" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="0iE-zm-dCM"/>
+                            </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZX-uP-crf" userLabel="3">
-                            <rect key="frame" x="30" y="0.0" width="67" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x2r-15-EzB" userLabel="1">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x2r-15-EzB" userLabel="1">
                             <rect key="frame" x="183" y="0.0" width="67" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="aoZ-12-WYp"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyS-Oa-qWf">
                             <rect key="frame" x="260" y="2" width="50" height="36"/>
@@ -129,6 +145,14 @@
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hmf-7C-aDD">
                             <rect key="frame" x="8" y="12" width="20" height="20"/>
                         </activityIndicatorView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="605005" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZX-uP-crf" userLabel="3">
+                            <rect key="frame" x="32" y="0.0" width="67" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="gjP-AN-GDj"/>
+                            </connections>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -155,22 +179,31 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPs-Pq-Spm">
-                    <rect key="frame" x="0.0" y="120" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="150" width="320" height="40"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARa-Rp-Jiq" userLabel="2">
                             <rect key="frame" x="107" y="0.0" width="66" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="bZl-Cd-SX7"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shk-OT-J2V" userLabel="3">
                             <rect key="frame" x="30" y="0.0" width="67" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="HS2-1y-VeE"/>
+                            </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYy-qC-Gng" userLabel="1">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYy-qC-Gng" userLabel="1">
                             <rect key="frame" x="183" y="0.0" width="67" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="zhp-CP-ICn"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fh3-Xk-I5G">
                             <rect key="frame" x="260" y="2" width="50" height="36"/>
@@ -212,22 +245,31 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rc6-eO-11P">
-                    <rect key="frame" x="0.0" y="170" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="200" width="320" height="40"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ad4-9S-KV3" userLabel="2">
                             <rect key="frame" x="107" y="0.0" width="66" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="6BB-cb-Rcx"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBI-yT-tx8" userLabel="3">
                             <rect key="frame" x="30" y="0.0" width="67" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="6eN-GQ-YrW"/>
+                            </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-AL-daQ" userLabel="1">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-AL-daQ" userLabel="1">
                             <rect key="frame" x="183" y="0.0" width="67" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="PxX-9N-TVL"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6H-Zh-6G2">
                             <rect key="frame" x="260" y="2" width="50" height="36"/>
@@ -269,22 +311,31 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0b-Tt-v8L">
-                    <rect key="frame" x="0.0" y="220" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="250" width="320" height="40"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3M-Gb-GeE" userLabel="2">
                             <rect key="frame" x="107" y="0.0" width="66" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="VIV-AL-mit"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LLm-xX-eFd" userLabel="3">
                             <rect key="frame" x="30" y="0.0" width="67" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="D2E-bZ-BhW"/>
+                            </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YLW-rf-maK" userLabel="1">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YLW-rf-maK" userLabel="1">
                             <rect key="frame" x="183" y="0.0" width="67" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="1lQ-fN-5eM"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1Q-XG-pxp">
                             <rect key="frame" x="260" y="2" width="50" height="36"/>
@@ -333,18 +384,28 @@
                 <constraint firstItem="TPs-Pq-Spm" firstAttribute="top" secondItem="Ntb-ab-gVU" secondAttribute="bottom" constant="10" id="CnR-KN-1dQ"/>
                 <constraint firstAttribute="trailing" secondItem="i0b-Tt-v8L" secondAttribute="trailing" id="DB9-MH-8Z4"/>
                 <constraint firstAttribute="trailing" secondItem="XUl-cQ-Hxd" secondAttribute="trailing" id="JAg-Yr-bH6"/>
+                <constraint firstItem="d5Z-SX-GoV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kn1-ne-vKQ"/>
+                <constraint firstAttribute="trailing" secondItem="d5Z-SX-GoV" secondAttribute="trailing" constant="20" id="MkU-dM-Llu"/>
+                <constraint firstItem="d5Z-SX-GoV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="O2W-uS-hQU"/>
                 <constraint firstItem="Rc6-eO-11P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TKm-TI-7R1"/>
                 <constraint firstAttribute="trailing" secondItem="Rc6-eO-11P" secondAttribute="trailing" id="UDx-ha-OiQ"/>
                 <constraint firstAttribute="trailing" secondItem="Ntb-ab-gVU" secondAttribute="trailing" id="bDa-eH-fap"/>
+                <constraint firstItem="d5Z-SX-GoV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="c8c-RU-lPi"/>
                 <constraint firstItem="Rc6-eO-11P" firstAttribute="top" secondItem="TPs-Pq-Spm" secondAttribute="bottom" constant="10" id="cOO-Th-Bpi"/>
                 <constraint firstItem="Ntb-ab-gVU" firstAttribute="top" secondItem="XUl-cQ-Hxd" secondAttribute="bottom" constant="10" id="fi2-tX-6Ag"/>
                 <constraint firstItem="Ntb-ab-gVU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kxA-5M-RzN"/>
                 <constraint firstItem="i0b-Tt-v8L" firstAttribute="top" secondItem="Rc6-eO-11P" secondAttribute="bottom" constant="10" id="onR-3S-ft8"/>
                 <constraint firstItem="TPs-Pq-Spm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="p68-fN-V55"/>
                 <constraint firstAttribute="trailing" secondItem="TPs-Pq-Spm" secondAttribute="trailing" id="qTT-vp-V0a"/>
+                <constraint firstItem="XUl-cQ-Hxd" firstAttribute="top" secondItem="d5Z-SX-GoV" secondAttribute="bottom" constant="10" id="sbY-G9-6KU"/>
                 <constraint firstItem="XUl-cQ-Hxd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tE2-uT-w1j"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="5w8-Gu-loh"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="243" y="313"/>
         </view>
     </objects>
