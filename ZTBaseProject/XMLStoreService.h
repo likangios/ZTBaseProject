@@ -39,12 +39,6 @@
 + (NSString *)password;
 + (void)Storepassword:(NSString *)string;
 
-+ (NSString *)account;
-+ (void)Storeaccount:(NSString *)string;
-
-+ (NSString *)mima;
-+ (void)Storemima:(NSString *)string;
-
 + (NSString *)markId;
 + (void)StoremarkId:(NSString *)string;
 

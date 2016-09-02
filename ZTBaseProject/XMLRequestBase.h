@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 
 #import "XMLStoreService.h"
-
+#import "UserInfoModel.h"
 
 #define DEVICEID   @"iE816009A-1483-4252-8EE1-6B6C02ABFC3E"
 typedef void(^SuccessBlocks)(id obj , NSString *code , NSString *message);

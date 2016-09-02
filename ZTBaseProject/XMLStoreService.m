@@ -110,29 +110,6 @@
     [def setValue:string forKey:@"password"];
     [def  synchronize];
 }
-
-
-+ (NSString *)account{
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    NSString *obj = [def objectForKey:@"account"];
-    return obj?:@"";
-}
-+ (void)Storeaccount:(NSString *)string{
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    [def setValue:string forKey:@"account"];
-    [def  synchronize];
-}
-
-+ (NSString *)mima{
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    NSString *obj = [def objectForKey:@"mima"];
-    return obj?:@"";
-}
-+ (void)Storemima:(NSString *)string{
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    [def setValue:string forKey:@"mima"];
-    [def  synchronize];
-}
 + (NSString *)markId{
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSString *obj = [def objectForKey:@"markId"];

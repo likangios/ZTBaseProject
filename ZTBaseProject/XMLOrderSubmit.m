@@ -24,7 +24,9 @@
     
     NSString *url = [XMLStoreService TRADEURL];
 
-    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='order_submit'><U>%@</U><BUY_SELL>%@</BUY_SELL><COMMODITY_ID>%@</COMMODITY_ID><PRICE>%@</PRICE><QTY>%@</QTY><S_I>%@</S_I></REQ></MEBS_MOBILE>",[XMLStoreService account],buy_sell,commodityid,price,amount,[XMLStoreService RETCODE]];
+    UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
+    
+    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='order_submit'><U>%@</U><BUY_SELL>%@</BUY_SELL><COMMODITY_ID>%@</COMMODITY_ID><PRICE>%@</PRICE><QTY>%@</QTY><S_I>%@</S_I></REQ></MEBS_MOBILE>",user.account,buy_sell,commodityid,price,amount,[XMLStoreService RETCODE]];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
