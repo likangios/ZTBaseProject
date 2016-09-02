@@ -1,14 +1,14 @@
 //
-//  XMLUserLogin.m
+//  XMLTradeServerinfo.m
 //  ZTBaseProject
 //
-//  Created by FengLing on 16/8/30.
+//  Created by FengLing on 16/9/1.
 //  Copyright © 2016年 lk. All rights reserved.
 //
 
-#import "XMLUserLogin.h"
+#import "XMLTradeServerinfo.h"
 
-@implementation XMLUserLogin
+@implementation XMLTradeServerinfo
 +(instancetype)shared{
     static id _sharedInstance=  nil;
     static dispatch_once_t  onceToken;
@@ -18,11 +18,13 @@
     return _sharedInstance;
 }
 
-- (void)RequestWithName:(NSString *)name AndPassword:(NSString *)password Blocks:(SuccessBlocks)block{
+- (void)RequestBlocks:(SuccessBlocks)block{
     
-    NSString *url = [XMLStoreService TRADEURL];
+    NSString *url = @"http://m.zongyihui.cn:30200/nuclear/communicateServlet";
     
-    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='user_login'><U>%@</U><PASSWORD>%@</PASSWORD><IC>%@</IC><RANDOM_KEY>%@</RANDOM_KEY></REQ></MEBS_MOBILE>",name,password,[XMLStoreService ENCRYPTION],[XMLStoreService RANDOM_KEY]];
+    NSString *markId = [XMLStoreService markId];
+
+    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='tradeserverinfo'><PINSCODE>%@</PINSCODE><SESSIONID>%@</SESSIONID><MARKETID>%@</MARKETID><TRADEMODELID>1</TRADEMODELID></REQ></MEBS_MOBILE>",[XMLStoreService PINSCODE],[XMLStoreService SESSIONID],markId];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -51,23 +53,16 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
 {
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
+    
 }
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string;
 {
     [super parser:parser foundCharacters:string];
     
-    if ([self.currentElementName isEqualToString:@"RETCODE"]) {
-        if (string.length>10) {
-            [XMLStoreService StoreRETCODE:string];
-        }else{
-            self.code = nil;
+    if ([self.currentElementName isEqualToString:@"TRADEURL"]) {
+        if (string.length) {
+            [XMLStoreService StoreTRADEURL:string];
         }
-
-    }
-    
-    if ([self.currentElementName isEqualToString:@"RANDOM_KEY"]) {
-        
-        [XMLStoreService StoreRANDOM_KEY:string];
     }
     
 }
@@ -77,4 +72,5 @@
     
     
 }
+
 @end

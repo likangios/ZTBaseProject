@@ -8,7 +8,9 @@
 
 #import "MarkViewController.h"
 #import "LoginViewController.h"
-
+#import "XMLStoreService.h"
+#import "XMLTradeServerinfo.h"
+#import "ZTUntil.h"
 @interface MarkViewController ()
 
 @end
@@ -91,11 +93,20 @@
 }
 - (void)buttonclick:(UIButton *)btn{
     
-    LoginViewController *main = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
-   
-    main.markId = btn.tag;
+    [XMLStoreService  StoremarkId:[NSString stringWithFormat:@"%ld",btn.tag]];
+
+    [ZTUntil showHUDAddedTo:self.view];
+    [[XMLTradeServerinfo shared] RequestBlocks:^(id obj, NSString *code, NSString *message) {
     
-    [self.navigationController pushViewController:main animated:YES];
+    [ZTUntil hideAllHUDsForView:self.view];
+        if ([code isEqualToString:@"0"]) {
+            LoginViewController *main = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+            main.markId = btn.tag;
+            [self.navigationController pushViewController:main animated:YES];
+        }else{
+            [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
+        }
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

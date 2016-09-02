@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 //20160830135635378cn6565080014342093.22450170545
+@class UserInfoModel;
+
 @interface XMLStoreService : NSObject
 
 + (NSString *)PINSCODE;
@@ -26,6 +28,11 @@
 + (void)StoreRANDOM_KEY:(NSString *)string;
 
 
++ (NSString *)TRADEURL;
++ (void)StoreTRADEURL:(NSString *)string;
+
+
+
 + (NSString *)phone;
 + (void)Storephone:(NSString *)string;
 
@@ -37,5 +44,17 @@
 
 + (NSString *)mima;
 + (void)Storemima:(NSString *)string;
+
++ (NSString *)markId;
++ (void)StoremarkId:(NSString *)string;
+
++ (NSString *)getAccountWithMarkId:(NSString *)markId;
+
++ (void)storeAllAccoutWithMarkId:(NSString *)markId;
+
+
++ (void)storeUserInfo:(UserInfoModel *)userinfo WithMarkId:(NSString *)markId;
++ (UserInfoModel *)userinfoWithMarkId:(NSString *)markId;
+
 
 @end

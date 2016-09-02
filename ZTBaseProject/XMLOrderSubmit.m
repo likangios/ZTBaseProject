@@ -22,11 +22,8 @@
 
 - (void)RequestWithBuy_Sell:(NSString *)buy_sell commodityID:(NSString *)commodityid Price:(NSString *)price  Amount:(NSString *)amount Blocks:(SuccessBlocks)block{
     
-    NSString *url =  @"http://123.59.9.211:16978/Issue4ariesMobileServer/communicateServlet";
+    NSString *url = [XMLStoreService TRADEURL];
 
-//    NSString *url =  @"http://123.59.9.211:16978/Issue4ariesMobileServer/communicateSer";
-
-    
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='order_submit'><U>%@</U><BUY_SELL>%@</BUY_SELL><COMMODITY_ID>%@</COMMODITY_ID><PRICE>%@</PRICE><QTY>%@</QTY><S_I>%@</S_I></REQ></MEBS_MOBILE>",[XMLStoreService account],buy_sell,commodityid,price,amount,[XMLStoreService RETCODE]];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];

@@ -64,7 +64,9 @@
     
     if (time.length != 6) {
         
-        [ZTUntil showErrorHUDViewAtView:self.view WithTitle:@"时间格式错误"];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//        [ZTUntil showErrorHUDViewAtView:self.view WithTitle:@"时间格式错误"];
+//        });
         return  NO;
     }
     NSString *startTime = time;
@@ -199,16 +201,17 @@
 #pragma mark --
 - (void)startRequestWithIndex:(NSInteger)index Code:(NSString *)codeid Price:(NSString *)price Amount:(NSString *)amount Count:(NSInteger)count{
     
-    if (![self shouldStartWithStartTime:self.startTime.text]) {
-        sleep(1);
-        NSLog(@"还没开始");
-        [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
-        return;
-    }else{
-        NSLog(@"时间到了");
-    }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        if (![self shouldStartWithStartTime:self.startTime.text]) {
+            sleep(1);
+            NSLog(@"还没开始");
+            [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
+            return;
+        }else{
+            NSLog(@"时间到了");
+        }
         
         NSTimeInterval  start  =  CACurrentMediaTime();
         

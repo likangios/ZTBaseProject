@@ -7,6 +7,7 @@
 //
 
 #import "XMLStoreService.h"
+#import "UserInfoModel.h"
 
 @implementation XMLStoreService
 +(instancetype)shared{
@@ -74,6 +75,19 @@
     [def  synchronize];
 }
 
++ (NSString *)TRADEURL{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSString *obj = [def objectForKey:@"TRADEURL"];
+    return obj?:@"";
+}
++ (void)StoreTRADEURL:(NSString *)string{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setValue:string forKey:@"TRADEURL"];
+    [def  synchronize];
+}
+
+
+
 
 + (NSString *)phone{
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
@@ -119,8 +133,38 @@
     [def setValue:string forKey:@"mima"];
     [def  synchronize];
 }
++ (NSString *)markId{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSString *obj = [def objectForKey:@"markId"];
+    return obj?:@"";
+}
++ (void)StoremarkId:(NSString *)string{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setValue:string forKey:@"markId"];
+    [def  synchronize];
+}
 
++ (NSString *)getAccountWithMarkId:(NSString *)markId{
+    return nil;
+}
 
++ (void)storeAllAccoutWithMarkId:(NSString *)markId  Account:(NSString *)account PWD:(NSString *)password{
+    NSDictionary *dic = @{@"":account,@"password":password};
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setObject:dic forKey:markId];
+    [def  synchronize];
+}
 
-
++ (void)storeUserInfo:(UserInfoModel *)userinfo WithMarkId:(NSString *)markId{
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:userinfo];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:encodedObject forKey:markId];
+    [userDefault synchronize];
+}
++ (UserInfoModel *)userinfoWithMarkId:(NSString *)markId{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [userDefault objectForKey:markId];
+    UserInfoModel *userinfo = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return userinfo;
+}
 @end

@@ -101,6 +101,8 @@
 		6167B4EA1CA5286700117606 /* MyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4A51CA5286700117606 /* MyLocationManager.m */; };
 		6167B4ED1CA5297500117606 /* TestAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EC1CA5297500117606 /* TestAction.m */; };
 		6167B4F01CA52BE800117606 /* TestAction2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EF1CA52BE800117606 /* TestAction2.m */; };
+		6184BF581D77DA5E004414C7 /* XMLTradeServerinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184BF571D77DA5E004414C7 /* XMLTradeServerinfo.m */; };
+		6184BF5B1D790557004414C7 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184BF5A1D790557004414C7 /* UserInfoModel.m */; };
 		618707BF1D7557E600C31475 /* XMLEncryptStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707BE1D7557E600C31475 /* XMLEncryptStr.m */; };
 		618707C21D7557EF00C31475 /* XMLUserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707C11D7557EF00C31475 /* XMLUserLogin.m */; };
 		618707C51D75631400C31475 /* XMLOrderSubmit.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707C41D75631400C31475 /* XMLOrderSubmit.m */; };
@@ -297,6 +299,10 @@
 		6167B4EC1CA5297500117606 /* TestAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAction.m; sourceTree = "<group>"; };
 		6167B4EE1CA52BE800117606 /* TestAction2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAction2.h; sourceTree = "<group>"; };
 		6167B4EF1CA52BE800117606 /* TestAction2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAction2.m; sourceTree = "<group>"; };
+		6184BF561D77DA5E004414C7 /* XMLTradeServerinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLTradeServerinfo.h; sourceTree = "<group>"; };
+		6184BF571D77DA5E004414C7 /* XMLTradeServerinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLTradeServerinfo.m; sourceTree = "<group>"; };
+		6184BF591D790557004414C7 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		6184BF5A1D790557004414C7 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		618707BD1D7557E600C31475 /* XMLEncryptStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLEncryptStr.h; sourceTree = "<group>"; };
 		618707BE1D7557E600C31475 /* XMLEncryptStr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLEncryptStr.m; sourceTree = "<group>"; };
 		618707C01D7557EF00C31475 /* XMLUserLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLUserLogin.h; sourceTree = "<group>"; };
@@ -400,12 +406,14 @@
 				615D01D71C91A1A8001EF35C /* AppDelegate.m */,
 				615D01D91C91A1A8001EF35C /* ViewController.h */,
 				615D01DA1C91A1A8001EF35C /* ViewController.m */,
-				C8B3BE7C1D746B89003FE96F /* LoginViewController.h */,
-				C8B3BE7D1D746B89003FE96F /* LoginViewController.m */,
-				C8B3BE7E1D746B89003FE96F /* LoginViewController.xib */,
+				6184BF591D790557004414C7 /* UserInfoModel.h */,
+				6184BF5A1D790557004414C7 /* UserInfoModel.m */,
 				61DA27761D76A3CB00AE6E7B /* MarkViewController.h */,
 				61DA27771D76A3CB00AE6E7B /* MarkViewController.m */,
 				61DA27781D76A3CB00AE6E7B /* MarkViewController.xib */,
+				C8B3BE7C1D746B89003FE96F /* LoginViewController.h */,
+				C8B3BE7D1D746B89003FE96F /* LoginViewController.m */,
+				C8B3BE7E1D746B89003FE96F /* LoginViewController.xib */,
 				C8B3BE811D746C33003FE96F /* MainViewController.h */,
 				C8B3BE821D746C33003FE96F /* MainViewController.m */,
 				C8B3BE831D746C33003FE96F /* MainViewController.xib */,
@@ -413,6 +421,8 @@
 				615954211D73F7BF0064E66E /* XMLStoreService.m */,
 				61057C301D71963C0099CE62 /* XMLRequestBase.h */,
 				61057C311D71963C0099CE62 /* XMLRequestBase.m */,
+				6184BF561D77DA5E004414C7 /* XMLTradeServerinfo.h */,
+				6184BF571D77DA5E004414C7 /* XMLTradeServerinfo.m */,
 				618707C31D75631400C31475 /* XMLOrderSubmit.h */,
 				618707C41D75631400C31475 /* XMLOrderSubmit.m */,
 				618707BD1D7557E600C31475 /* XMLEncryptStr.h */,
@@ -828,6 +838,7 @@
 				6167B4CE1CA5286700117606 /* MSMyMatchAddress.m in Sources */,
 				6167B4BF1CA5286700117606 /* MSFriendsAction.m in Sources */,
 				6167B4C61CA5286700117606 /* MSHomeListAction.m in Sources */,
+				6184BF5B1D790557004414C7 /* UserInfoModel.m in Sources */,
 				6167B4E31CA5286700117606 /* MSUpdateDeviceToken.m in Sources */,
 				6167B4B51CA5286700117606 /* MSClubsMineAction.m in Sources */,
 				6167B4C11CA5286700117606 /* MSFriendsSendAction.m in Sources */,
@@ -897,6 +908,7 @@
 				6167B4BE1CA5286700117606 /* MSFriendsAcceptAction.m in Sources */,
 				61DA27791D76A3CB00AE6E7B /* MarkViewController.m in Sources */,
 				6159541F1D73CE890064E66E /* XMLCheckPins.m in Sources */,
+				6184BF581D77DA5E004414C7 /* XMLTradeServerinfo.m in Sources */,
 				6167B4CC1CA5286700117606 /* MSMineScoresTeam.m in Sources */,
 				6167B4D61CA5286700117606 /* MSPublishPartys.m in Sources */,
 				6167B4AC1CA5286700117606 /* MSAdminPartyStausAction.m in Sources */,

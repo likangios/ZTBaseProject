@@ -83,6 +83,7 @@
 
     
     mstrXMLString = nil;
+    
     self.currentElementName = nil;
     
 }
