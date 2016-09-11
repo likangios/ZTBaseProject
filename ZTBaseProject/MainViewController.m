@@ -9,6 +9,10 @@
 #import "MainViewController.h"
 #import "XMLOrderSubmit.h"
 #import <IHKeyboardAvoiding.h>
+#import "XMLSysTimeQuery.h"
+#import "XMLUserLogin.h"
+
+#import "XMLUserLogoff.h"
 
 @interface MainViewController ()<UITextFieldDelegate>
 {
@@ -54,10 +58,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
+    UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
-//    [IHKeyboardAvoiding setAvoidingView:self.view withTriggerView:self.view];
+        for (int i = 0; i<20; i++) {
+
+            [NSThread sleepForTimeInterval:0.45];
+            NSLog(@"i === %ld",i);
+
+            [[XMLSysTimeQuery shared]RequestWithSysTimeQueryBlocks:^(id obj, NSString *code, NSString *message) {
+                    NSLog(@" XMLSysTimeQuery  CODE %@  MESSAGE %@",code,message);
+
+                }];
+
+        }
     
+    
+    });
+    
+    
+}
+- (void)request{
+    
+    UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
+
+    [[XMLUserLogoff shared] RequestWithUserLogOffBlocks:^(id obj, NSString *code, NSString *message) {
+        NSLog(@" XMLUserLogoff  CODE %@  MESSAGE %@",code,message);
+        [[XMLUserLogin shared] RequestWithName:user.account AndPassword:user.password  Blocks:^(id obj, NSString *code, NSString *message) {
+            NSLog(@" XMLUserLogin  CODE %@  MESSAGE %@",code,message);
+            [[XMLSysTimeQuery shared]RequestWithSysTimeQueryBlocks:^(id obj, NSString *code, NSString *message) {
+                NSLog(@" XMLSysTimeQuery  CODE %@  MESSAGE %@",code,message);
+                [self request];
+            }];
+        }];
+    }];
     
 }
 - (BOOL)shouldStartWithStartTime:(NSString *)time{
