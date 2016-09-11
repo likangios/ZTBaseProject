@@ -58,7 +58,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    /*
     queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
     UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
 
@@ -66,7 +66,7 @@
     
         for (int i = 0; i<20; i++) {
 
-            [NSThread sleepForTimeInterval:0.45];
+            [NSThread sleepForTimeInterval:0.49];
             NSLog(@"i === %ld",i);
 
             [[XMLSysTimeQuery shared]RequestWithSysTimeQueryBlocks:^(id obj, NSString *code, NSString *message) {
@@ -77,7 +77,7 @@
         }
     
     
-    });
+    });*/
     
     
 }
@@ -256,6 +256,8 @@
             NSTimeInterval end = CACurrentMediaTime();
             
             NSLog(@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count);
+            
+            [NSThread sleepForTimeInterval:0.5];
             
             [self  updateUIWithIndex:index Code:code message:message Count:count];
             
