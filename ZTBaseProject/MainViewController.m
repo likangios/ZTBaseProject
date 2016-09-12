@@ -62,7 +62,7 @@
 }
 - (BOOL)shouldStartWithStartTime:(NSString *)time{
     
-    if (time.length != 6) {
+    if (time.length != 9) {
         
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //        [ZTUntil showErrorHUDViewAtView:self.view WithTitle:@"时间格式错误"];
@@ -75,7 +75,7 @@
     NSDate *now = [NSDate date];
     NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
     [formatter1 setDateStyle:NSDateFormatterMediumStyle];
-    [formatter1 setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter1 setDateFormat:@"yyyy-MM-dd HH:mm:ss:SSS"];
     NSString *dateStr1 = [formatter1 stringFromDate:now];
     NSArray *array=[dateStr1 componentsSeparatedByString:@" "];
 //    NSArray *c    urrentTime=[[array objectAtIndex:1] componentsSeparatedByString:@":"];
@@ -205,7 +205,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         if (![self shouldStartWithStartTime:self.startTime.text]) {
-            sleep(1);
+            [NSThread sleepForTimeInterval:0.1];
             NSLog(@"还没开始");
             [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
             return;
