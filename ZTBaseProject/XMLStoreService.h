@@ -50,5 +50,7 @@
 + (void)storeUserInfo:(UserInfoModel *)userinfo WithMarkId:(NSString *)markId;
 + (UserInfoModel *)userinfoWithMarkId:(NSString *)markId;
 
++ (NSString *)userdefaultValueWithKey:(NSString *)key;
++ (void)StoredefaultValue:(NSString *)string Key:(NSString *)key;
 
 @end

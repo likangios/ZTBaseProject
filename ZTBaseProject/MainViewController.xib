@@ -45,6 +45,9 @@
                     <rect key="frame" x="19" y="10" width="280" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <connections>
+                        <action selector="TextFieldValueChange:" destination="-1" eventType="editingChanged" id="in2-Lk-rxo"/>
+                    </connections>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUl-cQ-Hxd">
                     <rect key="frame" x="0.0" y="50" width="320" height="40"/>
@@ -54,6 +57,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             <connections>
+                                <action selector="TextFieldValueChange:" destination="-1" eventType="editingChanged" id="ejW-Pz-WB6"/>
                                 <outlet property="delegate" destination="-1" id="Zdp-Tp-cuv"/>
                             </connections>
                         </textField>
@@ -62,6 +66,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             <connections>
+                                <action selector="TextFieldValueChange:" destination="-1" eventType="editingChanged" id="gKd-3f-iNn"/>
                                 <outlet property="delegate" destination="-1" id="mK5-yW-DND"/>
                             </connections>
                         </textField>
@@ -84,6 +89,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             <connections>
+                                <action selector="TextFieldValueChange:" destination="-1" eventType="editingChanged" id="XAE-Wx-rhw"/>
                                 <outlet property="delegate" destination="-1" id="IuR-yW-Th5"/>
                             </connections>
                         </textField>

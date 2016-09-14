@@ -144,4 +144,15 @@
     UserInfoModel *userinfo = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
     return userinfo;
 }
+
++ (NSString *)userdefaultValueWithKey:(NSString *)key{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSString *obj = [def objectForKey:key];
+    return obj?:@"";
+}
++ (void)StoredefaultValue:(NSString *)string Key:(NSString *)key{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setValue:string forKey:key];
+    [def  synchronize];
+}
 @end

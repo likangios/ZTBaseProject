@@ -58,6 +58,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.startTime.text = [XMLStoreService userdefaultValueWithKey:@"self.startTime"];
+    self.code1.text = [XMLStoreService userdefaultValueWithKey:@"self.code1"];
+    self.price1.text = [XMLStoreService userdefaultValueWithKey:@"self.price1"];
+    self.amount1.text = [XMLStoreService userdefaultValueWithKey:@"self.amount1"];
     /*
     queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
     UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
@@ -82,9 +87,7 @@
     
 }
 - (void)request{
-    
     UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
-
     [[XMLUserLogoff shared] RequestWithUserLogOffBlocks:^(id obj, NSString *code, NSString *message) {
         NSLog(@" XMLUserLogoff  CODE %@  MESSAGE %@",code,message);
         [[XMLUserLogin shared] RequestWithName:user.account AndPassword:user.password  Blocks:^(id obj, NSString *code, NSString *message) {
@@ -245,6 +248,7 @@
             [NSThread sleepForTimeInterval:0.1];
             NSLog(@"还没开始");
             [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
+            
             return;
         }else{
             NSLog(@"时间到了");
@@ -254,7 +258,7 @@
         
         [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:codeid Price:price Amount:amount Blocks:^(id obj, NSString *code, NSString *message) {
             NSTimeInterval end = CACurrentMediaTime();
-            
+
             NSLog(@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count);
             
             [NSThread sleepForTimeInterval:0.5];
@@ -466,6 +470,23 @@
     
     [IHKeyboardAvoiding setAvoidingView:self.view withTriggerView:textField.superview];
     
+}
+- (IBAction)TextFieldValueChange:(UITextField *)textfield{
+    
+    
+    if (textfield == self.startTime) {
+        
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.startTime"];
+    }else if (textfield == self.code1){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.code1"];
+        
+    }else if (textfield == self.price1){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.price1"];
+        
+    }else if(textfield == self.amount1){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.amount1"];
+    }
+    NSLog(@"text %@",textfield.text);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
