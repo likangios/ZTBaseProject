@@ -27,6 +27,7 @@
                 <outlet property="code3" destination="shk-OT-J2V" id="NOr-HF-ofo"/>
                 <outlet property="code4" destination="HBI-yT-tx8" id="pOC-Eh-tc3"/>
                 <outlet property="code5" destination="LLm-xX-eFd" id="Yya-vl-jAQ"/>
+                <outlet property="logoLabel" destination="l5E-CA-VOi" id="sA4-cs-PXm"/>
                 <outlet property="price1" destination="t1q-bY-ZFq" id="Rab-HY-qgb"/>
                 <outlet property="price2" destination="3oc-gI-97w" id="fyx-Tf-VAq"/>
                 <outlet property="price3" destination="ARa-Rp-Jiq" id="I5L-Of-1Q1"/>
@@ -41,8 +42,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="103000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-SX-GoV">
-                    <rect key="frame" x="19" y="10" width="280" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="103000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-SX-GoV">
+                    <rect key="frame" x="20" y="10" width="280" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Fqi-hF-ddj"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     <connections>
@@ -382,6 +386,27 @@
                         <constraint firstItem="YLW-rf-maK" firstAttribute="leading" secondItem="n3M-Gb-GeE" secondAttribute="trailing" constant="10" id="ygN-Bk-RJF"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5E-CA-VOi">
+                    <rect key="frame" x="0.0" y="40" width="320" height="440"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="CEw-SZ-UZe"/>
+                    </constraints>
+                    <string key="text">Label
+Label
+Label
+Label
+Label
+Label
+Label</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.017862830143138851" green="0.99273989898989901" blue="0.71357360113389545" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="CEw-SZ-UZe"/>
+                        </mask>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -390,19 +415,23 @@
                 <constraint firstItem="TPs-Pq-Spm" firstAttribute="top" secondItem="Ntb-ab-gVU" secondAttribute="bottom" constant="10" id="CnR-KN-1dQ"/>
                 <constraint firstAttribute="trailing" secondItem="i0b-Tt-v8L" secondAttribute="trailing" id="DB9-MH-8Z4"/>
                 <constraint firstAttribute="trailing" secondItem="XUl-cQ-Hxd" secondAttribute="trailing" id="JAg-Yr-bH6"/>
+                <constraint firstItem="l5E-CA-VOi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jx6-zP-rhO"/>
                 <constraint firstItem="d5Z-SX-GoV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kn1-ne-vKQ"/>
                 <constraint firstAttribute="trailing" secondItem="d5Z-SX-GoV" secondAttribute="trailing" constant="20" id="MkU-dM-Llu"/>
                 <constraint firstItem="d5Z-SX-GoV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="O2W-uS-hQU"/>
                 <constraint firstItem="Rc6-eO-11P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TKm-TI-7R1"/>
                 <constraint firstAttribute="trailing" secondItem="Rc6-eO-11P" secondAttribute="trailing" id="UDx-ha-OiQ"/>
+                <constraint firstItem="l5E-CA-VOi" firstAttribute="top" secondItem="d5Z-SX-GoV" secondAttribute="bottom" id="af7-1l-9qR"/>
                 <constraint firstAttribute="trailing" secondItem="Ntb-ab-gVU" secondAttribute="trailing" id="bDa-eH-fap"/>
                 <constraint firstItem="d5Z-SX-GoV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="c8c-RU-lPi"/>
                 <constraint firstItem="Rc6-eO-11P" firstAttribute="top" secondItem="TPs-Pq-Spm" secondAttribute="bottom" constant="10" id="cOO-Th-Bpi"/>
+                <constraint firstAttribute="trailing" secondItem="l5E-CA-VOi" secondAttribute="trailing" id="faB-wx-XDq"/>
                 <constraint firstItem="Ntb-ab-gVU" firstAttribute="top" secondItem="XUl-cQ-Hxd" secondAttribute="bottom" constant="10" id="fi2-tX-6Ag"/>
                 <constraint firstItem="Ntb-ab-gVU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kxA-5M-RzN"/>
                 <constraint firstItem="i0b-Tt-v8L" firstAttribute="top" secondItem="Rc6-eO-11P" secondAttribute="bottom" constant="10" id="onR-3S-ft8"/>
                 <constraint firstItem="TPs-Pq-Spm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="p68-fN-V55"/>
                 <constraint firstAttribute="trailing" secondItem="TPs-Pq-Spm" secondAttribute="trailing" id="qTT-vp-V0a"/>
+                <constraint firstAttribute="bottom" secondItem="l5E-CA-VOi" secondAttribute="bottom" id="rJv-Cb-NA9"/>
                 <constraint firstItem="XUl-cQ-Hxd" firstAttribute="top" secondItem="d5Z-SX-GoV" secondAttribute="bottom" constant="10" id="sbY-G9-6KU"/>
                 <constraint firstItem="XUl-cQ-Hxd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tE2-uT-w1j"/>
             </constraints>
@@ -410,6 +439,7 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="5w8-Gu-loh"/>
+                    <exclude reference="af7-1l-9qR"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="243" y="313"/>

@@ -18,6 +18,11 @@
 {
     dispatch_queue_t queue;
 }
+@property (nonatomic,strong) NSMutableArray *muArray;
+
+
+@property (nonatomic,weak) IBOutlet UILabel     *logoLabel;
+
 @property (nonatomic,weak) IBOutlet  UITextField                   *startTime;
 
 @property (nonatomic,weak) IBOutlet  UIActivityIndicatorView                   *Activity1;
@@ -58,6 +63,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _muArray = [NSMutableArray arrayWithCapacity:6];
+    
+    for (int i = 0; i<6; i++) {
+        [_muArray addObject:@"logo"];
+    }
     
     self.startTime.text = [XMLStoreService userdefaultValueWithKey:@"self.startTime"];
     self.code1.text = [XMLStoreService userdefaultValueWithKey:@"self.code1"];
@@ -245,12 +255,20 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         if (![self shouldStartWithStartTime:self.startTime.text]) {
-            [NSThread sleepForTimeInterval:0.1];
+            [NSThread sleepForTimeInterval:0.001];
             NSLog(@"还没开始");
             [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
+            [_muArray removeObjectAtIndex:0];
+            [_muArray addObject:@"还没开始"];
+            NSString *string = @"";
+            for (int i = 0; i<_muArray.count; i++) {
+                string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
+            }
+            self.logoLabel.text= string;
             
             return;
         }else{
+            
             NSLog(@"时间到了");
         }
         
@@ -260,6 +278,15 @@
             NSTimeInterval end = CACurrentMediaTime();
 
             NSLog(@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count);
+            
+            [_muArray removeObjectAtIndex:0];
+            [_muArray addObject:[NSString stringWithFormat:@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count]];
+
+            NSString *string = @"";
+            for (int i = 0; i<_muArray.count; i++) {
+                string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
+            }
+            self.logoLabel.text= string;
             
             [NSThread sleepForTimeInterval:0.5];
             
