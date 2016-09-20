@@ -438,11 +438,11 @@ Label</string>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="5w8-Gu-loh"/>
                     <exclude reference="af7-1l-9qR"/>
+                    <exclude reference="5w8-Gu-loh"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="243" y="313"/>
+            <point key="canvasLocation" x="-10" y="298"/>
         </view>
     </objects>
 </document>

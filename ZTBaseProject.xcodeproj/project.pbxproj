@@ -21,6 +21,8 @@
 		610DE3251C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31B1C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m */; };
 		610DE3261C92679C00A38B8B /* UIView+loadNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31D1C92679C00A38B8B /* UIView+loadNib.m */; };
 		610DE3271C92679C00A38B8B /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DE31F1C92679C00A38B8B /* UIViewController+Tracking.m */; };
+		6152F73F1D8F684F00AD996C /* OtherMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6152F73D1D8F684F00AD996C /* OtherMainViewController.m */; };
+		6152F7401D8F685000AD996C /* OtherMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6152F73E1D8F684F00AD996C /* OtherMainViewController.xib */; };
 		6159541C1D73BC010064E66E /* XMLIsLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6159541B1D73BC010064E66E /* XMLIsLogin.m */; };
 		6159541F1D73CE890064E66E /* XMLCheckPins.m in Sources */ = {isa = PBXBuildFile; fileRef = 6159541E1D73CE890064E66E /* XMLCheckPins.m */; };
 		615954221D73F7BF0064E66E /* XMLStoreService.m in Sources */ = {isa = PBXBuildFile; fileRef = 615954211D73F7BF0064E66E /* XMLStoreService.m */; };
@@ -143,6 +145,9 @@
 		610DE31D1C92679C00A38B8B /* UIView+loadNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+loadNib.m"; sourceTree = "<group>"; };
 		610DE31E1C92679C00A38B8B /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
 		610DE31F1C92679C00A38B8B /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
+		6152F73C1D8F684F00AD996C /* OtherMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherMainViewController.h; sourceTree = "<group>"; };
+		6152F73D1D8F684F00AD996C /* OtherMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherMainViewController.m; sourceTree = "<group>"; };
+		6152F73E1D8F684F00AD996C /* OtherMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherMainViewController.xib; sourceTree = "<group>"; };
 		6159541A1D73BC010064E66E /* XMLIsLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLIsLogin.h; sourceTree = "<group>"; };
 		6159541B1D73BC010064E66E /* XMLIsLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLIsLogin.m; sourceTree = "<group>"; };
 		6159541D1D73CE890064E66E /* XMLCheckPins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLCheckPins.h; sourceTree = "<group>"; };
@@ -423,6 +428,9 @@
 				C8B3BE811D746C33003FE96F /* MainViewController.h */,
 				C8B3BE821D746C33003FE96F /* MainViewController.m */,
 				C8B3BE831D746C33003FE96F /* MainViewController.xib */,
+				6152F73C1D8F684F00AD996C /* OtherMainViewController.h */,
+				6152F73D1D8F684F00AD996C /* OtherMainViewController.m */,
+				6152F73E1D8F684F00AD996C /* OtherMainViewController.xib */,
 				615954201D73F7BF0064E66E /* XMLStoreService.h */,
 				615954211D73F7BF0064E66E /* XMLStoreService.m */,
 				61057C301D71963C0099CE62 /* XMLRequestBase.h */,
@@ -763,6 +771,7 @@
 			files = (
 				61DA277A1D76A3CB00AE6E7B /* MarkViewController.xib in Resources */,
 				C8B3BE801D746B89003FE96F /* LoginViewController.xib in Resources */,
+				6152F7401D8F685000AD996C /* OtherMainViewController.xib in Resources */,
 				C8B3BE851D746C33003FE96F /* MainViewController.xib in Resources */,
 				615D01E31C91A1A8001EF35C /* LaunchScreen.storyboard in Resources */,
 				615D01E01C91A1A8001EF35C /* Assets.xcassets in Resources */,
@@ -910,6 +919,7 @@
 				615D01D51C91A1A8001EF35C /* main.m in Sources */,
 				618707BF1D7557E600C31475 /* XMLEncryptStr.m in Sources */,
 				6167B4ED1CA5297500117606 /* TestAction.m in Sources */,
+				6152F73F1D8F684F00AD996C /* OtherMainViewController.m in Sources */,
 				6167B4B71CA5286700117606 /* MSConfirmCodeAction.m in Sources */,
 				6167B4E21CA5286700117606 /* MSTopsAction.m in Sources */,
 				610DE3211C92679C00A38B8B /* MSBlureEffectView.m in Sources */,

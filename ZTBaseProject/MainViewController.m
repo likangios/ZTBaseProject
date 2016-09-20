@@ -7,6 +7,9 @@
 //
 
 #import "MainViewController.h"
+#import "OtherMainViewController.h"
+
+
 #import "XMLOrderSubmit.h"
 #import <IHKeyboardAvoiding.h>
 #import "XMLSysTimeQuery.h"
@@ -94,8 +97,12 @@
     
     });*/
     
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithTitle:@"other" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick)];
+    
+    
     
 }
+
 - (void)request{
     UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
     [[XMLUserLogoff shared] RequestWithUserLogOffBlocks:^(id obj, NSString *code, NSString *message) {
@@ -288,7 +295,7 @@
             }
             self.logoLabel.text= string;
             
-            [NSThread sleepForTimeInterval:0.5];
+            [NSThread sleepForTimeInterval:1];
             
             [self  updateUIWithIndex:index Code:code message:message Count:count];
             
@@ -515,6 +522,15 @@
     }
     NSLog(@"text %@",textfield.text);
 }
+
+- (void)rightBarButtonItemClick{
+   
+    OtherMainViewController *othermain = [[OtherMainViewController alloc]initWithNibName:@"OtherMainViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:othermain animated:YES];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
