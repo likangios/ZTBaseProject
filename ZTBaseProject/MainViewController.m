@@ -262,16 +262,20 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         if (![self shouldStartWithStartTime:self.startTime.text]) {
-            [NSThread sleepForTimeInterval:0.001];
+            [NSThread sleepForTimeInterval:0.05];
             NSLog(@"还没开始");
             [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
             [_muArray removeObjectAtIndex:0];
             [_muArray addObject:@"还没开始"];
-            NSString *string = @"";
-            for (int i = 0; i<_muArray.count; i++) {
-                string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
-            }
-            self.logoLabel.text= string;
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *string = @"";
+                for (int i = 0; i<_muArray.count; i++) {
+                    string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
+                }
+                self.logoLabel.text= string;
+
+            });
             
             return;
         }else{
@@ -294,8 +298,6 @@
                 string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
             }
             self.logoLabel.text= string;
-            
-            [NSThread sleepForTimeInterval:1];
             
             [self  updateUIWithIndex:index Code:code message:message Count:count];
             
