@@ -108,6 +108,7 @@
 		618707BF1D7557E600C31475 /* XMLEncryptStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707BE1D7557E600C31475 /* XMLEncryptStr.m */; };
 		618707C21D7557EF00C31475 /* XMLUserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707C11D7557EF00C31475 /* XMLUserLogin.m */; };
 		618707C51D75631400C31475 /* XMLOrderSubmit.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707C41D75631400C31475 /* XMLOrderSubmit.m */; };
+		61D591C01D93B92200EA2031 /* ResultOrder_SubmitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */; };
 		61DA27791D76A3CB00AE6E7B /* MarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DA27771D76A3CB00AE6E7B /* MarkViewController.m */; };
 		61DA277A1D76A3CB00AE6E7B /* MarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61DA27781D76A3CB00AE6E7B /* MarkViewController.xib */; };
 		61ED82511C91A5C7007817C8 /* ZTUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ED82501C91A5C7007817C8 /* ZTUntil.m */; };
@@ -316,6 +317,8 @@
 		618707C11D7557EF00C31475 /* XMLUserLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLUserLogin.m; sourceTree = "<group>"; };
 		618707C31D75631400C31475 /* XMLOrderSubmit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLOrderSubmit.h; sourceTree = "<group>"; };
 		618707C41D75631400C31475 /* XMLOrderSubmit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLOrderSubmit.m; sourceTree = "<group>"; };
+		61D591BE1D93B92200EA2031 /* ResultOrder_SubmitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultOrder_SubmitModel.h; sourceTree = "<group>"; };
+		61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultOrder_SubmitModel.m; sourceTree = "<group>"; };
 		61DA27761D76A3CB00AE6E7B /* MarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkViewController.h; sourceTree = "<group>"; };
 		61DA27771D76A3CB00AE6E7B /* MarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkViewController.m; sourceTree = "<group>"; };
 		61DA27781D76A3CB00AE6E7B /* MarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkViewController.xib; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 				61ED82401C91A32B007817C8 /* Resources */,
 				615D01D61C91A1A8001EF35C /* AppDelegate.h */,
 				615D01D71C91A1A8001EF35C /* AppDelegate.m */,
+				61D591BE1D93B92200EA2031 /* ResultOrder_SubmitModel.h */,
+				61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */,
 				615D01D91C91A1A8001EF35C /* ViewController.h */,
 				615D01DA1C91A1A8001EF35C /* ViewController.m */,
 				6184BF591D790557004414C7 /* UserInfoModel.h */,
@@ -880,6 +885,7 @@
 				6167B4CB1CA5286700117606 /* MSMineScoresSingleWithUser.m in Sources */,
 				6167B4DD1CA5286700117606 /* MSSearchUsersAction.m in Sources */,
 				615D01D81C91A1A8001EF35C /* AppDelegate.m in Sources */,
+				61D591C01D93B92200EA2031 /* ResultOrder_SubmitModel.m in Sources */,
 				6167B4EA1CA5286700117606 /* MyLocationManager.m in Sources */,
 				6167B4BB1CA5286700117606 /* MSDeleteAddress.m in Sources */,
 				6167B4C31CA5286700117606 /* MSGetTeamMineAction.m in Sources */,

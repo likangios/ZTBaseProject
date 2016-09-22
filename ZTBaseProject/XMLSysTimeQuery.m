@@ -8,9 +8,13 @@
 
 #import "XMLSysTimeQuery.h"
 
+@interface XMLSysTimeQuery ()
+
+@property (nonatomic,strong) NSString               *systime;
+
+@end
+
 @implementation XMLSysTimeQuery
-
-
 
 +(instancetype)shared{
     static id _sharedInstance=  nil;
@@ -44,7 +48,7 @@
         [xmlparser setDelegate:self];
         [xmlparser parse];
         
-        block(nil,self.code,self.message);
+        block(self.systime,self.code,self.message);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -53,6 +57,7 @@
     }];
 }
 
+
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
 {
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
@@ -60,7 +65,9 @@
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string;
 {
     [super parser:parser foundCharacters:string];
-    
+    if ([self.currentElementName isEqualToString:@"TV_U"]) {
+        self.systime = string;
+    }
     
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;

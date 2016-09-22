@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "OtherMainViewController.h"
+#import "ResultOrder_SubmitModel.h"
 
 
 #import "XMLOrderSubmit.h"
@@ -21,10 +22,19 @@
 {
     dispatch_queue_t queue;
 }
+@property (nonatomic,assign) NSTimeInterval             shijiancha;
 @property (nonatomic,strong) NSMutableArray *muArray;
 
+@property (nonatomic,weak) IBOutlet UILabel     *logoLabel1;
 
-@property (nonatomic,weak) IBOutlet UILabel     *logoLabel;
+@property (nonatomic,weak) IBOutlet UILabel     *logoLabel2;
+
+@property (nonatomic,weak) IBOutlet UILabel     *logoLabel3;
+
+@property (nonatomic,weak) IBOutlet UILabel     *logoLabel4;
+
+@property (nonatomic,weak) IBOutlet UILabel     *logoLabel5;
+
 
 @property (nonatomic,weak) IBOutlet  UITextField                   *startTime;
 
@@ -73,75 +83,116 @@
     }
     
     self.startTime.text = [XMLStoreService userdefaultValueWithKey:@"self.startTime"];
+    
     self.code1.text = [XMLStoreService userdefaultValueWithKey:@"self.code1"];
     self.price1.text = [XMLStoreService userdefaultValueWithKey:@"self.price1"];
     self.amount1.text = [XMLStoreService userdefaultValueWithKey:@"self.amount1"];
-    /*
-    queue = dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
-    UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    self.code2.text = [XMLStoreService userdefaultValueWithKey:@"self.code2"];
+    self.price2.text = [XMLStoreService userdefaultValueWithKey:@"self.price2"];
+    self.amount2.text = [XMLStoreService userdefaultValueWithKey:@"self.amount2"];
     
-        for (int i = 0; i<20; i++) {
-
-            [NSThread sleepForTimeInterval:0.49];
-            NSLog(@"i === %ld",i);
-
-            [[XMLSysTimeQuery shared]RequestWithSysTimeQueryBlocks:^(id obj, NSString *code, NSString *message) {
-                    NSLog(@" XMLSysTimeQuery  CODE %@  MESSAGE %@",code,message);
-
-                }];
-
-        }
+    self.code3.text = [XMLStoreService userdefaultValueWithKey:@"self.code3"];
+    self.price3.text = [XMLStoreService userdefaultValueWithKey:@"self.price3"];
+    self.amount3.text = [XMLStoreService userdefaultValueWithKey:@"self.amount3"];
     
+    self.code4.text = [XMLStoreService userdefaultValueWithKey:@"self.code4"];
+    self.price4.text = [XMLStoreService userdefaultValueWithKey:@"self.price4"];
+    self.amount4.text = [XMLStoreService userdefaultValueWithKey:@"self.amount4"];
     
-    });*/
+    self.code5.text = [XMLStoreService userdefaultValueWithKey:@"self.code5"];
+    self.price5.text = [XMLStoreService userdefaultValueWithKey:@"self.price5"];
+    self.amount5.text = [XMLStoreService userdefaultValueWithKey:@"self.amount5"];
     
     self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithTitle:@"other" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick)];
+   
     
-    
-    
-}
-
-- (void)request{
-    UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
-    [[XMLUserLogoff shared] RequestWithUserLogOffBlocks:^(id obj, NSString *code, NSString *message) {
-        NSLog(@" XMLUserLogoff  CODE %@  MESSAGE %@",code,message);
-        [[XMLUserLogin shared] RequestWithName:user.account AndPassword:user.password  Blocks:^(id obj, NSString *code, NSString *message) {
-            NSLog(@" XMLUserLogin  CODE %@  MESSAGE %@",code,message);
-            [[XMLSysTimeQuery shared]RequestWithSysTimeQueryBlocks:^(id obj, NSString *code, NSString *message) {
-                NSLog(@" XMLSysTimeQuery  CODE %@  MESSAGE %@",code,message);
-                [self request];
-            }];
-        }];
+    NSTimeInterval  start  =  CACurrentMediaTime();
+    [[XMLSysTimeQuery shared] RequestWithSysTimeQueryBlocks:^(NSString *systime, NSString *code, NSString *message) {
+        NSTimeInterval end = CACurrentMediaTime();
+        
+        NSDate *now = [NSDate date];
+        NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+        [formatter1 setDateFormat:@"HH:mm:ss"];
+        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue - 1000*(end-start);
+        NSLog(@"cha1 %.f  cha %.f  requestTime %.f ",now.timeIntervalSince1970*1000 - systime.doubleValue,self.shijiancha,1000*(end-start));
     }];
     
 }
+
+
+#pragma mark --
+- (void)startRequestWithIndex:(NSInteger)index Code:(NSString *)codeid Price:(NSString *)price Amount:(NSString *)amount Count:(NSInteger)count{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        if (![self shouldStartWithStartTime:self.startTime.text]) {
+            [NSThread sleepForTimeInterval:0.005];
+            NSLog(@"还没开始");
+            [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
+            if (_muArray.count) {
+                //            [_muArray removeObjectAtIndex:0];
+            }
+            //            [_muArray addObject:@"还没开始"];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *string = @"";
+                for (int i = 0; i<_muArray.count; i++) {
+                    string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
+                }
+                
+            });
+            
+            return;
+        }else{
+            
+            NSLog(@"时间到了");
+        }
+        
+        NSTimeInterval  start  =  CACurrentMediaTime();
+        
+        [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:codeid Price:price Amount:amount Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
+            NSTimeInterval end = CACurrentMediaTime();
+            
+            NSLog(@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count);
+
+            [self  updateUIWithIndex:index Code:code message:message Count:count];
+            
+        }];
+        
+    });
+    
+}
+
 - (BOOL)shouldStartWithStartTime:(NSString *)time{
     
     if (time.length != 9) {
-        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//        [ZTUntil showErrorHUDViewAtView:self.view WithTitle:@"时间格式错误"];
-//        });
         return  NO;
     }
-    NSString *startTime = time;
-    
     
     NSDate *now = [NSDate date];
+    
     NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
-    [formatter1 setDateStyle:NSDateFormatterMediumStyle];
-    [formatter1 setDateFormat:@"yyyy-MM-dd HH:mm:ss:SSS"];
+    [formatter1 setDateFormat:@"yyyy-MM-dd "];
     NSString *dateStr1 = [formatter1 stringFromDate:now];
-    NSArray *array=[dateStr1 componentsSeparatedByString:@" "];
-//    NSArray *c    urrentTime=[[array objectAtIndex:1] componentsSeparatedByString:@":"];
     
-    NSString *current = [[array objectAtIndex:1] stringByReplacingOccurrencesOfString:@":" withString:@""];
+    [formatter1 setDateFormat:@"yyyy-MM-dd HHmmssSSS"];
     
-    if (current.integerValue >= startTime.integerValue) {
+    NSString *newTime = [NSString stringWithFormat:@"%@%@",dateStr1,time];
+    
+    NSDate *startDate = [formatter1 dateFromString:newTime];
+    
+    NSTimeInterval nowTimeInterval = now.timeIntervalSince1970;
+    
+    NSTimeInterval startTimeInterval = startDate.timeIntervalSince1970;
+    
+    if (nowTimeInterval*1000 >= startTimeInterval*1000 + self.shijiancha) {
+        
         return YES;
     }
+//    NSLog(@"time1  %f  time2 %f",nowTimeInterval *1000, startTimeInterval *1000+self.shijiancha);
+    
+    
     return NO;
 }
 - (void)requestWithIndex:(NSInteger)index WithRect:(BOOL)rect{
@@ -219,7 +270,7 @@
 
     
 }
-- (IBAction)buttonClick:(UIButton *)sender{
+- (IBAction)buttonClick1:(UIButton *)sender{
     
     switch (sender.tag) {
         case 1:
@@ -255,57 +306,341 @@
     
 }
 
-#pragma mark --
-- (void)startRequestWithIndex:(NSInteger)index Code:(NSString *)codeid Price:(NSString *)price Amount:(NSString *)amount Count:(NSInteger)count{
-    
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        if (![self shouldStartWithStartTime:self.startTime.text]) {
-            [NSThread sleepForTimeInterval:0.05];
-            NSLog(@"还没开始");
-            [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
-            [_muArray removeObjectAtIndex:0];
-            [_muArray addObject:@"还没开始"];
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSString *string = @"";
-                for (int i = 0; i<_muArray.count; i++) {
-                    string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
-                }
-                self.logoLabel.text= string;
-
-            });
-            
-            return;
-        }else{
-            
-            NSLog(@"时间到了");
-        }
-        
-        NSTimeInterval  start  =  CACurrentMediaTime();
-        
-        [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:codeid Price:price Amount:amount Blocks:^(id obj, NSString *code, NSString *message) {
-            NSTimeInterval end = CACurrentMediaTime();
-
-            NSLog(@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count);
-            
-            [_muArray removeObjectAtIndex:0];
-            [_muArray addObject:[NSString stringWithFormat:@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count]];
-
-            NSString *string = @"";
-            for (int i = 0; i<_muArray.count; i++) {
-                string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
+- (IBAction)buttonClick:(UIButton *)sender{
+    switch (sender.tag) {
+        case 1:
+            if (!self.code1.text.length || !self.price1.text.length || !self.amount1.text.length) {
+                return;
             }
-            self.logoLabel.text= string;
-            
-            [self  updateUIWithIndex:index Code:code message:message Count:count];
-            
-        }];
+            break;
+        case 2:
+            if (!self.code2.text.length || !self.price2.text.length || !self.amount2.text.length) {
+                return;
+            }
+            break;
+        case 3:
+            if (!self.code3.text.length || !self.price3.text.length || !self.amount3.text.length) {
+                return;
+            }
+            break;
+        case 4:
+            if (!self.code4.text.length || !self.price4.text.length || !self.amount4.text.length) {
+                return;
+            }
+            break;
+        case 5:
+            if (!self.code5.text.length || !self.price5.text.length || !self.amount5.text.length) {
+                return;
+            }
+            break;
+    }
+    
+    sender.selected = !sender.selected;
+    
+//    if (sender.tag == 1) {
+//        if (sender.selected) {
+//            [self queue1nstimer];
+//        }
+//    }
+    
+    if (sender.selected) {
         
-    });
+        NSString *string = [NSString stringWithFormat:@"queue%ldnstimer",sender.tag];
+        
+        SEL selector = NSSelectorFromString(string);
+        
+        [self performSelector:selector withObject:nil afterDelay:0];
+    }
+
     
 }
+- (void)queue1nstimer{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (self.btn1.selected) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity1 startAnimating];
+            });
+        if ([self shouldStartWithStartTime:self.startTime.text]) {
+            NSTimeInterval  start  =  CACurrentMediaTime();
+            
+            [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:self.code1.text Price:self.price1.text Amount:self.amount1.text Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
+                NSTimeInterval end = CACurrentMediaTime();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity1 stopAnimating];
+                    
+                self.logoLabel1.text = [NSString stringWithFormat:@"queue1 code:%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start];
+                });
+                NSLog(@"queue1 code:%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start);
+
+                NSLog(@"code :%@  message :%@",code,message);
+                
+                if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                    [self queue1nstimer];
+                    
+                }else if ([code isEqualToString:@"0"]){
+                    NSLog(@"queue1 下单成功");
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.logoLabel1.text = @"OK";
+                        self.btn1.selected = NO;
+                    });
+                }else if ([code isEqualToString:@"-2"]){
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.logoLabel1.text = @"死了";
+                    });
+                    NSLog(@"queue1 你挂了");
+                }else{
+                    [self queue1nstimer];
+                }
+            }];
+            
+        }else{
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+            self.logoLabel1.text = @"等。。。";
+            });
+            NSLog(@"queue1 时间不到");
+            [NSThread sleepForTimeInterval:0.005];
+            [self queue1nstimer];
+        }
+            
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity1 stopAnimating];
+            });
+        }
+    });
+}
+
+- (void)queue2nstimer{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (self.btn2.selected) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity2 startAnimating];
+            });
+            if ([self shouldStartWithStartTime:self.startTime.text]) {
+
+                NSTimeInterval  start  =  CACurrentMediaTime();
+                
+                [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:self.code2.text Price:self.price2.text Amount:self.amount2.text Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
+                    NSTimeInterval end = CACurrentMediaTime();
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.Activity2 stopAnimating];
+                        
+                        self.logoLabel2.text = [NSString stringWithFormat:@"queue2 code:%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start];
+                    });
+                    NSLog(@"queue2 code:%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start);
+                    
+                    NSLog(@"queue2 code :%@  message :%@",code,message);
+                    
+                    if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                        [self queue2nstimer];
+                        
+                    }else if ([code isEqualToString:@"0"]){
+                        NSLog(@"queue2 下单成功");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.logoLabel2.text = @"OK";
+                            self.btn2.selected = NO;
+                        });
+                    }else if ([code isEqualToString:@"-2"]){
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.logoLabel2.text = @"死了";
+                        });
+                        NSLog(@"queue2 你挂了");
+                    }else{
+                        [self queue2nstimer];
+                    }
+                }];
+                
+            }else{
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.logoLabel2.text = @"等。。。";
+                });
+                NSLog(@"queue2 时间不到");
+                [NSThread sleepForTimeInterval:0.005];
+                [self queue2nstimer];
+            }
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity2 stopAnimating];
+            });
+        }
+    });
+}
+
+- (void)queue3nstimer{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (self.btn3.selected) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity3 startAnimating];
+            });
+            if ([self shouldStartWithStartTime:self.startTime.text]) {
+
+                NSTimeInterval  start  =  CACurrentMediaTime();
+                
+                [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:self.code3.text Price:self.price3.text Amount:self.amount3.text Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
+                    NSTimeInterval end = CACurrentMediaTime();
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.Activity3 stopAnimating];
+                        
+                        self.logoLabel3.text = [NSString stringWithFormat:@"queue3 code:%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start];
+                    });
+                    NSLog(@"queue3 code:%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start);
+                    
+                    NSLog(@"queue3 code :%@  message :%@",code,message);
+                    
+                    if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                        [self queue3nstimer];
+                        
+                    }else if ([code isEqualToString:@"0"]){
+                        NSLog(@"queue3 下单成功");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.logoLabel3.text = @"OK";
+                            self.btn3.selected = NO;
+                        });
+                    }else if ([code isEqualToString:@"-2"]){
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.logoLabel3.text = @"死了";
+                        });
+                        NSLog(@"queue3 你挂了");
+                    }else{
+                        [self queue3nstimer];
+                    }
+                }];
+                
+            }else{
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.logoLabel3.text = @"等。。。";
+                });
+                NSLog(@"queue3 时间不到");
+                [NSThread sleepForTimeInterval:0.005];
+                [self queue3nstimer];
+            }
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity3 stopAnimating];
+            });
+        }
+    });
+}
+- (void)queue4nstimer{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (self.btn4.selected) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity4 startAnimating];
+            });
+            if ([self shouldStartWithStartTime:self.startTime.text]) {
+
+                NSTimeInterval  start  =  CACurrentMediaTime();
+                
+                [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:self.code4.text Price:self.price4.text Amount:self.amount4.text Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
+                    NSTimeInterval end = CACurrentMediaTime();
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.Activity4 stopAnimating];
+                        
+                        self.logoLabel4.text = [NSString stringWithFormat:@"queue4 code:%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start];
+                    });
+                    NSLog(@"queue4 code:%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start);
+                    
+                    NSLog(@"queue4 code :%@  message :%@",code,message);
+                    
+                    if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                        [self queue4nstimer];
+                        
+                    }else if ([code isEqualToString:@"0"]){
+                        NSLog(@"queue4 下单成功");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.logoLabel4.text = @"OK";
+                            self.btn4.selected = NO;
+                        });
+                    }else if ([code isEqualToString:@"-2"]){
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.logoLabel4.text = @"死了";
+                        });
+                        NSLog(@"queue4 你挂了");
+                    }else{
+                        [self queue4nstimer];
+                    }
+                }];
+                
+            }else{
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.logoLabel4.text = @"等。。。";
+                });
+                NSLog(@"queue4 时间不到");
+                [NSThread sleepForTimeInterval:0.005];
+                [self queue4nstimer];
+            }
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity4 stopAnimating];
+            });
+        }
+    });
+}
+- (void)queue5nstimer{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (self.btn5.selected) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity5 startAnimating];
+            });
+            if ([self shouldStartWithStartTime:self.startTime.text]) {
+
+                NSTimeInterval  start  =  CACurrentMediaTime();
+                
+                [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:self.code5.text Price:self.price5.text Amount:self.amount5.text Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
+                    NSTimeInterval end = CACurrentMediaTime();
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.Activity5 stopAnimating];
+                        
+                        self.logoLabel5.text = [NSString stringWithFormat:@"queue5 code:%@ price:%@ amount:%@ time %f",self.code5.text,self.price5.text,self.amount5.text,end-start];
+                    });
+                    NSLog(@"queue5 code:%@ price:%@ amount:%@ time %f",self.code5.text,self.price5.text,self.amount5.text,end-start);
+                    
+                    NSLog(@"queue5 code :%@  message :%@",code,message);
+                    
+                    if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                        [self queue5nstimer];
+                        
+                    }else if ([code isEqualToString:@"0"]){
+                        NSLog(@"queue5 下单成功");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.logoLabel5.text = @"OK";
+                            self.btn5.selected = NO;
+                        });
+                    }else if ([code isEqualToString:@"-2"]){
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.logoLabel5.text = @"死了";
+                        });
+                        NSLog(@"queue5 你挂了");
+                    }else{
+                        [self queue5nstimer];
+                    }
+                }];
+                
+            }else{
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.logoLabel5.text = @"等。。。";
+                });
+                NSLog(@"queue5 时间不到");
+                [NSThread sleepForTimeInterval:0.005];
+                [self queue5nstimer];
+            }
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.Activity5 stopAnimating];
+            });
+        }
+    });
+}
+
+
+
+
+
 - (void)updateUIWithIndex:(NSInteger)index Code:(NSString *)code message:(NSString *)message Count:(NSInteger)count{
     count ++;
     if ([code isEqualToString:@"0"]) {
@@ -388,9 +723,6 @@
 };
 - (void)uploadWithIndex:(NSInteger)index Rect:(BOOL)rect Count:(NSInteger)count{
    
-    if (count > 100) {
-        rect = NO;
-    }
     NSString *code;
     NSString *price;
     NSString *amount;
@@ -514,13 +846,50 @@
         
         [XMLStoreService StoredefaultValue:textfield.text Key:@"self.startTime"];
     }else if (textfield == self.code1){
+        
         [XMLStoreService StoredefaultValue:textfield.text Key:@"self.code1"];
+        
+    }else if (textfield == self.code2){
+        
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.code2"];
+        
+    }else if (textfield == self.code3){
+        
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.code3"];
+        
+    }else if (textfield == self.code4){
+        
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.code4"];
+        
+    }else if (textfield == self.code5){
+        
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.code5"];
         
     }else if (textfield == self.price1){
         [XMLStoreService StoredefaultValue:textfield.text Key:@"self.price1"];
         
+    }else if (textfield == self.price2){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.price2"];
+        
+    }else if (textfield == self.price3){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.price3"];
+        
+    }else if (textfield == self.price4){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.price4"];
+        
+    }else if (textfield == self.price5){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.price5"];
+        
     }else if(textfield == self.amount1){
         [XMLStoreService StoredefaultValue:textfield.text Key:@"self.amount1"];
+    }else if(textfield == self.amount2){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.amount2"];
+    }else if(textfield == self.amount3){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.amount3"];
+    }else if(textfield == self.amount4){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.amount4"];
+    }else if(textfield == self.amount5){
+        [XMLStoreService StoredefaultValue:textfield.text Key:@"self.amount5"];
     }
     NSLog(@"text %@",textfield.text);
 }

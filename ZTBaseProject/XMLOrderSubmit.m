@@ -7,6 +7,13 @@
 //
 
 #import "XMLOrderSubmit.h"
+#import "ResultOrder_SubmitModel.h"
+@interface XMLOrderSubmit ()
+
+@property (nonatomic,strong) ResultOrder_SubmitModel               *resultModel;
+
+
+@end
 
 @implementation XMLOrderSubmit
 
@@ -43,7 +50,7 @@
         [xmlparser setDelegate:self];
         [xmlparser parse];
         
-        block(nil,self.code,self.message);
+        block(self.resultModel,self.code,self.message);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -55,12 +62,22 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
 {
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
+    
+    if ([elementName isEqualToString:@"RESULT"]) {
+        _resultModel = [[ResultOrder_SubmitModel alloc]init];
+        
+    }
 }
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string;
 {
     [super parser:parser foundCharacters:string];
     
-    
+    if ([self.currentElementName isEqualToString:@"RETCODE"]) {
+        _resultModel.resutl = string;
+    }
+    if ([self.currentElementName isEqualToString:@"MESSAGE"]) {
+        _resultModel.message = string;
+    }
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {
