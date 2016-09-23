@@ -119,14 +119,13 @@
     NSTimeInterval  start  =  CACurrentMediaTime();
     [[XMLSysTimeQuery shared] RequestWithSysTimeQueryBlocks:^(NSString *systime, NSString *code, NSString *message) {
         NSTimeInterval end = CACurrentMediaTime();
-        
         NSDate *now = [NSDate date];
         NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+        
         [formatter1 setDateFormat:@"HH:mm:ss"];
-        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue - 1000*(end-start);
-        NSLog(@"cha1 %.f  cha %.f  requestTime %.f ",now.timeIntervalSince1970*1000 - systime.doubleValue,self.shijiancha,1000*(end-start));
+        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue;
+        NSLog(@"origin %.f   requestTime %.f ",self.shijiancha,1000*(end-start));
     }];
-    
 }
 
 
@@ -361,6 +360,10 @@
         [self performSelector:selector withObject:nil afterDelay:0];
     }
 }
+static NSTimeInterval  tieminterval = 0.075;
+
+static NSTimeInterval  nottieminterval = 0.005;
+
 - (void)queue1nstimer{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if (self.btn1.selected) {
@@ -377,11 +380,11 @@
                     
                 self.logoLabel1.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start];
                 });
-                NSLog(@":%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start);
-
-                NSLog(@"code :%@  message :%@",code,message);
+                
+                NSLog(@"queue1 code :%@  message :%@ time : %f",code,message,end-start);
                 
                 if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                    [NSThread sleepForTimeInterval:tieminterval];
                     [self queue1nstimer];
                     
                 }else if ([code isEqualToString:@"0"]){
@@ -396,6 +399,7 @@
                     });
                     NSLog(@"queue1 你挂了");
                 }else{
+                    [NSThread sleepForTimeInterval:tieminterval];
                     [self queue1nstimer];
                 }
             }];
@@ -406,7 +410,7 @@
             self.logoLabel1.text = @"等。。。";
             });
             NSLog(@"queue1 时间不到");
-            [NSThread sleepForTimeInterval:0.005];
+            [NSThread sleepForTimeInterval:nottieminterval];
             [self queue1nstimer];
         }
             
@@ -436,11 +440,12 @@
                         
                         self.logoLabel2.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start];
                     });
-                    NSLog(@":%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start);
                     
-                    NSLog(@" :%@  message :%@",code,message);
+                    NSLog(@"queue2 code :%@  message :%@ time : %f",code,message,end-start);
                     
                     if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                        [NSThread sleepForTimeInterval:tieminterval];
+
                         [self queue2nstimer];
                         
                     }else if ([code isEqualToString:@"0"]){
@@ -455,6 +460,8 @@
                         });
                         NSLog(@"queue2 你挂了");
                     }else{
+                        [NSThread sleepForTimeInterval:tieminterval];
+
                         [self queue2nstimer];
                     }
                 }];
@@ -465,7 +472,7 @@
                     self.logoLabel2.text = @"等。。。";
                 });
                 NSLog(@"queue2 时间不到");
-                [NSThread sleepForTimeInterval:0.005];
+                [NSThread sleepForTimeInterval:nottieminterval];
                 [self queue2nstimer];
             }
         }else{
@@ -494,11 +501,13 @@
                         
                         self.logoLabel3.text = [NSString stringWithFormat:@"%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start];
                     });
-                    NSLog(@"%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start);
                     
+                    NSLog(@"queue3 code :%@  message :%@ time : %f",code,message,end-start);
+
                     NSLog(@" :%@  message :%@",code,message);
                     
                     if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                        [NSThread sleepForTimeInterval:tieminterval];
                         [self queue3nstimer];
                         
                     }else if ([code isEqualToString:@"0"]){
@@ -513,6 +522,8 @@
                         });
                         NSLog(@"queue3 你挂了");
                     }else{
+                        [NSThread sleepForTimeInterval:tieminterval];
+
                         [self queue3nstimer];
                     }
                 }];
@@ -523,7 +534,7 @@
                     self.logoLabel3.text = @"等。。。";
                 });
                 NSLog(@"queue3 时间不到");
-                [NSThread sleepForTimeInterval:0.005];
+                [NSThread sleepForTimeInterval:nottieminterval];
                 [self queue3nstimer];
             }
         }else{
@@ -551,11 +562,12 @@
                         
                         self.logoLabel4.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start];
                     });
-                    NSLog(@":%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start);
                     
-                    NSLog(@" :%@  message :%@",code,message);
+                    NSLog(@"queue4 code :%@  message :%@ time : %f",code,message,end-start);
                     
                     if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                        [NSThread sleepForTimeInterval:tieminterval];
+
                         [self queue4nstimer];
                         
                     }else if ([code isEqualToString:@"0"]){
@@ -570,6 +582,8 @@
                         });
                         NSLog(@"queue4 你挂了");
                     }else{
+                        [NSThread sleepForTimeInterval:tieminterval];
+
                         [self queue4nstimer];
                     }
                 }];
@@ -580,7 +594,7 @@
                     self.logoLabel4.text = @"等。。。";
                 });
                 NSLog(@"queue4 时间不到");
-                [NSThread sleepForTimeInterval:0.005];
+                [NSThread sleepForTimeInterval:nottieminterval];
                 [self queue4nstimer];
             }
         }else{
@@ -608,11 +622,12 @@
                         
                         self.logoLabel5.text = [NSString stringWithFormat:@"queue5 code:%@ price:%@ amount:%@ time %f",self.code5.text,self.price5.text,self.amount5.text,end-start];
                     });
-                    NSLog(@"queue5 code:%@ price:%@ amount:%@ time %f",self.code5.text,self.price5.text,self.amount5.text,end-start);
                     
-                    NSLog(@"queue5 code :%@  message :%@",code,message);
+                    NSLog(@"queue5 code :%@  message :%@ time : %f",code,message,end-start);
                     
                     if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
+                        [NSThread sleepForTimeInterval:tieminterval];
+
                         [self queue5nstimer];
                         
                     }else if ([code isEqualToString:@"0"]){
@@ -628,6 +643,8 @@
                         self.btn5.selected = NO;
                         NSLog(@"queue5 你挂了");
                     }else{
+                        [NSThread sleepForTimeInterval:tieminterval];
+
                         [self queue5nstimer];
                     }
                 }];
@@ -638,7 +655,7 @@
                     self.logoLabel5.text = @"等。。。";
                 });
                 NSLog(@"queue5 时间不到");
-                [NSThread sleepForTimeInterval:0.005];
+                [NSThread sleepForTimeInterval:nottieminterval];
                 [self queue5nstimer];
             }
         }else{
