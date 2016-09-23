@@ -74,6 +74,15 @@
 
 @implementation MainViewController
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.btn1.selected = NO;
+    self.btn2.selected = NO;
+    self.btn3.selected = NO;
+    self.btn4.selected = NO;
+    self.btn5.selected = NO;
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     _muArray = [NSMutableArray arrayWithCapacity:6];
@@ -351,8 +360,6 @@
         
         [self performSelector:selector withObject:nil afterDelay:0];
     }
-
-    
 }
 - (void)queue1nstimer{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -368,9 +375,9 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                 [self.Activity1 stopAnimating];
                     
-                self.logoLabel1.text = [NSString stringWithFormat:@"queue1 code:%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start];
+                self.logoLabel1.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start];
                 });
-                NSLog(@"queue1 code:%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start);
+                NSLog(@":%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start);
 
                 NSLog(@"code :%@  message :%@",code,message);
                 
@@ -405,6 +412,7 @@
             
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.logoLabel1.text = @"label";
                 [self.Activity1 stopAnimating];
             });
         }
@@ -426,11 +434,11 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.Activity2 stopAnimating];
                         
-                        self.logoLabel2.text = [NSString stringWithFormat:@"queue2 code:%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start];
+                        self.logoLabel2.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start];
                     });
-                    NSLog(@"queue2 code:%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start);
+                    NSLog(@":%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start);
                     
-                    NSLog(@"queue2 code :%@  message :%@",code,message);
+                    NSLog(@" :%@  message :%@",code,message);
                     
                     if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
                         [self queue2nstimer];
@@ -462,6 +470,7 @@
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.logoLabel2.text = @"label";
                 [self.Activity2 stopAnimating];
             });
         }
@@ -483,11 +492,11 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.Activity3 stopAnimating];
                         
-                        self.logoLabel3.text = [NSString stringWithFormat:@"queue3 code:%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start];
+                        self.logoLabel3.text = [NSString stringWithFormat:@"%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start];
                     });
-                    NSLog(@"queue3 code:%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start);
+                    NSLog(@"%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start);
                     
-                    NSLog(@"queue3 code :%@  message :%@",code,message);
+                    NSLog(@" :%@  message :%@",code,message);
                     
                     if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
                         [self queue3nstimer];
@@ -519,6 +528,7 @@
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.logoLabel3.text = @"label";
                 [self.Activity3 stopAnimating];
             });
         }
@@ -539,11 +549,11 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.Activity4 stopAnimating];
                         
-                        self.logoLabel4.text = [NSString stringWithFormat:@"queue4 code:%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start];
+                        self.logoLabel4.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start];
                     });
-                    NSLog(@"queue4 code:%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start);
+                    NSLog(@":%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start);
                     
-                    NSLog(@"queue4 code :%@  message :%@",code,message);
+                    NSLog(@" :%@  message :%@",code,message);
                     
                     if ([code  isEqualToString:@"-1611"] ||[code  isEqualToString:@"-1633"]) {
                         [self queue4nstimer];
@@ -575,6 +585,7 @@
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.logoLabel4.text = @"label";
                 [self.Activity4 stopAnimating];
             });
         }
@@ -614,6 +625,7 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             self.logoLabel5.text = @"死了";
                         });
+                        self.btn5.selected = NO;
                         NSLog(@"queue5 你挂了");
                     }else{
                         [self queue5nstimer];
@@ -631,6 +643,7 @@
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.logoLabel5.text = @"label";
                 [self.Activity5 stopAnimating];
             });
         }
