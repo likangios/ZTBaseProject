@@ -57,7 +57,7 @@
     [super parser:parser foundCharacters:string];
     
     if ([self.currentElementName isEqualToString:@"RETCODE"]) {
-        if (string.length>10) {
+        if (string.length>6) {
             [XMLStoreService StoreRETCODE:string];
         }else{
             self.code = nil;
