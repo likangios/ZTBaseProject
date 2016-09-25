@@ -416,7 +416,7 @@ static NSTimeInterval  nottieminterval = 0.005;
             
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.logoLabel1.text = @"label";
+//                self.logoLabel1.text = @"label";
                 [self.Activity1 stopAnimating];
             });
         }
@@ -477,7 +477,7 @@ static NSTimeInterval  nottieminterval = 0.005;
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.logoLabel2.text = @"label";
+//                self.logoLabel2.text = @"label";
                 [self.Activity2 stopAnimating];
             });
         }
@@ -539,7 +539,7 @@ static NSTimeInterval  nottieminterval = 0.005;
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.logoLabel3.text = @"label";
+//                self.logoLabel3.text = @"label";
                 [self.Activity3 stopAnimating];
             });
         }
@@ -599,7 +599,7 @@ static NSTimeInterval  nottieminterval = 0.005;
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.logoLabel4.text = @"label";
+//                self.logoLabel4.text = @"label";
                 [self.Activity4 stopAnimating];
             });
         }
@@ -660,7 +660,7 @@ static NSTimeInterval  nottieminterval = 0.005;
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.logoLabel5.text = @"label";
+//                self.logoLabel5.text = @"label";
                 [self.Activity5 stopAnimating];
             });
         }
