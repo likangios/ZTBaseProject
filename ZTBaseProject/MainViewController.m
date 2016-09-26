@@ -124,6 +124,7 @@
         
         [formatter1 setDateFormat:@"HH:mm:ss"];
         self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue;
+        self.title = [NSString stringWithFormat:@"%.fms",self.shijiancha];
         NSLog(@"origin %.f   requestTime %.f ",self.shijiancha,1000*(end-start));
     }];
 }
@@ -378,7 +379,7 @@ static NSTimeInterval  nottieminterval = 0.005;
                 dispatch_async(dispatch_get_main_queue(), ^{
                 [self.Activity1 stopAnimating];
                     
-                self.logoLabel1.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code1.text,self.price1.text,self.amount1.text,end-start];
+                self.logoLabel1.text = [NSString stringWithFormat:@"queue1 code :%@  message :%@ time : %f",code,message,end-start];
                 });
                 
                 NSLog(@"queue1 code :%@  message :%@ time : %f",code,message,end-start);
@@ -438,7 +439,7 @@ static NSTimeInterval  nottieminterval = 0.005;
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.Activity2 stopAnimating];
                         
-                        self.logoLabel2.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code2.text,self.price2.text,self.amount2.text,end-start];
+                        self.logoLabel2.text = [NSString stringWithFormat:@"queue2 code :%@  message :%@ time : %f",code,message,end-start];
                     });
                     
                     NSLog(@"queue2 code :%@  message :%@ time : %f",code,message,end-start);
@@ -499,7 +500,7 @@ static NSTimeInterval  nottieminterval = 0.005;
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.Activity3 stopAnimating];
                         
-                        self.logoLabel3.text = [NSString stringWithFormat:@"%@ price:%@ amount:%@ time %f",self.code3.text,self.price3.text,self.amount3.text,end-start];
+                        self.logoLabel3.text = [NSString stringWithFormat:@"queue3 code :%@  message :%@ time : %f",code,message,end-start];
                     });
                     
                     NSLog(@"queue3 code :%@  message :%@ time : %f",code,message,end-start);
@@ -560,7 +561,7 @@ static NSTimeInterval  nottieminterval = 0.005;
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.Activity4 stopAnimating];
                         
-                        self.logoLabel4.text = [NSString stringWithFormat:@":%@ price:%@ amount:%@ time %f",self.code4.text,self.price4.text,self.amount4.text,end-start];
+                        self.logoLabel4.text = [NSString stringWithFormat:@"queue4 code :%@  message :%@ time : %f",code,message,end-start];
                     });
                     
                     NSLog(@"queue4 code :%@  message :%@ time : %f",code,message,end-start);
@@ -620,7 +621,7 @@ static NSTimeInterval  nottieminterval = 0.005;
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.Activity5 stopAnimating];
                         
-                        self.logoLabel5.text = [NSString stringWithFormat:@"queue5 code:%@ price:%@ amount:%@ time %f",self.code5.text,self.price5.text,self.amount5.text,end-start];
+                        self.logoLabel5.text = [NSString stringWithFormat:@"queue5 code :%@  message :%@ time : %f",code,message,end-start];
                     });
                     
                     NSLog(@"queue5 code :%@  message :%@ time : %f",code,message,end-start);
