@@ -49,11 +49,12 @@
     [ZTUntil showHUDAddedTo:self.view];
     
     [[XMLEncryptStr shared] RequestWithName:self.phoneTextfield.text AndPassword:self.passwordTextfield.text MarkID:[NSString stringWithFormat:@"%ld",(long)self.markId] Blocks:^(id obj, NSString *code, NSString *message) {
-        [ZTUntil hideAllHUDsForView:self.view];
         
         if ([code isEqualToString:@"0"]) {
             
             [[XMLUserLogin shared] RequestWithName:self.phoneTextfield.text AndPassword:self.passwordTextfield.text Blocks:^(id obj, NSString *code, NSString *message) {
+                [ZTUntil hideAllHUDsForView:self.view];
+
                 if (code) {
                     MainViewController *main = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
                     [self.navigationController pushViewController:main animated:YES];
@@ -66,7 +67,8 @@
             }];
             
         }else{
-            
+            [ZTUntil hideAllHUDsForView:self.view];
+
             [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
         }
     }];
