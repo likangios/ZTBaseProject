@@ -103,6 +103,8 @@
 		6167B4EA1CA5286700117606 /* MyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4A51CA5286700117606 /* MyLocationManager.m */; };
 		6167B4ED1CA5297500117606 /* TestAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EC1CA5297500117606 /* TestAction.m */; };
 		6167B4F01CA52BE800117606 /* TestAction2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EF1CA52BE800117606 /* TestAction2.m */; };
+		618269991D9A081400558042 /* XMLQueryCommodity.m in Sources */ = {isa = PBXBuildFile; fileRef = 618269981D9A081400558042 /* XMLQueryCommodity.m */; };
+		6182699C1D9A09CA00558042 /* CommodityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182699B1D9A09CA00558042 /* CommodityModel.m */; };
 		6184BF581D77DA5E004414C7 /* XMLTradeServerinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184BF571D77DA5E004414C7 /* XMLTradeServerinfo.m */; };
 		6184BF5B1D790557004414C7 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184BF5A1D790557004414C7 /* UserInfoModel.m */; };
 		618707BF1D7557E600C31475 /* XMLEncryptStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707BE1D7557E600C31475 /* XMLEncryptStr.m */; };
@@ -307,6 +309,10 @@
 		6167B4EC1CA5297500117606 /* TestAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAction.m; sourceTree = "<group>"; };
 		6167B4EE1CA52BE800117606 /* TestAction2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAction2.h; sourceTree = "<group>"; };
 		6167B4EF1CA52BE800117606 /* TestAction2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAction2.m; sourceTree = "<group>"; };
+		618269971D9A081400558042 /* XMLQueryCommodity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLQueryCommodity.h; sourceTree = "<group>"; };
+		618269981D9A081400558042 /* XMLQueryCommodity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLQueryCommodity.m; sourceTree = "<group>"; };
+		6182699A1D9A09CA00558042 /* CommodityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityModel.h; sourceTree = "<group>"; };
+		6182699B1D9A09CA00558042 /* CommodityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityModel.m; sourceTree = "<group>"; };
 		6184BF561D77DA5E004414C7 /* XMLTradeServerinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLTradeServerinfo.h; sourceTree = "<group>"; };
 		6184BF571D77DA5E004414C7 /* XMLTradeServerinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLTradeServerinfo.m; sourceTree = "<group>"; };
 		6184BF591D790557004414C7 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
@@ -424,6 +430,8 @@
 				615D01DA1C91A1A8001EF35C /* ViewController.m */,
 				6184BF591D790557004414C7 /* UserInfoModel.h */,
 				6184BF5A1D790557004414C7 /* UserInfoModel.m */,
+				6182699A1D9A09CA00558042 /* CommodityModel.h */,
+				6182699B1D9A09CA00558042 /* CommodityModel.m */,
 				61DA27761D76A3CB00AE6E7B /* MarkViewController.h */,
 				61DA27771D76A3CB00AE6E7B /* MarkViewController.m */,
 				61DA27781D76A3CB00AE6E7B /* MarkViewController.xib */,
@@ -442,6 +450,8 @@
 				61057C311D71963C0099CE62 /* XMLRequestBase.m */,
 				6184BF561D77DA5E004414C7 /* XMLTradeServerinfo.h */,
 				6184BF571D77DA5E004414C7 /* XMLTradeServerinfo.m */,
+				618269971D9A081400558042 /* XMLQueryCommodity.h */,
+				618269981D9A081400558042 /* XMLQueryCommodity.m */,
 				618707C31D75631400C31475 /* XMLOrderSubmit.h */,
 				618707C41D75631400C31475 /* XMLOrderSubmit.m */,
 				C8AF52F81D8541A1003EDF64 /* XMLSysTimeQuery.h */,
@@ -849,6 +859,7 @@
 				6167B4A81CA5286700117606 /* MSActivityDetailAction.m in Sources */,
 				C8AF52FD1D856339003EDF64 /* XMLUserLogoff.m in Sources */,
 				6167B4C01CA5286700117606 /* MSFriendsMineAction.m in Sources */,
+				6182699C1D9A09CA00558042 /* CommodityModel.m in Sources */,
 				6167B4E41CA5286700117606 /* MSUpdatePostion.m in Sources */,
 				6167B4D01CA5286700117606 /* MSNotifysReadWithTypeAction.m in Sources */,
 				6167B4CF1CA5286700117606 /* MSNotifysReadCheckinAction.m in Sources */,
@@ -895,6 +906,7 @@
 				61057C381D7198A00099CE62 /* XMLLogout.m in Sources */,
 				6167B4F01CA52BE800117606 /* TestAction2.m in Sources */,
 				6167B4AA1CA5286700117606 /* MSAdminConfirmCheckInAction.m in Sources */,
+				618269991D9A081400558042 /* XMLQueryCommodity.m in Sources */,
 				6167B4DB1CA5286700117606 /* MSSearch.m in Sources */,
 				6167B4C91CA5286700117606 /* MSMSObtainCulbAddressListAction.m in Sources */,
 				6167B4B31CA5286700117606 /* MSCheckinAction.m in Sources */,

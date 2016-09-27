@@ -81,9 +81,7 @@
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {
 
-    
     mstrXMLString = nil;
-    
     self.currentElementName = nil;
     
 }

@@ -138,6 +138,35 @@
     [userDefault setObject:encodedObject forKey:markId];
     [userDefault synchronize];
 }
+
++ (BOOL)isHasUserInfoWithAccount:(NSString *)account FromArray:(NSArray *)originArray{
+    
+    UserInfoModel *model = [XMLStoreService searchUserInfoWithAccount:account FromArray:originArray];
+    if (model) {
+    return YES  ;
+    }
+    return NO;
+    
+}
++ (UserInfoModel *)searchUserInfoWithAccount:(NSString *)account FromArray:(NSArray *)originArray{
+
+    for (UserInfoModel *obj in originArray) {
+        if ([obj.account isEqualToString:account]) {
+            return obj;
+            break;
+        }
+    }
+    return nil;
+    
+}
++(NSArray *)userinfosWithMarkId:(NSString *)markId{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [userDefault objectForKey:markId];
+    NSArray *userinfo = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return userinfo;
+    
+}
+
 + (UserInfoModel *)userinfoWithMarkId:(NSString *)markId{
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSData *encodedObject = [userDefault objectForKey:markId];

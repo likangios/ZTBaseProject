@@ -15,13 +15,19 @@
 #import <IHKeyboardAvoiding.h>
 #import "XMLSysTimeQuery.h"
 #import "XMLUserLogin.h"
-
+#import "XMLQueryCommodity.h"
 #import "XMLUserLogoff.h"
+
+//model
+#import "CommodityModel.h"
+
 
 @interface MainViewController ()<UITextFieldDelegate>
 {
     dispatch_queue_t queue;
 }
+@property (nonatomic,weak) IBOutlet  UIButton                   *updateButton;
+@property (nonatomic,strong) NSMutableArray               *queryData;
 @property (nonatomic,assign) NSTimeInterval             shijiancha;
 @property (nonatomic,strong) NSMutableArray *muArray;
 
@@ -115,7 +121,7 @@
     
     self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithTitle:@"other" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick)];
    
-    
+    self.updateButton.enabled = NO;
     NSTimeInterval  start  =  CACurrentMediaTime();
     [[XMLSysTimeQuery shared] RequestWithSysTimeQueryBlocks:^(NSString *systime, NSString *code, NSString *message) {
         NSTimeInterval end = CACurrentMediaTime();
@@ -127,9 +133,54 @@
         self.title = [NSString stringWithFormat:@"%.fms",self.shijiancha];
         NSLog(@"origin %.f   requestTime %.f ",self.shijiancha,1000*(end-start));
     }];
+    
+    
+    [[XMLQueryCommodity shared] RequestQueryCommoditysBlocks:^(id obj, NSString *code, NSString *message) {
+        
+        if ([code isEqualToString:@"0"]) {
+            self.updateButton.enabled = YES;
+
+            _queryData = [NSMutableArray arrayWithArray:obj];
+            
+        }else{
+            self.updateButton.enabled = NO;
+
+            [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
+        }
+        
+    }];
 }
 
+- (IBAction)updatePrice:(id)sender{
+    
+    [self setPriceWithcode];
+}
+- (void)setPriceWithcode{
+    
+    self.price1.text = [self getMaxPrice:self.code1.text];
+    self.price2.text = [self getMaxPrice:self.code2.text];
+    self.price3.text = [self getMaxPrice:self.code3.text];
+    self.price4.text = [self getMaxPrice:self.code4.text];
+    self.price5.text = [self getMaxPrice:self.code5.text];
+    
+}
+- (CommodityModel *)getcommodityWithCode:(NSString *)code{
+    
+    for (CommodityModel *model in _queryData) {
 
+        if ([model.code isEqualToString:code]) {
+            return model;
+        }
+    }
+    return nil;
+}
+- (NSString *)getMaxPrice:(NSString *)code{
+    
+    CommodityModel *model = [self getcommodityWithCode:code];
+    
+    return model.maxPrice;
+    
+}
 #pragma mark --
 - (void)startRequestWithIndex:(NSInteger)index Code:(NSString *)codeid Price:(NSString *)price Amount:(NSString *)amount Count:(NSInteger)count{
     
