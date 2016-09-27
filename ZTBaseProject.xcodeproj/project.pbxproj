@@ -105,6 +105,8 @@
 		6167B4F01CA52BE800117606 /* TestAction2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6167B4EF1CA52BE800117606 /* TestAction2.m */; };
 		618269991D9A081400558042 /* XMLQueryCommodity.m in Sources */ = {isa = PBXBuildFile; fileRef = 618269981D9A081400558042 /* XMLQueryCommodity.m */; };
 		6182699C1D9A09CA00558042 /* CommodityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182699B1D9A09CA00558042 /* CommodityModel.m */; };
+		618269A01D9A22CA00558042 /* AccountListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182699E1D9A22CA00558042 /* AccountListViewController.m */; };
+		618269A11D9A22CA00558042 /* AccountListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6182699F1D9A22CA00558042 /* AccountListViewController.xib */; };
 		6184BF581D77DA5E004414C7 /* XMLTradeServerinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184BF571D77DA5E004414C7 /* XMLTradeServerinfo.m */; };
 		6184BF5B1D790557004414C7 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6184BF5A1D790557004414C7 /* UserInfoModel.m */; };
 		618707BF1D7557E600C31475 /* XMLEncryptStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707BE1D7557E600C31475 /* XMLEncryptStr.m */; };
@@ -313,6 +315,9 @@
 		618269981D9A081400558042 /* XMLQueryCommodity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLQueryCommodity.m; sourceTree = "<group>"; };
 		6182699A1D9A09CA00558042 /* CommodityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityModel.h; sourceTree = "<group>"; };
 		6182699B1D9A09CA00558042 /* CommodityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityModel.m; sourceTree = "<group>"; };
+		6182699D1D9A22CA00558042 /* AccountListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountListViewController.h; sourceTree = "<group>"; };
+		6182699E1D9A22CA00558042 /* AccountListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountListViewController.m; sourceTree = "<group>"; };
+		6182699F1D9A22CA00558042 /* AccountListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountListViewController.xib; sourceTree = "<group>"; };
 		6184BF561D77DA5E004414C7 /* XMLTradeServerinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLTradeServerinfo.h; sourceTree = "<group>"; };
 		6184BF571D77DA5E004414C7 /* XMLTradeServerinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLTradeServerinfo.m; sourceTree = "<group>"; };
 		6184BF591D790557004414C7 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
@@ -438,6 +443,9 @@
 				C8B3BE7C1D746B89003FE96F /* LoginViewController.h */,
 				C8B3BE7D1D746B89003FE96F /* LoginViewController.m */,
 				C8B3BE7E1D746B89003FE96F /* LoginViewController.xib */,
+				6182699D1D9A22CA00558042 /* AccountListViewController.h */,
+				6182699E1D9A22CA00558042 /* AccountListViewController.m */,
+				6182699F1D9A22CA00558042 /* AccountListViewController.xib */,
 				C8B3BE811D746C33003FE96F /* MainViewController.h */,
 				C8B3BE821D746C33003FE96F /* MainViewController.m */,
 				C8B3BE831D746C33003FE96F /* MainViewController.xib */,
@@ -787,6 +795,7 @@
 				61DA277A1D76A3CB00AE6E7B /* MarkViewController.xib in Resources */,
 				C8B3BE801D746B89003FE96F /* LoginViewController.xib in Resources */,
 				6152F7401D8F685000AD996C /* OtherMainViewController.xib in Resources */,
+				618269A11D9A22CA00558042 /* AccountListViewController.xib in Resources */,
 				C8B3BE851D746C33003FE96F /* MainViewController.xib in Resources */,
 				615D01E31C91A1A8001EF35C /* LaunchScreen.storyboard in Resources */,
 				615D01E01C91A1A8001EF35C /* Assets.xcassets in Resources */,
@@ -903,6 +912,7 @@
 				6167B4D81CA5286700117606 /* MSScoreTeamConfirm.m in Sources */,
 				6167B4B61CA5286700117606 /* MSClubsNearWithMeAction.m in Sources */,
 				6167B4DE1CA5286700117606 /* MSSignoutAction.m in Sources */,
+				618269A01D9A22CA00558042 /* AccountListViewController.m in Sources */,
 				61057C381D7198A00099CE62 /* XMLLogout.m in Sources */,
 				6167B4F01CA52BE800117606 /* TestAction2.m in Sources */,
 				6167B4AA1CA5286700117606 /* MSAdminConfirmCheckInAction.m in Sources */,

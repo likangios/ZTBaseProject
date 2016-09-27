@@ -29,7 +29,7 @@
     
     NSString *url = [XMLStoreService TRADEURL];
     
-    UserInfoModel *user = [XMLStoreService userinfoWithMarkId:[XMLStoreService markId]];
+    UserInfoModel *user = [XMLStoreService currentUserModel];
     
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='sys_time_query'><U>%@</U><LAST_ID>0</LAST_ID><TD_CNT>0</TD_CNT><S_I>%@</S_I><CU_LG>0</CU_LG></REQ></MEBS_MOBILE>",user.account,[XMLStoreService RETCODE]];
     

@@ -21,6 +21,11 @@
 //model
 #import "CommodityModel.h"
 
+static  NSDateFormatter *dateformatter (NSString *style){
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:style];
+    return formatter;
+}
 
 @interface MainViewController ()<UITextFieldDelegate>
 {
@@ -87,7 +92,6 @@
     self.btn3.selected = NO;
     self.btn4.selected = NO;
     self.btn5.selected = NO;
-
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

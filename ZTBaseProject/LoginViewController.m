@@ -8,6 +8,9 @@
 
 #import "LoginViewController.h"
 #import "MainViewController.h"  
+#import "AccountListViewController.h"
+
+
 #import "UserInfoModel.h"
 
 
@@ -31,11 +34,27 @@
     [super viewDidLoad];
     
     UserInfoModel *model = [XMLStoreService userinfoWithMarkId:[NSString stringWithFormat:@"%ld",(long)self.markId]];
+    
     self.phoneTextfield.text = model.account;
     self.passwordTextfield.text = model.password;
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"账号" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick)];
 }
 
+- (void)rightBarButtonItemClick{
+    
+       __weak typeof(self) weakself = self;
+    
+    AccountListViewController *account = [[AccountListViewController alloc]initWithNibName:@"AccountListViewController" bundle:nil];
+    account.markId = self.markId;
+    
+    [account setSelectAccount:^(UserInfoModel *model) {
+        
+        weakself.phoneTextfield.text = model.account;
+        weakself.passwordTextfield.text = model.password;
+    }];
+    [self.navigationController pushViewController:account animated:YES];
+}
 - (IBAction)logonClick:(id)sender{
     
     UserInfoModel *model = [[UserInfoModel alloc]init];

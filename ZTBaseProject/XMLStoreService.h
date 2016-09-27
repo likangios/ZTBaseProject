@@ -46,9 +46,15 @@
 
 + (void)storeAllAccoutWithMarkId:(NSString *)markId;
 
-
++ (UserInfoModel *)currentUserModel;
+//单个账号
 + (void)storeUserInfo:(UserInfoModel *)userinfo WithMarkId:(NSString *)markId;
+
 + (UserInfoModel *)userinfoWithMarkId:(NSString *)markId;
+
+//多个账户
++(NSArray *)userinfosWithMarkId:(NSString *)markId;
+
 
 + (NSString *)userdefaultValueWithKey:(NSString *)key;
 + (void)StoredefaultValue:(NSString *)string Key:(NSString *)key;

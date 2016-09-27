@@ -9,6 +9,8 @@
 #import "XMLStoreService.h"
 #import "UserInfoModel.h"
 
+static UserInfoModel *currentModel;
+
 @implementation XMLStoreService
 +(instancetype)shared{
     static id _sharedInstance=  nil;
@@ -131,14 +133,6 @@
     [def setObject:dic forKey:markId];
     [def  synchronize];
 }
-
-+ (void)storeUserInfo:(UserInfoModel *)userinfo WithMarkId:(NSString *)markId{
-    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:userinfo];
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:encodedObject forKey:markId];
-    [userDefault synchronize];
-}
-
 + (BOOL)isHasUserInfoWithAccount:(NSString *)account FromArray:(NSArray *)originArray{
     
     UserInfoModel *model = [XMLStoreService searchUserInfoWithAccount:account FromArray:originArray];
@@ -159,19 +153,60 @@
     return nil;
     
 }
++ (void)storeUserInfos:(UserInfoModel *)userinfo WithMarkId:(NSString *)markId{
+    
+    NSArray *accounts = [XMLStoreService userinfosWithMarkId:markId];
+    
+    NSMutableArray *array = [NSMutableArray arrayWithArray:accounts];
+    
+    UserInfoModel *searchModle = [XMLStoreService searchUserInfoWithAccount:userinfo.account FromArray:accounts];
+    if (searchModle) {
+        [array removeObject:searchModle];
+    }
+    [array insertObject:userinfo atIndex:0];
+    
+    [self storeUserInfosArray:array WithMarkId:markId];
+}
++(void)storeUserInfosArray:(NSArray *)accounts WithMarkId:(NSString *)markId{
+    
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:accounts];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:encodedObject forKey:markId];
+    
+    [userDefault synchronize];
+}
+
+
 +(NSArray *)userinfosWithMarkId:(NSString *)markId{
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSData *encodedObject = [userDefault objectForKey:markId];
-    NSArray *userinfo = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
-    return userinfo;
+    
+    id  obj  = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    
+    if ([obj isKindOfClass:[UserInfoModel class]]) {
+        return @[obj];
+    }
+    return obj;
     
 }
+//
++ (void)storeUserInfo:(UserInfoModel *)userinfo WithMarkId:(NSString *)markId{
 
+    [XMLStoreService storeUserInfos:userinfo WithMarkId:markId];
+    
+    currentModel = userinfo;
+}
++ (UserInfoModel *)currentUserModel{
+    
+    return currentModel;
+    
+}
 + (UserInfoModel *)userinfoWithMarkId:(NSString *)markId{
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSData *encodedObject = [userDefault objectForKey:markId];
-    UserInfoModel *userinfo = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
-    return userinfo;
+    NSArray *users =[XMLStoreService userinfosWithMarkId:markId];
+    if (users.count) {
+        return users[0];
+    }
+    return nil;
 }
 
 + (NSString *)userdefaultValueWithKey:(NSString *)key{
