@@ -12,11 +12,13 @@
  <SP_U>1082.6</SP_U>
  <SP_D>885.8</SP_D>
  <PR_C>984.2</PR_C>
- 
+ CO_N  name
  */
 @interface CommodityModel : JSONModel
 
 @property (nonatomic,strong) NSString               *code;
+
+@property (nonatomic,strong) NSString               *name;
 
 @property (nonatomic,strong) NSString               *maxPrice;
 

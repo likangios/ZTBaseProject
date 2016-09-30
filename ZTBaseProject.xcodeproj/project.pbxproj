@@ -112,6 +112,8 @@
 		618707BF1D7557E600C31475 /* XMLEncryptStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707BE1D7557E600C31475 /* XMLEncryptStr.m */; };
 		618707C21D7557EF00C31475 /* XMLUserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707C11D7557EF00C31475 /* XMLUserLogin.m */; };
 		618707C51D75631400C31475 /* XMLOrderSubmit.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707C41D75631400C31475 /* XMLOrderSubmit.m */; };
+		619596ED1D9DF35F00526A1A /* CommoditysListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619596EB1D9DF35F00526A1A /* CommoditysListViewController.m */; };
+		619596EE1D9DF35F00526A1A /* CommoditysListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619596EC1D9DF35F00526A1A /* CommoditysListViewController.xib */; };
 		61D591C01D93B92200EA2031 /* ResultOrder_SubmitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */; };
 		61DA27791D76A3CB00AE6E7B /* MarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DA27771D76A3CB00AE6E7B /* MarkViewController.m */; };
 		61DA277A1D76A3CB00AE6E7B /* MarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61DA27781D76A3CB00AE6E7B /* MarkViewController.xib */; };
@@ -328,6 +330,9 @@
 		618707C11D7557EF00C31475 /* XMLUserLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLUserLogin.m; sourceTree = "<group>"; };
 		618707C31D75631400C31475 /* XMLOrderSubmit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLOrderSubmit.h; sourceTree = "<group>"; };
 		618707C41D75631400C31475 /* XMLOrderSubmit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLOrderSubmit.m; sourceTree = "<group>"; };
+		619596EA1D9DF35F00526A1A /* CommoditysListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditysListViewController.h; sourceTree = "<group>"; };
+		619596EB1D9DF35F00526A1A /* CommoditysListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditysListViewController.m; sourceTree = "<group>"; };
+		619596EC1D9DF35F00526A1A /* CommoditysListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommoditysListViewController.xib; sourceTree = "<group>"; };
 		61D591BE1D93B92200EA2031 /* ResultOrder_SubmitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultOrder_SubmitModel.h; sourceTree = "<group>"; };
 		61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultOrder_SubmitModel.m; sourceTree = "<group>"; };
 		61DA27761D76A3CB00AE6E7B /* MarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkViewController.h; sourceTree = "<group>"; };
@@ -446,6 +451,9 @@
 				6182699D1D9A22CA00558042 /* AccountListViewController.h */,
 				6182699E1D9A22CA00558042 /* AccountListViewController.m */,
 				6182699F1D9A22CA00558042 /* AccountListViewController.xib */,
+				619596EA1D9DF35F00526A1A /* CommoditysListViewController.h */,
+				619596EB1D9DF35F00526A1A /* CommoditysListViewController.m */,
+				619596EC1D9DF35F00526A1A /* CommoditysListViewController.xib */,
 				C8B3BE811D746C33003FE96F /* MainViewController.h */,
 				C8B3BE821D746C33003FE96F /* MainViewController.m */,
 				C8B3BE831D746C33003FE96F /* MainViewController.xib */,
@@ -801,6 +809,7 @@
 				615D01E01C91A1A8001EF35C /* Assets.xcassets in Resources */,
 				610DE2F41C92579100A38B8B /* PWDView.xib in Resources */,
 				615D01DE1C91A1A8001EF35C /* Main.storyboard in Resources */,
+				619596EE1D9DF35F00526A1A /* CommoditysListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,6 +927,7 @@
 				6167B4AA1CA5286700117606 /* MSAdminConfirmCheckInAction.m in Sources */,
 				618269991D9A081400558042 /* XMLQueryCommodity.m in Sources */,
 				6167B4DB1CA5286700117606 /* MSSearch.m in Sources */,
+				619596ED1D9DF35F00526A1A /* CommoditysListViewController.m in Sources */,
 				6167B4C91CA5286700117606 /* MSMSObtainCulbAddressListAction.m in Sources */,
 				6167B4B31CA5286700117606 /* MSCheckinAction.m in Sources */,
 				610DE3201C92679C00A38B8B /* CALayer+BLayerBorderColor.m in Sources */,

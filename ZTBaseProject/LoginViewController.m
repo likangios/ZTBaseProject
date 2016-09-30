@@ -73,16 +73,15 @@
             
             [[XMLUserLogin shared] RequestWithName:self.phoneTextfield.text AndPassword:self.passwordTextfield.text Blocks:^(id obj, NSString *code, NSString *message) {
                 [ZTUntil hideAllHUDsForView:self.view];
-
+                
                 if (code) {
                     MainViewController *main = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
                     [self.navigationController pushViewController:main animated:YES];
-                    
                     [ZTUntil showErrorHUDViewAtView:self.view WithTitle:@"OK"];
                 }else{
-                    
                     [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
                 }
+                
             }];
             
         }else{

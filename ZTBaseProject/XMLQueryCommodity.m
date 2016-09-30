@@ -93,6 +93,11 @@
         self.commodityObj.code = string;
         
     }
+    if ([self.currentElementName isEqualToString:@"CO_N"]) {
+        self.commodityObj.name = string;
+        
+    }
+    
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {

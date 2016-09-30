@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "OtherMainViewController.h"
 #import "ResultOrder_SubmitModel.h"
-
+#import "CommoditysListViewController.h"
 
 #import "XMLOrderSubmit.h"
 #import <IHKeyboardAvoiding.h>
@@ -416,7 +416,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
         [self performSelector:selector withObject:nil afterDelay:0];
     }
 }
-static NSTimeInterval  tieminterval = 0.075;
+static NSTimeInterval  tieminterval = 0.005;
 
 static NSTimeInterval  nottieminterval = 0.005;
 
@@ -982,9 +982,10 @@ static NSTimeInterval  nottieminterval = 0.005;
 
 - (void)rightBarButtonItemClick{
    
-    OtherMainViewController *othermain = [[OtherMainViewController alloc]initWithNibName:@"OtherMainViewController" bundle:nil];
-    
-    [self.navigationController pushViewController:othermain animated:YES];
+    CommoditysListViewController *commoditys = [[CommoditysListViewController alloc]initWithNibName:@"CommoditysListViewController" bundle:nil];
+//    OtherMainViewController *othermain = [[OtherMainViewController alloc]initWithNibName:@"OtherMainViewController" bundle:nil];
+    commoditys.data = _queryData;
+    [self.navigationController pushViewController:commoditys animated:YES];
     
 }
 
