@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
@@ -27,6 +26,7 @@
                 <outlet property="code3" destination="shk-OT-J2V" id="NOr-HF-ofo"/>
                 <outlet property="code4" destination="HBI-yT-tx8" id="pOC-Eh-tc3"/>
                 <outlet property="code5" destination="LLm-xX-eFd" id="Yya-vl-jAQ"/>
+                <outlet property="hahabutton" destination="i6c-o3-MaN" id="AFn-d4-gbI"/>
                 <outlet property="logoLabel1" destination="BPn-bn-Uw4" id="XSL-zd-Xld"/>
                 <outlet property="logoLabel2" destination="AVw-7k-wSd" id="ZiO-HT-Td0"/>
                 <outlet property="logoLabel3" destination="tIS-FB-qbq" id="obJ-jY-uhs"/>
@@ -494,6 +494,13 @@
                     </variation>
                     <connections>
                         <action selector="updatePrice:" destination="-1" eventType="touchUpInside" id="eau-Gw-fvd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6c-o3-MaN">
+                    <rect key="frame" x="51" y="52" width="180" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="hahahahahah:" destination="-1" eventType="touchUpInside" id="ffP-is-yls"/>
                     </connections>
                 </button>
             </subviews>

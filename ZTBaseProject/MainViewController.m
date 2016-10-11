@@ -17,6 +17,9 @@
 #import "XMLUserLogin.h"
 #import "XMLQueryCommodity.h"
 #import "XMLUserLogoff.h"
+#import "XMLOrderSubmitTest.h"
+#import "XMLEncryptStrTest.h"
+
 
 //model
 #import "CommodityModel.h"
@@ -46,6 +49,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
 
 @property (nonatomic,weak) IBOutlet UILabel     *logoLabel5;
 
+@property (weak, nonatomic) IBOutlet UIButton *hahabutton;
 
 @property (nonatomic,weak) IBOutlet  UITextField                   *startTime;
 
@@ -987,6 +991,48 @@ static NSTimeInterval  nottieminterval = 0.005;
     commoditys.data = _queryData;
     [self.navigationController pushViewController:commoditys animated:YES];
     
+}
+- (IBAction)hahahahahah:(UIButton *)sender {
+    
+    sender.selected = !sender.selected;
+    sender.tag = 10;
+//    [[XMLOrderSubmitTest shared] RequestWithBuy_Sell:@"1" commodityID:@"601001" Price:@"100" Amount:@"100" Blocks:^(id obj, NSString *code, NSString *message) {
+//        NSLog(@"obj :%@ code: %@ message:%@",obj,code,message);
+//
+//        if (sender.selected) {
+//            sender.selected = NO;
+//            [self hahahahahah:sender];
+//        }
+//        
+//    }];
+    
+    if (sender.selected) {
+        for (int i = 0; i<1000; i++) {
+        
+        [self hahahahah];
+        
+        }
+    }
+}
+- (void)hahahahah{
+    
+    UIButton *button = [self.view viewWithTag:10];
+    
+    if (!button.selected) {
+        return;
+    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        [[XMLEncryptStrTest shared] RequestWithName:@"12343234" AndPassword:@"124321" MarkID:@"1" Blocks:^(id obj, NSString *code, NSString *message) {
+            
+            NSLog(@"obj :%@ code: %@ message:%@",obj,code,message);
+            
+            [self hahahahah];
+        }];
+        
+    });
+
+ 
 }
 
 - (void)didReceiveMemoryWarning {
