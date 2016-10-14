@@ -424,6 +424,10 @@ static NSTimeInterval  tieminterval = 0.005;
 
 static NSTimeInterval  nottieminterval = 0.005;
 
+- (void)shouldRequestAgainWhenLongTime:(NSTimeInterval)start{
+    
+    
+}
 - (void)queue1nstimer{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if (self.btn1.selected) {
@@ -432,7 +436,7 @@ static NSTimeInterval  nottieminterval = 0.005;
             });
         if ([self shouldStartWithStartTime:self.startTime.text]) {
             NSTimeInterval  start  =  CACurrentMediaTime();
-            
+            [self  shouldRequestAgainWhenLongTime:start];
             [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:self.code1.text Price:self.price1.text Amount:self.amount1.text Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
                 NSTimeInterval end = CACurrentMediaTime();
                 dispatch_async(dispatch_get_main_queue(), ^{
