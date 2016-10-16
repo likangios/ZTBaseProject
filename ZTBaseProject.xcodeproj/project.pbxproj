@@ -124,8 +124,8 @@
 		C8AF52FD1D856339003EDF64 /* XMLUserLogoff.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AF52FC1D856339003EDF64 /* XMLUserLogoff.m */; };
 		C8B3BE7F1D746B89003FE96F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B3BE7D1D746B89003FE96F /* LoginViewController.m */; };
 		C8B3BE801D746B89003FE96F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B3BE7E1D746B89003FE96F /* LoginViewController.xib */; };
-		C8B3BE841D746C33003FE96F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B3BE821D746C33003FE96F /* MainViewController.m */; };
-		C8B3BE851D746C33003FE96F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B3BE831D746C33003FE96F /* MainViewController.xib */; };
+		C8C962221DB1C3FB0033C85C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C962201DB1C3FB0033C85C /* MainViewController.m */; };
+		C8C962231DB1C3FB0033C85C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C962211DB1C3FB0033C85C /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -356,9 +356,9 @@
 		C8B3BE7C1D746B89003FE96F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C8B3BE7D1D746B89003FE96F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C8B3BE7E1D746B89003FE96F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		C8B3BE811D746C33003FE96F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		C8B3BE821D746C33003FE96F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		C8B3BE831D746C33003FE96F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		C8C9621F1DB1C3FB0033C85C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C8C962201DB1C3FB0033C85C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C8C962211DB1C3FB0033C85C /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CB92A16CD0A9957D49AF1767 /* Pods-ZTBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTBaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZTBaseProject/Pods-ZTBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 		CCDF49C7CB9B41B0C30390D6 /* libPods-ZTBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZTBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -460,12 +460,12 @@
 				619596EA1D9DF35F00526A1A /* CommoditysListViewController.h */,
 				619596EB1D9DF35F00526A1A /* CommoditysListViewController.m */,
 				619596EC1D9DF35F00526A1A /* CommoditysListViewController.xib */,
-				C8B3BE811D746C33003FE96F /* MainViewController.h */,
-				C8B3BE821D746C33003FE96F /* MainViewController.m */,
-				C8B3BE831D746C33003FE96F /* MainViewController.xib */,
 				6152F73C1D8F684F00AD996C /* OtherMainViewController.h */,
 				6152F73D1D8F684F00AD996C /* OtherMainViewController.m */,
 				6152F73E1D8F684F00AD996C /* OtherMainViewController.xib */,
+				C8C9621F1DB1C3FB0033C85C /* MainViewController.h */,
+				C8C962201DB1C3FB0033C85C /* MainViewController.m */,
+				C8C962211DB1C3FB0033C85C /* MainViewController.xib */,
 				615954201D73F7BF0064E66E /* XMLStoreService.h */,
 				615954211D73F7BF0064E66E /* XMLStoreService.m */,
 				61057C301D71963C0099CE62 /* XMLRequestBase.h */,
@@ -814,10 +814,10 @@
 				C8B3BE801D746B89003FE96F /* LoginViewController.xib in Resources */,
 				6152F7401D8F685000AD996C /* OtherMainViewController.xib in Resources */,
 				618269A11D9A22CA00558042 /* AccountListViewController.xib in Resources */,
-				C8B3BE851D746C33003FE96F /* MainViewController.xib in Resources */,
 				615D01E31C91A1A8001EF35C /* LaunchScreen.storyboard in Resources */,
 				615D01E01C91A1A8001EF35C /* Assets.xcassets in Resources */,
 				610DE2F41C92579100A38B8B /* PWDView.xib in Resources */,
+				C8C962231DB1C3FB0033C85C /* MainViewController.xib in Resources */,
 				615D01DE1C91A1A8001EF35C /* Main.storyboard in Resources */,
 				619596EE1D9DF35F00526A1A /* CommoditysListViewController.xib in Resources */,
 			);
@@ -891,7 +891,6 @@
 				6167B4E41CA5286700117606 /* MSUpdatePostion.m in Sources */,
 				6167B4D01CA5286700117606 /* MSNotifysReadWithTypeAction.m in Sources */,
 				6167B4CF1CA5286700117606 /* MSNotifysReadCheckinAction.m in Sources */,
-				C8B3BE841D746C33003FE96F /* MainViewController.m in Sources */,
 				615D01DB1C91A1A8001EF35C /* ViewController.m in Sources */,
 				61057C321D71963C0099CE62 /* XMLRequestBase.m in Sources */,
 				6159541C1D73BC010064E66E /* XMLIsLogin.m in Sources */,
@@ -946,6 +945,7 @@
 				6167B4E81CA5286700117606 /* MSHttpActionMgr.m in Sources */,
 				6167B4E91CA5286700117606 /* MSResponeResult.m in Sources */,
 				6167B4BA1CA5286700117606 /* MSDel_addressAction.m in Sources */,
+				C8C962221DB1C3FB0033C85C /* MainViewController.m in Sources */,
 				6167B4D31CA5286700117606 /* MSParty_addressAction.m in Sources */,
 				610DE3251C92679C00A38B8B /* UITableViewCell+BGetCellHeight.m in Sources */,
 				61ED82511C91A5C7007817C8 /* ZTUntil.m in Sources */,
@@ -1108,7 +1108,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c44a08af-75eb-44cb-a0e7-19083c2eaf26";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1119,8 +1119,8 @@
 			baseConfigurationReference = A80AF15BA32883EC511DFC02 /* Pods-ZTBaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GDGZ2H4K6A;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ZTBaseProject/ZT.pch;
@@ -1215,7 +1215,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c44a08af-75eb-44cb-a0e7-19083c2eaf26";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
