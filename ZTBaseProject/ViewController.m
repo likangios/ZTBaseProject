@@ -52,11 +52,11 @@
     self.viewDisplayCount += 1;
     if ([self IsFirstTimeDisplay]) {
         
-        self.view.userInteractionEnabled = NO;
-        [ZTUntil showHUDAddedTo:self.view];
         if (!self.phoneTextfield.text.length||!self.passwordTextfield.text.length) {
             return;
         }
+        self.view.userInteractionEnabled = NO;
+        [ZTUntil showHUDAddedTo:self.view];
         [[XMLIsLogin shared] Request:^(id obj, NSString *code, NSString *message) {
             [ZTUntil hideAllHUDsForView:self.view];
             self.view.userInteractionEnabled = YES;

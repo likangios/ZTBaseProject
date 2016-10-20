@@ -41,6 +41,11 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"账号" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick)];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    [self.view endEditing:YES];
+    
+}
 - (void)rightBarButtonItemClick{
     
        __weak typeof(self) weakself = self;
