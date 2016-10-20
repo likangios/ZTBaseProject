@@ -14,4 +14,6 @@
 
 @property (nonatomic,strong) NSString               *password;
 
+@property (nonatomic,strong) NSString               *markId;
+
 @end

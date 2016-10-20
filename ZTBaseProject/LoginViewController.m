@@ -63,6 +63,8 @@
     
     model.password = self.passwordTextfield.text;
     
+    model.markId = [NSString stringWithFormat:@"%ld",self.markId];
+    
     [XMLStoreService storeUserInfo:model WithMarkId:[NSString stringWithFormat:@"%ld",(long)self.markId]];
     
     [ZTUntil showHUDAddedTo:self.view];

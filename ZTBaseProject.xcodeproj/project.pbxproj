@@ -784,6 +784,20 @@
 					615D01CF1C91A1A8001EF35C = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = GDGZ2H4K6A;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -1108,7 +1122,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c44a08af-75eb-44cb-a0e7-19083c2eaf26";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1119,8 +1133,8 @@
 			baseConfigurationReference = A80AF15BA32883EC511DFC02 /* Pods-ZTBaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GDGZ2H4K6A;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ZTBaseProject/ZT.pch;
@@ -1215,7 +1229,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c44a08af-75eb-44cb-a0e7-19083c2eaf26";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

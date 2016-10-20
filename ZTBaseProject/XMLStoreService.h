@@ -31,8 +31,6 @@
 + (NSString *)TRADEURL;
 + (void)StoreTRADEURL:(NSString *)string;
 
-
-
 + (NSString *)phone;
 + (void)Storephone:(NSString *)string;
 

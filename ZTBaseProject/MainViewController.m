@@ -19,6 +19,7 @@
 #import "XMLUserLogoff.h"
 #import "XMLOrderSubmitTest.h"
 #import "XMLEncryptStrTest.h"
+#import "XMLEncryptStr.h"
 
 
 //model
@@ -99,6 +100,9 @@ static  NSDateFormatter *dateformatter (NSString *style){
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    NSTimeInterval  start1  =  CACurrentMediaTime();
+//    [self requestStart1:start1];
+    
     _muArray = [NSMutableArray arrayWithCapacity:6];
     
     for (int i = 0; i<6; i++) {
@@ -428,6 +432,53 @@ static NSTimeInterval  nottieminterval = 0.005;
     
     
 }
+static int reloginCount = 0;
+
+- (void)relogin{
+    
+    NSLog(@"重新登录");
+    
+    UserInfoModel *model = [XMLStoreService currentUserModel];
+    
+    [[XMLEncryptStr shared] RequestWithName:model.account AndPassword:model.password MarkID:model.markId Blocks:^(id obj, NSString *code, NSString *message) {
+        
+        NSLog(@"XMLEncryptStr code:%@ message:%@",code,message);
+        if ([code isEqualToString:@"0"]) {
+            [[XMLUserLogin shared] RequestWithName:model.account AndPassword:model.password Blocks:^(id obj, NSString *code, NSString *message) {
+        NSLog(@"XMLUserLogin code:%@ message:%@",code,message);
+                if (code) {
+
+                }else{
+                    if (reloginCount<5) {
+                        reloginCount++;
+                    [self relogin];
+                    }else{
+                        reloginCount = 0;
+                    }
+                }
+                
+            }];
+            
+        }else{
+            
+            
+        }
+    }];
+}
+- (void)requestStart1:(NSTimeInterval)startTime{
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(start1:) userInfo:@(startTime) repeats:YES];
+    
+}
+- (void)start1:(NSTimer *)timer{
+    
+    NSTimeInterval currentTime = [NSDate  timeIntervalSinceReferenceDate];
+    NSTimeInterval startTime = [(NSNumber *)timer.userInfo doubleValue];
+    if (currentTime - startTime > 300) {
+        NSLog(@"超市了");
+    }
+    NSLog(@"currentTime %.f  startTime %@",currentTime,timer.userInfo);
+}
 - (void)queue1nstimer{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if (self.btn1.selected) {
@@ -436,7 +487,7 @@ static NSTimeInterval  nottieminterval = 0.005;
             });
         if ([self shouldStartWithStartTime:self.startTime.text]) {
             NSTimeInterval  start  =  CACurrentMediaTime();
-            [self  shouldRequestAgainWhenLongTime:start];
+//            [self requestStart1:start];
             [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:self.code1.text Price:self.price1.text Amount:self.amount1.text Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
                 NSTimeInterval end = CACurrentMediaTime();
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -462,6 +513,8 @@ static NSTimeInterval  nottieminterval = 0.005;
                         self.logoLabel1.text = @"死了";
                     });
                     NSLog(@"queue1 你挂了");
+                }else if ([code isEqualToString:@"-101"]){
+                    [self relogin];
                 }else{
                     [NSThread sleepForTimeInterval:tieminterval];
                     [self queue1nstimer];
@@ -523,6 +576,8 @@ static NSTimeInterval  nottieminterval = 0.005;
                             self.logoLabel2.text = @"死了";
                         });
                         NSLog(@"queue2 你挂了");
+                    }else if ([code isEqualToString:@"-101"]){
+                        [self relogin];
                     }else{
                         [NSThread sleepForTimeInterval:tieminterval];
 
@@ -585,6 +640,8 @@ static NSTimeInterval  nottieminterval = 0.005;
                             self.logoLabel3.text = @"死了";
                         });
                         NSLog(@"queue3 你挂了");
+                    }else if ([code isEqualToString:@"-101"]){
+                        [self relogin];
                     }else{
                         [NSThread sleepForTimeInterval:tieminterval];
 
@@ -645,6 +702,8 @@ static NSTimeInterval  nottieminterval = 0.005;
                             self.logoLabel4.text = @"死了";
                         });
                         NSLog(@"queue4 你挂了");
+                    }else if ([code isEqualToString:@"-101"]){
+                        [self relogin];
                     }else{
                         [NSThread sleepForTimeInterval:tieminterval];
 
@@ -706,6 +765,8 @@ static NSTimeInterval  nottieminterval = 0.005;
                         });
                         self.btn5.selected = NO;
                         NSLog(@"queue5 你挂了");
+                    }else if ([code isEqualToString:@"-101"]){
+                        [self relogin];
                     }else{
                         [NSThread sleepForTimeInterval:tieminterval];
 
