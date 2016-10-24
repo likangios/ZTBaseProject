@@ -7,6 +7,14 @@
 //
 
 #import "XMLTradeServerinfo.h"
+#import "TradModel.h"
+
+@interface XMLTradeServerinfo ()
+
+@property (nonatomic,strong) NSMutableArray                *tradeUrlArray;
+
+@property (nonatomic,strong) TradModel               *tradmodel;
+@end
 
 @implementation XMLTradeServerinfo
 +(instancetype)shared{
@@ -26,6 +34,8 @@
 
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='tradeserverinfo'><PINSCODE>%@</PINSCODE><SESSIONID>%@</SESSIONID><MARKETID>%@</MARKETID><TRADEMODELID>1</TRADEMODELID></REQ></MEBS_MOBILE>",[XMLStoreService PINSCODE],[XMLStoreService SESSIONID],markId];
     
+    NSLog(@"----<URL>:<%@>-----\n----<Body>:<%@>----\n",url,bodyString);
+    
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
     [self.httpMgr POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -41,7 +51,7 @@
         [xmlparser setDelegate:self];
         [xmlparser parse];
         
-        block(nil,self.code,self.message);
+        block(self.tradeUrlArray,self.code,self.message);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -53,6 +63,13 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
 {
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
+    if ([self.currentElementName isEqualToString:@"RESULTLIST"]) {
+        _tradeUrlArray =[NSMutableArray array];
+    }
+    
+    if ([self.currentElementName isEqualToString:@"REC"]) {
+        _tradmodel = [[TradModel alloc]init];
+    }
     
 }
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string;
@@ -64,12 +81,30 @@
             [XMLStoreService StoreTRADEURL:string];
         }
     }
+    if ([self.currentElementName isEqualToString:@"TRADENAME"]) {
+        if (string.length) {
+            _tradmodel.TradeName = string;
+        }
+    }
+    if ([self.currentElementName isEqualToString:@"TRADEURL"]) {
+        if (string.length) {
+            _tradmodel.TradeUrl = string;
+        }
+    }
+
+    
     
 }
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 {
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
     
+    if ([elementName isEqualToString:@"REC"]) {
+        
+        [_tradeUrlArray addObject:_tradmodel];
+        
+        _tradmodel = nil;
+    }
     
 }
 

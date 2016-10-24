@@ -11,6 +11,7 @@
 #import "XMLStoreService.h"
 #import "XMLTradeServerinfo.h"
 #import "ZTUntil.h"
+#import "TradModel.h"
 @interface MarkViewController ()
 
 @end
@@ -97,9 +98,14 @@
 
     [ZTUntil showHUDAddedTo:self.view];
     [[XMLTradeServerinfo shared] RequestBlocks:^(id obj, NSString *code, NSString *message) {
-    
     [ZTUntil hideAllHUDsForView:self.view];
         if ([code isEqualToString:@"0"]) {
+            NSArray *array = (NSArray *)obj;
+            TradModel *model = array[0];
+            NSString *url = model.TradeUrl;
+            [XMLStoreService StoreTRADEURL:url];
+            [XMLStoreService storeTradeUrls:obj WithMarkId:[XMLStoreService markId]];
+            
             LoginViewController *main = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
             main.markId = btn.tag;
             [self.navigationController pushViewController:main animated:YES];

@@ -24,7 +24,7 @@
 
 //model
 #import "CommodityModel.h"
-
+#import "TradModel.h"
 static  NSDateFormatter *dateformatter (NSString *style){
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:style];
@@ -161,6 +161,53 @@ static  NSDateFormatter *dateformatter (NSString *style){
         }
         
     }];
+    
+//    NSArray *trads = [XMLStoreService getTradeUrlsWithMarkId:[XMLStoreService markId]];
+//    for (TradModel *model in trads) {
+//        [self test:model.TradeUrl];
+//    }
+    
+    /*
+    for (int i = 1; i<255; i++) {
+            NSString *url = [NSString stringWithFormat:@"http://221.203.22.%d:16888/Issue4ariesMobileServer/communicateServlet",i];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1*0.5*i/2.0*NSEC_PER_SEC),dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+            NSTimeInterval  start  =  CACurrentMediaTime();
+        
+            [[XMLSysTimeQuery shared] RequestWithSysTimeQueryWithURL:url Blocks:^(id obj, NSString *code, NSString *message) {
+                
+                NSTimeInterval end = CACurrentMediaTime();
+                NSLog(@"url:%@",url);
+                if (![code isEqualToString:@"-1"]) {
+                    NSLog(@"code:%@--message:%@__requestTime %.f ",code,message,1000*(end-start));
+                }
+            }];
+        });
+
+    }*/
+    
+}
+- (void)test:(NSString *)url{
+    
+    NSTimeInterval  start  =  CACurrentMediaTime();
+    [[XMLSysTimeQuery shared] RequestWithSysTimeQueryWithURL:url Blocks:^(id obj, NSString *code, NSString *message) {
+        NSTimeInterval end = CACurrentMediaTime();
+        if (![code isEqualToString:@"-1"]) {
+        NSLog(@"%@__requestTime %.f ",url,1000*(end-start));
+        }
+    }];
+}
+- (void)test2{
+    
+}
+- (void)test3{
+    
+}
+- (void)test4{
+    
+}
+- (void)test5{
+    
 }
 
 - (IBAction)updatePrice:(id)sender{

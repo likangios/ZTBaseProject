@@ -25,7 +25,8 @@
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='encryptstr'><PINSCODE>123456543</PINSCODE><SESSIONID>123432345</SESSIONID><MARKETID>%@</MARKETID><TRADERID>%@</TRADERID><PASSWORD>%@</PASSWORD></REQ></MEBS_MOBILE>",markId,name,password];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
-    
+    NSLog(@"----<URL>:<%@>-----\n----<Body>:<%@>----\n",url,bodyString);
+
     [self.httpMgr POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         [formData appendPartWithHeaders:@{@"text/xml":@"Content-Type",[NSString stringWithFormat:@"%ld",body.length]:@"Content-Length"} body:body];

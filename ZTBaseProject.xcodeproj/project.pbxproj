@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17900AB533E8F7E9AA188607 /* libPods-ZTBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDF49C7CB9B41B0C30390D6 /* libPods-ZTBaseProject.a */; };
+		26266084A4020BF895471AE3 /* libPods-ZTBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF79BF6ACCC3483439A55CC /* libPods-ZTBaseProject.a */; };
 		61057C321D71963C0099CE62 /* XMLRequestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C311D71963C0099CE62 /* XMLRequestBase.m */; };
 		61057C351D7197580099CE62 /* XMLLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C341D7197580099CE62 /* XMLLogin.m */; };
 		61057C381D7198A00099CE62 /* XMLLogout.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C371D7198A00099CE62 /* XMLLogout.m */; };
@@ -114,6 +114,7 @@
 		618707C51D75631400C31475 /* XMLOrderSubmit.m in Sources */ = {isa = PBXBuildFile; fileRef = 618707C41D75631400C31475 /* XMLOrderSubmit.m */; };
 		619596ED1D9DF35F00526A1A /* CommoditysListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619596EB1D9DF35F00526A1A /* CommoditysListViewController.m */; };
 		619596EE1D9DF35F00526A1A /* CommoditysListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619596EC1D9DF35F00526A1A /* CommoditysListViewController.xib */; };
+		61AA5F871DBD92660079EEF0 /* TradModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AA5F861DBD92660079EEF0 /* TradModel.m */; };
 		61D591C01D93B92200EA2031 /* ResultOrder_SubmitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */; };
 		61DA27791D76A3CB00AE6E7B /* MarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DA27771D76A3CB00AE6E7B /* MarkViewController.m */; };
 		61DA277A1D76A3CB00AE6E7B /* MarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61DA27781D76A3CB00AE6E7B /* MarkViewController.xib */; };
@@ -127,6 +128,18 @@
 		C8C962221DB1C3FB0033C85C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C962201DB1C3FB0033C85C /* MainViewController.m */; };
 		C8C962231DB1C3FB0033C85C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C962211DB1C3FB0033C85C /* MainViewController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		61AA5FF91DBE0DE50079EEF0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		61057C301D71963C0099CE62 /* XMLRequestBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRequestBase.h; sourceTree = "<group>"; };
@@ -335,6 +348,8 @@
 		619596EA1D9DF35F00526A1A /* CommoditysListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditysListViewController.h; sourceTree = "<group>"; };
 		619596EB1D9DF35F00526A1A /* CommoditysListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditysListViewController.m; sourceTree = "<group>"; };
 		619596EC1D9DF35F00526A1A /* CommoditysListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommoditysListViewController.xib; sourceTree = "<group>"; };
+		61AA5F851DBD92660079EEF0 /* TradModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradModel.h; sourceTree = "<group>"; };
+		61AA5F861DBD92660079EEF0 /* TradModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradModel.m; sourceTree = "<group>"; };
 		61D591BE1D93B92200EA2031 /* ResultOrder_SubmitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultOrder_SubmitModel.h; sourceTree = "<group>"; };
 		61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultOrder_SubmitModel.m; sourceTree = "<group>"; };
 		61DA27761D76A3CB00AE6E7B /* MarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkViewController.h; sourceTree = "<group>"; };
@@ -360,7 +375,7 @@
 		C8C962201DB1C3FB0033C85C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		C8C962211DB1C3FB0033C85C /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CB92A16CD0A9957D49AF1767 /* Pods-ZTBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZTBaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZTBaseProject/Pods-ZTBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
-		CCDF49C7CB9B41B0C30390D6 /* libPods-ZTBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZTBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFF79BF6ACCC3483439A55CC /* libPods-ZTBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZTBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,7 +383,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17900AB533E8F7E9AA188607 /* libPods-ZTBaseProject.a in Frameworks */,
+				26266084A4020BF895471AE3 /* libPods-ZTBaseProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +393,7 @@
 		19053C6D80B0C9AE6C0ABEC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CCDF49C7CB9B41B0C30390D6 /* libPods-ZTBaseProject.a */,
+				EFF79BF6ACCC3483439A55CC /* libPods-ZTBaseProject.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -446,6 +461,8 @@
 				615D01DA1C91A1A8001EF35C /* ViewController.m */,
 				6184BF591D790557004414C7 /* UserInfoModel.h */,
 				6184BF5A1D790557004414C7 /* UserInfoModel.m */,
+				61AA5F851DBD92660079EEF0 /* TradModel.h */,
+				61AA5F861DBD92660079EEF0 /* TradModel.m */,
 				6182699A1D9A09CA00558042 /* CommodityModel.h */,
 				6182699B1D9A09CA00558042 /* CommodityModel.m */,
 				61DA27761D76A3CB00AE6E7B /* MarkViewController.h */,
@@ -762,6 +779,7 @@
 				615D01CE1C91A1A8001EF35C /* Resources */,
 				C70EC7D4B05130B6DD6207B3 /* 📦 Embed Pods Frameworks */,
 				8733B2BDEE1394D198314A9E /* 📦 Copy Pods Resources */,
+				61AA5FF91DBE0DE50079EEF0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -789,7 +807,7 @@
 								enabled = 0;
 							};
 							com.apple.Keychain = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 0;
@@ -904,6 +922,7 @@
 				6182699C1D9A09CA00558042 /* CommodityModel.m in Sources */,
 				6167B4E41CA5286700117606 /* MSUpdatePostion.m in Sources */,
 				6167B4D01CA5286700117606 /* MSNotifysReadWithTypeAction.m in Sources */,
+				61AA5F871DBD92660079EEF0 /* TradModel.m in Sources */,
 				6167B4CF1CA5286700117606 /* MSNotifysReadCheckinAction.m in Sources */,
 				615D01DB1C91A1A8001EF35C /* ViewController.m in Sources */,
 				61057C321D71963C0099CE62 /* XMLRequestBase.m in Sources */,
@@ -1112,6 +1131,7 @@
 			baseConfigurationReference = CB92A16CD0A9957D49AF1767 /* Pods-ZTBaseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ZTBaseProject/ZTBaseProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GDGZ2H4K6A;
@@ -1133,6 +1153,7 @@
 			baseConfigurationReference = A80AF15BA32883EC511DFC02 /* Pods-ZTBaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ZTBaseProject/ZTBaseProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GDGZ2H4K6A;

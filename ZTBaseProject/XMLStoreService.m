@@ -175,7 +175,33 @@ static UserInfoModel *currentModel;
     
     [userDefault synchronize];
 }
-
++ (NSArray *)getTradeUrlsWithMarkId:(NSString *)markId{
+   
+    NSUserDefaults *defau = [NSUserDefaults standardUserDefaults];
+    
+    NSString *key = [NSString stringWithFormat:@"TRADEURL_%@",markId];
+    
+    NSData *encodedObject = [defau objectForKey:key];
+    
+    id  obj  = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    
+    if (obj) {
+        return  obj;
+    }
+    return nil;
+}
++(void)storeTradeUrls:(NSArray *)array WithMarkId:(NSString *)markId{
+    
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:array];
+    
+    NSUserDefaults *defau = [NSUserDefaults standardUserDefaults];
+    
+    NSString *key = [NSString stringWithFormat:@"TRADEURL_%@",markId];
+    
+    [defau setObject:encodedObject forKey:key];
+    
+    [defau synchronize];
+}
 
 +(NSArray *)userinfosWithMarkId:(NSString *)markId{
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];

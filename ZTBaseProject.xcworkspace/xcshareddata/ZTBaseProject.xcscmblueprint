@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "832E903AAC8E775AB4D5B2C9892CA893A35EDB29",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "832E903AAC8E775AB4D5B2C9892CA893A35EDB29" : 0,
+    "AFADF01AFBA46DFD7A5AFD980110E89E8E63AACD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E858D6CA-1CF8-433A-BD2B-B1F9DB6F06AB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "832E903AAC8E775AB4D5B2C9892CA893A35EDB29" : "ZTBaseProject\/",
+    "AFADF01AFBA46DFD7A5AFD980110E89E8E63AACD" : "..\/..\/KeychainAccess"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ZTBaseProject",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ZTBaseProject.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/likangios\/ZTBaseProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "832E903AAC8E775AB4D5B2C9892CA893A35EDB29"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kishikawakatsumi\/KeychainAccess.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AFADF01AFBA46DFD7A5AFD980110E89E8E63AACD"
+    }
+  ]
+}

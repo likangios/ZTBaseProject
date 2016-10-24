@@ -9,5 +9,9 @@
 #import "XMLRequestBase.h"
 
 @interface XMLSysTimeQuery : XMLRequestBase
+
 - (void)RequestWithSysTimeQueryBlocks:(SuccessBlocks)block;
+
+- (void)RequestWithSysTimeQueryWithURL:(NSString *)url  Blocks:(SuccessBlocks)block;
+
 @end

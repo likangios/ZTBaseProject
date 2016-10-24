@@ -36,7 +36,8 @@
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='order_submit'><U>%@</U><BUY_SELL>%@</BUY_SELL><COMMODITY_ID>%@</COMMODITY_ID><PRICE>%@</PRICE><QTY>%@</QTY><S_I>%@</S_I></REQ></MEBS_MOBILE>",user.account,buy_sell,commodityid,price,amount,[XMLStoreService RETCODE]];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
-    
+    NSLog(@"----<URL>:<%@>-----\n----<Body>:<%@>----\n",url,bodyString);
+
     [self.httpMgr POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         [formData appendPartWithHeaders:@{@"text/xml":@"Content-Type",[NSString stringWithFormat:@"%ld",body.length]:@"Content-Length"} body:body];

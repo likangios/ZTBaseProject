@@ -1,4 +1,4 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
     target 'ZTBaseProject' do
 pod 'AFNetworking', '~> 3.0.4'
 pod 'IHKeyboardAvoiding', '~> 2.5'
@@ -20,6 +20,7 @@ pod 'MJRefresh', '~> 3.1.0'
 pod 'BaiduMapKit', '~> 2.9.1'
 pod 'libPhoneNumber-iOS', '~> 0.8.10'
 pod 'GDataXML-HTML', '~> 1.3.0'
+#pod 'KeychainAccess', '~> 2.3.5'
 #pod 'KeychainItemWrapper', '~> 1.2'
 end
 

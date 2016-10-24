@@ -34,6 +34,36 @@
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='sys_time_query'><U>%@</U><LAST_ID>0</LAST_ID><TD_CNT>0</TD_CNT><S_I>%@</S_I><CU_LG>0</CU_LG></REQ></MEBS_MOBILE>",user.account,[XMLStoreService RETCODE]];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"----<URL>:<%@>-----\n----<Body>:<%@>----\n",url,bodyString);
+
+    [self.httpMgr POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        [formData appendPartWithHeaders:@{@"text/xml":@"Content-Type",[NSString stringWithFormat:@"%ld",body.length]:@"Content-Length"} body:body];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSXMLParser *xmlparser = responseObject;
+        [xmlparser setDelegate:self];
+        [xmlparser parse];
+        
+        block(self.systime,self.code,self.message);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        block(nil,@"-1",error.description);
+        
+    }];
+}
+- (void)RequestWithSysTimeQueryWithURL:(NSString *)url  Blocks:(SuccessBlocks)block{
+    
+    UserInfoModel *user = [XMLStoreService currentUserModel];
+    
+    NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='sys_time_query'><U>%@</U><LAST_ID>0</LAST_ID><TD_CNT>0</TD_CNT><S_I>%@</S_I><CU_LG>0</CU_LG></REQ></MEBS_MOBILE>",user.account,[XMLStoreService RETCODE]];
+    
+    NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
     [self.httpMgr POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
@@ -56,6 +86,7 @@
         
     }];
 }
+
 
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;

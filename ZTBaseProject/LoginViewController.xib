@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -10,6 +9,7 @@
             <connections>
                 <outlet property="passwordTextfield" destination="WaO-sZ-Rya" id="eDl-iq-2KX"/>
                 <outlet property="phoneTextfield" destination="UhM-k6-fkQ" id="fVd-7z-PIw"/>
+                <outlet property="selectLine" destination="mDz-dM-aRz" id="cJO-v7-jfK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="交易所" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-k6-fkQ">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-k6-fkQ">
                     <rect key="frame" x="9" y="81" width="303" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -38,16 +38,35 @@
                         <action selector="logonClick:" destination="-1" eventType="touchUpInside" id="Ygl-aG-Igs"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDz-dM-aRz">
+                    <rect key="frame" x="145" y="278" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="line">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="titleLabel.numberOfLines">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="selectLineClick:" destination="-1" eventType="touchUpInside" id="Llx-NN-6dr"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="UhM-k6-fkQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IJP-F2-fN0"/>
                 <constraint firstItem="UhM-k6-fkQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="81" id="KKE-pJ-HS5"/>
                 <constraint firstItem="WaO-sZ-Rya" firstAttribute="trailing" secondItem="UhM-k6-fkQ" secondAttribute="trailing" id="NiW-Sd-vj2"/>
+                <constraint firstItem="mDz-dM-aRz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PiR-gh-P5J"/>
                 <constraint firstItem="WaO-sZ-Rya" firstAttribute="top" secondItem="UhM-k6-fkQ" secondAttribute="bottom" constant="19" id="WmH-VR-VRO"/>
                 <constraint firstItem="WaO-sZ-Rya" firstAttribute="centerX" secondItem="xu2-Mb-Dxl" secondAttribute="centerX" id="ZH0-08-Ibm"/>
                 <constraint firstItem="xu2-Mb-Dxl" firstAttribute="top" secondItem="WaO-sZ-Rya" secondAttribute="bottom" constant="31" id="dhM-An-ZgT"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mDz-dM-aRz" secondAttribute="trailing" constant="20" id="fCF-l1-MoH"/>
                 <constraint firstItem="UhM-k6-fkQ" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="lab-4I-2KC"/>
+                <constraint firstItem="mDz-dM-aRz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="mIy-uq-TLJ"/>
+                <constraint firstItem="mDz-dM-aRz" firstAttribute="top" secondItem="xu2-Mb-Dxl" secondAttribute="bottom" constant="57" id="nu4-3M-6ht"/>
                 <constraint firstItem="xu2-Mb-Dxl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="pWQ-LV-2bi"/>
                 <constraint firstItem="WaO-sZ-Rya" firstAttribute="leading" secondItem="UhM-k6-fkQ" secondAttribute="leading" id="qAi-xT-gKD"/>
             </constraints>

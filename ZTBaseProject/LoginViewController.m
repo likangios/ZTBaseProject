@@ -18,27 +18,69 @@
 
 #import "XMLUserLogin.h"
 
+#import "TradModel.h"
 
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextfield;
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextfield;
 
+@property (nonatomic,weak) IBOutlet  UIButton                   *selectLine;
+
+@property (nonatomic,strong) UIAlertController               *alertController;
 @end
 
 @implementation LoginViewController
 
+-(UIAlertController *)alertController{
+    NSArray *tradUrls = [XMLStoreService getTradeUrlsWithMarkId:[XMLStoreService markId]];
+    
+    if (!_alertController) {
+        _alertController = [UIAlertController alertControllerWithTitle:@"选择" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+        for (TradModel *model in tradUrls) {
+            
+            UIAlertAction *action = [UIAlertAction actionWithTitle:model.TradeName style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSLog(@"aciton %@",action);
+                [_alertController.actions enumerateObjectsUsingBlock:^(UIAlertAction *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if (obj == action) {
+                        TradModel *selectModel = tradUrls[idx];
+                        [XMLStoreService StoreTRADEURL:selectModel.TradeUrl];
+                        [self.selectLine setTitle:[NSString stringWithFormat:@"%@\n%@",selectModel.TradeName,selectModel.TradeUrl] forState:UIControlStateNormal];
+                    }
+                }];
+            }];
+            
+            [_alertController addAction:action];
+        }
+        [_alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"cancel");
+        }]];
+        
+    }
+    return _alertController;
+    
+}
+- (IBAction)selectLineClick:(id)sender{
+
+    [self presentViewController:self.alertController animated:YES completion:NULL];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     UserInfoModel *model = [XMLStoreService userinfoWithMarkId:[NSString stringWithFormat:@"%ld",(long)self.markId]];
     
+    NSString *url = [XMLStoreService TRADEURL];
+    
+    [self.selectLine setTitle:url forState:UIControlStateNormal];
+    
     self.phoneTextfield.text = model.account;
     self.passwordTextfield.text = model.password;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"账号" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick)];
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

@@ -57,4 +57,8 @@
 + (NSString *)userdefaultValueWithKey:(NSString *)key;
 + (void)StoredefaultValue:(NSString *)string Key:(NSString *)key;
 
+//server url
+
++ (NSArray *)getTradeUrlsWithMarkId:(NSString *)markId;
++(void)storeTradeUrls:(NSArray *)array WithMarkId:(NSString *)markId;
 @end

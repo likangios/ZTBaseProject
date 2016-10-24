@@ -17,7 +17,6 @@
 #import "XMLLogin.h"
 #import "MarkViewController.h"
 
-
 @interface ViewController ()<PwdViewDelegate,NSXMLParserDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextfield;
