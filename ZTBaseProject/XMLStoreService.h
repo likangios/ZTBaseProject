@@ -61,4 +61,10 @@
 
 + (NSArray *)getTradeUrlsWithMarkId:(NSString *)markId;
 +(void)storeTradeUrls:(NSArray *)array WithMarkId:(NSString *)markId;
+
++(void)testStoreWithKeyChain:(NSString *)name password:(NSString *)password;
++(void)testStoreWithKeyChain:(NSString *)name password:(NSString *)password AccessGroup:(NSString *)accessGroup;
++ (NSArray *)testGetAllItem;
++ (NSArray *)testGetAllItemWithAccountGoup:(NSString *)accessGroup;
+
 @end

@@ -186,6 +186,18 @@ static  NSDateFormatter *dateformatter (NSString *style){
 
     }*/
     
+    [XMLStoreService testStoreWithKeyChain:@"name1" password:@"1234561"];
+    [XMLStoreService testStoreWithKeyChain:@"name2" password:@"1234562"];
+    [XMLStoreService testStoreWithKeyChain:@"name3" password:@"1234563"];
+    
+    [XMLStoreService testStoreWithKeyChain:@"name1" password:@"1234561" AccessGroup:@"goup1"];
+    [XMLStoreService testStoreWithKeyChain:@"name2" password:@"1234562" AccessGroup:@"goup1"];
+    [XMLStoreService testStoreWithKeyChain:@"name3" password:@"1234563" AccessGroup:@"goup1"];
+    
+    NSArray *all = [XMLStoreService testGetAllItem];
+    NSArray *group = [XMLStoreService testGetAllItemWithAccountGoup:@"goup1"];
+    
+    NSLog(@"%@ === %@",all,group);
 }
 - (void)test:(NSString *)url{
     

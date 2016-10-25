@@ -245,4 +245,20 @@ static UserInfoModel *currentModel;
     [def setValue:string forKey:key];
     [def  synchronize];
 }
++(void)testStoreWithKeyChain:(NSString *)name password:(NSString *)password{
+    [XMLStoreService testStoreWithKeyChain:name password:password AccessGroup:@"account"];
+}
++(void)testStoreWithKeyChain:(NSString *)name password:(NSString *)password AccessGroup:(NSString *)accessGroup{
+    
+    UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.luck" accessGroup:accessGroup];
+    keychain[name] = password;
+}
++ (NSArray *)testGetAllItem{
+    UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.luck"];
+    return  keychain.allItems;
+}
++ (NSArray *)testGetAllItemWithAccountGoup:(NSString *)accessGroup{
+    UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:@"com.luck" accessGroup:accessGroup];
+    return  keychain.allItems;
+}
 @end
