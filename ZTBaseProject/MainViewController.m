@@ -483,9 +483,9 @@ static  NSDateFormatter *dateformatter (NSString *style){
         [self performSelector:selector withObject:nil afterDelay:0];
     }
 }
-static NSTimeInterval  tieminterval = 0.005;
+static NSTimeInterval  tieminterval = 0.001;
 
-static NSTimeInterval  nottieminterval = 0.005;
+static NSTimeInterval  nottieminterval = 0.001;
 
 - (void)shouldRequestAgainWhenLongTime:(NSTimeInterval)start{
     
