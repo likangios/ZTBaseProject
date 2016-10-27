@@ -98,7 +98,19 @@
     }];
 }
 
+- (IBAction)logOutClick:(id)sender{
+    
+    [[XMLLogout shared] LogOut:^(id obj, NSString *code, NSString *message) {
+        
+        NSLog(@"code:%@ message:%@",code,message);
+        
+        [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
+        
+    }];
+    
+}
 #pragma mark - delegate
+
 
 - (BOOL)ShouldResignFirstResponderWithInputPassword:(NSString *)pwd{
   if ([pwd isEqualToString:@"123456"]) {

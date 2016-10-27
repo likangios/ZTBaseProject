@@ -138,14 +138,10 @@ static  NSDateFormatter *dateformatter (NSString *style){
     [[XMLSysTimeQuery shared] RequestWithSysTimeQueryBlocks:^(NSString *systime, NSString *code, NSString *message) {
         NSTimeInterval end = CACurrentMediaTime();
         NSDate *now = [NSDate date];
-        NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
-        
-        [formatter1 setDateFormat:@"HH:mm:ss"];
-        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue;
-        self.title = [NSString stringWithFormat:@"%.fms",self.shijiancha];
-        NSLog(@"origin %.f   requestTime %.f ",self.shijiancha,1000*(end-start));
+        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue + 1000*(end-start);
+        self.title = [NSString stringWithFormat:@"%.f+%.fms",self.shijiancha-1000*(end-start),1000*(end-start)];
+        NSLog(@"origin %.f   requestTime %.f ",self.shijiancha-1000*(end-start),1000*(end-start));
     }];
-    
     
     [[XMLQueryCommodity shared] RequestQueryCommoditysBlocks:^(id obj, NSString *code, NSString *message) {
         
@@ -197,7 +193,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
     NSArray *all = [XMLStoreService testGetAllItem];
     NSArray *group = [XMLStoreService testGetAllItemWithAccountGoup:@"goup1"];
     
-    NSLog(@"%@ === %@",all,group);
+//    NSLog(@"%@ === %@",all,group);
 }
 - (void)test:(NSString *)url{
     

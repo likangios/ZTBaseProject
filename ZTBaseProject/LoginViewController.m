@@ -18,6 +18,8 @@
 
 #import "XMLUserLogin.h"
 
+#import "XMLLogout.h"
+
 #import "TradModel.h"
 
 
@@ -140,6 +142,7 @@
         }
     }];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

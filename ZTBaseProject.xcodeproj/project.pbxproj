@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		26266084A4020BF895471AE3 /* libPods-ZTBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF79BF6ACCC3483439A55CC /* libPods-ZTBaseProject.a */; };
-		6102FE951DBEE49700B4D6C7 /* KeychainTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6102FE941DBEE49700B4D6C7 /* KeychainTools.swift */; };
 		61057C321D71963C0099CE62 /* XMLRequestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C311D71963C0099CE62 /* XMLRequestBase.m */; };
 		61057C351D7197580099CE62 /* XMLLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C341D7197580099CE62 /* XMLLogin.m */; };
 		61057C381D7198A00099CE62 /* XMLLogout.m in Sources */ = {isa = PBXBuildFile; fileRef = 61057C371D7198A00099CE62 /* XMLLogout.m */; };
@@ -116,8 +115,6 @@
 		619596ED1D9DF35F00526A1A /* CommoditysListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619596EB1D9DF35F00526A1A /* CommoditysListViewController.m */; };
 		619596EE1D9DF35F00526A1A /* CommoditysListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619596EC1D9DF35F00526A1A /* CommoditysListViewController.xib */; };
 		61AA5F871DBD92660079EEF0 /* TradModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AA5F861DBD92660079EEF0 /* TradModel.m */; };
-		61AA60061DBE15FE0079EEF0 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61AA60031DBE15DA0079EEF0 /* KeychainAccess.framework */; };
-		61AA60071DBE16060079EEF0 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61AA60031DBE15DA0079EEF0 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61D591C01D93B92200EA2031 /* ResultOrder_SubmitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */; };
 		61DA27791D76A3CB00AE6E7B /* MarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DA27771D76A3CB00AE6E7B /* MarkViewController.m */; };
 		61DA277A1D76A3CB00AE6E7B /* MarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61DA27781D76A3CB00AE6E7B /* MarkViewController.xib */; };
@@ -132,23 +129,6 @@
 		C8C962231DB1C3FB0033C85C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C962211DB1C3FB0033C85C /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		61AA60021DBE15DA0079EEF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 61AA5FFD1DBE15DA0079EEF0 /* KeychainAccess.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 140F195C1A49D79400B0016A;
-			remoteInfo = KeychainAccess;
-		};
-		61AA60041DBE15DA0079EEF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 61AA5FFD1DBE15DA0079EEF0 /* KeychainAccess.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 140F19671A49D79500B0016A;
-			remoteInfo = KeychainAccessTests;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		61AA5FF91DBE0DE50079EEF0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -156,7 +136,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				61AA60071DBE16060079EEF0 /* KeychainAccess.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +143,6 @@
 
 /* Begin PBXFileReference section */
 		6102FE931DBEE49700B4D6C7 /* ZTBaseProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZTBaseProject-Bridging-Header.h"; sourceTree = "<group>"; };
-		6102FE941DBEE49700B4D6C7 /* KeychainTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainTools.swift; sourceTree = "<group>"; };
 		61057C301D71963C0099CE62 /* XMLRequestBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRequestBase.h; sourceTree = "<group>"; };
 		61057C311D71963C0099CE62 /* XMLRequestBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRequestBase.m; sourceTree = "<group>"; };
 		61057C331D7197580099CE62 /* XMLLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLLogin.h; sourceTree = "<group>"; };
@@ -374,7 +352,6 @@
 		619596EC1D9DF35F00526A1A /* CommoditysListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommoditysListViewController.xib; sourceTree = "<group>"; };
 		61AA5F851DBD92660079EEF0 /* TradModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradModel.h; sourceTree = "<group>"; };
 		61AA5F861DBD92660079EEF0 /* TradModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradModel.m; sourceTree = "<group>"; };
-		61AA5FFD1DBE15DA0079EEF0 /* KeychainAccess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeychainAccess.xcodeproj; path = Lib/KeychainAccess.xcodeproj; sourceTree = "<group>"; };
 		61D591BE1D93B92200EA2031 /* ResultOrder_SubmitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultOrder_SubmitModel.h; sourceTree = "<group>"; };
 		61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultOrder_SubmitModel.m; sourceTree = "<group>"; };
 		61DA27761D76A3CB00AE6E7B /* MarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkViewController.h; sourceTree = "<group>"; };
@@ -408,7 +385,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61AA60061DBE15FE0079EEF0 /* KeychainAccess.framework in Frameworks */,
 				26266084A4020BF895471AE3 /* libPods-ZTBaseProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,12 +454,10 @@
 			isa = PBXGroup;
 			children = (
 				6112440C1DBF09B8009FDDC7 /* ZTBaseProject.entitlements */,
-				61AA5FFD1DBE15DA0079EEF0 /* KeychainAccess.xcodeproj */,
 				61ED82411C91A338007817C8 /* Classes */,
 				61ED82401C91A32B007817C8 /* Resources */,
 				615D01D61C91A1A8001EF35C /* AppDelegate.h */,
 				615D01D71C91A1A8001EF35C /* AppDelegate.m */,
-				6102FE941DBEE49700B4D6C7 /* KeychainTools.swift */,
 				61D591BE1D93B92200EA2031 /* ResultOrder_SubmitModel.h */,
 				61D591BF1D93B92200EA2031 /* ResultOrder_SubmitModel.m */,
 				615D01D91C91A1A8001EF35C /* ViewController.h */,
@@ -722,15 +696,6 @@
 			path = Actions;
 			sourceTree = "<group>";
 		};
-		61AA5FFE1DBE15DA0079EEF0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				61AA60031DBE15DA0079EEF0 /* KeychainAccess.framework */,
-				61AA60051DBE15DA0079EEF0 /* KeychainAccessTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		61ED82401C91A32B007817C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,35 +835,12 @@
 			mainGroup = 615D01C71C91A1A8001EF35C;
 			productRefGroup = 615D01D11C91A1A8001EF35C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 61AA5FFE1DBE15DA0079EEF0 /* Products */;
-					ProjectRef = 61AA5FFD1DBE15DA0079EEF0 /* KeychainAccess.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				615D01CF1C91A1A8001EF35C /* ZTBaseProject */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		61AA60031DBE15DA0079EEF0 /* KeychainAccess.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = KeychainAccess.framework;
-			remoteRef = 61AA60021DBE15DA0079EEF0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		61AA60051DBE15DA0079EEF0 /* KeychainAccessTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = KeychainAccessTests.xctest;
-			remoteRef = 61AA60041DBE15DA0079EEF0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		615D01CE1C91A1A8001EF35C /* Resources */ = {
@@ -1016,7 +958,6 @@
 				6167B4AE1CA5286700117606 /* MSAdminPayHistorysWithUserAction.m in Sources */,
 				6167B4A71CA5286700117606 /* MSActionFindPWD.m in Sources */,
 				6167B4E61CA5286700117606 /* MSVerficationCodeAction.m in Sources */,
-				6102FE951DBEE49700B4D6C7 /* KeychainTools.swift in Sources */,
 				6167B4D41CA5286700117606 /* MSPartysEnrollsAction.m in Sources */,
 				61E610031DAC802400FAD732 /* XMLOrderSubmitTest.m in Sources */,
 				6167B4CB1CA5286700117606 /* MSMineScoresSingleWithUser.m in Sources */,

@@ -21,8 +21,9 @@
 - (void)LogOut:(SuccessBlocks)block{
     
     NSString *url =  @"http://m.zongyihui.cn:30200/nuclear/communicateServlet";
-    NSString *sessionID = @"5815833320097022136";
-    
+
+    NSString *sessionID = [XMLStoreService SESSIONID];
+
     NSString *bodyString=  [NSString stringWithFormat:@"<?xml version='1.0' encoding='GBK' standalone='yes'?><MEBS_MOBILE><REQ name='logout'><SESSIONID>%@</SESSIONID></REQ></MEBS_MOBILE>",sessionID];
     
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
