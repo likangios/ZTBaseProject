@@ -135,12 +135,19 @@ static  NSDateFormatter *dateformatter (NSString *style){
    
     self.updateButton.enabled = NO;
     NSTimeInterval  start  =  CACurrentMediaTime();
+    NSDate *now1 = [NSDate date];
+    NSLog(@"timeIntervalSince1970 %f",now1.timeIntervalSince1970);
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"HH:mm:ss:SSS"];
+    NSLog(@"formatter %@",[formatter stringFromDate:now1]);
+
     [[XMLSysTimeQuery shared] RequestWithSysTimeQueryBlocks:^(NSString *systime, NSString *code, NSString *message) {
         NSTimeInterval end = CACurrentMediaTime();
         NSDate *now = [NSDate date];
-        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue + 1000*(end-start);
-        self.title = [NSString stringWithFormat:@"%.f+%.fms",self.shijiancha-1000*(end-start),1000*(end-start)];
-        NSLog(@"origin %.f   requestTime %.f ",self.shijiancha-1000*(end-start),1000*(end-start));
+        NSTimeInterval requestTime = 1000/2.0*(end-start);
+        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue + requestTime;
+        self.title = [NSString stringWithFormat:@"%.f+%.fms",self.shijiancha-requestTime,requestTime];
+        NSLog(@"origin %.f   requestTime %.f ",self.shijiancha-requestTime,requestTime);
     }];
     
     [[XMLQueryCommodity shared] RequestQueryCommoditysBlocks:^(id obj, NSString *code, NSString *message) {
@@ -312,8 +319,10 @@ static  NSDateFormatter *dateformatter (NSString *style){
     NSTimeInterval nowTimeInterval = now.timeIntervalSince1970;
     
     NSTimeInterval startTimeInterval = startDate.timeIntervalSince1970;
+//    提前发起时间
+    NSTimeInterval early = 50;
     
-    if (nowTimeInterval*1000 >= startTimeInterval*1000 + self.shijiancha) {
+    if (nowTimeInterval*1000 >= startTimeInterval*1000 + self.shijiancha - early) {
         
         return YES;
     }
