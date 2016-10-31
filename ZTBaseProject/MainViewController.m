@@ -473,11 +473,6 @@ static  NSDateFormatter *dateformatter (NSString *style){
     
     sender.selected = !sender.selected;
     
-//    if (sender.tag == 1) {
-//        if (sender.selected) {
-//            [self queue1nstimer];
-//        }
-//    }
     
     if (sender.selected) {
         
