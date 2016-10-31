@@ -579,6 +579,8 @@ static int reloginCount = 0;
                     NSLog(@"queue1 你挂了");
                 }else if ([code isEqualToString:@"-101"]){
                     [self relogin];
+                    [self queue1nstimer];
+
                 }else{
                     [NSThread sleepForTimeInterval:tieminterval];
                     [self queue1nstimer];
@@ -642,6 +644,8 @@ static int reloginCount = 0;
                         NSLog(@"queue2 你挂了");
                     }else if ([code isEqualToString:@"-101"]){
                         [self relogin];
+                        [self queue2nstimer];
+
                     }else{
                         [NSThread sleepForTimeInterval:tieminterval];
 
@@ -706,6 +710,8 @@ static int reloginCount = 0;
                         NSLog(@"queue3 你挂了");
                     }else if ([code isEqualToString:@"-101"]){
                         [self relogin];
+                        [self queue3nstimer];
+
                     }else{
                         [NSThread sleepForTimeInterval:tieminterval];
 
@@ -768,6 +774,8 @@ static int reloginCount = 0;
                         NSLog(@"queue4 你挂了");
                     }else if ([code isEqualToString:@"-101"]){
                         [self relogin];
+                        [self queue4nstimer];
+
                     }else{
                         [NSThread sleepForTimeInterval:tieminterval];
 
@@ -831,6 +839,8 @@ static int reloginCount = 0;
                         NSLog(@"queue5 你挂了");
                     }else if ([code isEqualToString:@"-101"]){
                         [self relogin];
+                        [self queue5nstimer];
+
                     }else{
                         [NSThread sleepForTimeInterval:tieminterval];
 

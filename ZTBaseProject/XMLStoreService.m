@@ -236,13 +236,17 @@ static UserInfoModel *currentModel;
 }
 
 + (NSString *)userdefaultValueWithKey:(NSString *)key{
+    UserInfoModel *model = [XMLStoreService currentUserModel];
+    NSString *newKey = [NSString stringWithFormat:@"%@_%@",model.account,key];
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    NSString *obj = [def objectForKey:key];
+    NSString *obj = [def objectForKey:newKey];
     return obj?:@"";
 }
 + (void)StoredefaultValue:(NSString *)string Key:(NSString *)key{
+    UserInfoModel *model = [XMLStoreService currentUserModel];
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    [def setValue:string forKey:key];
+    NSString *newKey = [NSString stringWithFormat:@"%@_%@",model.account,key];
+    [def setValue:string forKey:newKey];
     [def  synchronize];
 }
 +(void)testStoreWithKeyChain:(NSString *)name password:(NSString *)password{

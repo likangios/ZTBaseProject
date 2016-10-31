@@ -9,8 +9,6 @@
 #import "ViewController.h"
 #import "MSHttpActionMgr.h"
 
-#import "ZTBaseProject-Swift.h"
-
 #import "PWDView.h"
 #import "TestAction.h"
 #import "TestAction2.h"
