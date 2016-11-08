@@ -190,7 +190,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
 }
 - (void)initTimer{
     
- [NSTimer bk_scheduledTimerWithTimeInterval:10 block:^(NSTimer *timer) {
+ [NSTimer bk_scheduledTimerWithTimeInterval:60 block:^(NSTimer *timer) {
       
      [self sysTimeQueryRequest];
      
@@ -206,7 +206,8 @@ static  NSDateFormatter *dateformatter (NSString *style){
         NSTimeInterval end = CACurrentMediaTime();
         NSDate *now = [NSDate date];
         NSTimeInterval requestTime = 1000*(end-start);
-        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue;
+        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue - requestTime/2.0;
+        
 //        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue + requestTime/2.0;
         self.title = [NSString stringWithFormat:@"%.f+%.fms",self.shijiancha,requestTime];
        
