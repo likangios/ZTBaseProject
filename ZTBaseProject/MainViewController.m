@@ -100,14 +100,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSTimeInterval  start1  =  CACurrentMediaTime();
-//    [self requestStart1:start1];
-    
     _muArray = [NSMutableArray arrayWithCapacity:6];
-    
-    for (int i = 0; i<6; i++) {
-        [_muArray addObject:@"logo"];
-    }
     
     self.startTime.text = [XMLStoreService userdefaultValueWithKey:@"self.startTime"];
     
@@ -135,16 +128,12 @@ static  NSDateFormatter *dateformatter (NSString *style){
    
     self.updateButton.enabled = NO;
     NSTimeInterval  start  =  CACurrentMediaTime();
-    NSDate *now1 = [NSDate date];
-    NSLog(@"timeIntervalSince1970 %f",now1.timeIntervalSince1970);
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"HH:mm:ss:SSS"];
-    NSLog(@"formatter %@",[formatter stringFromDate:now1]);
 
     [[XMLSysTimeQuery shared] RequestWithSysTimeQueryBlocks:^(NSString *systime, NSString *code, NSString *message) {
         NSTimeInterval end = CACurrentMediaTime();
         NSDate *now = [NSDate date];
         NSTimeInterval requestTime = 1000/2.0*(end-start);
+//        NSTimeInterval requestTime = 0;
         self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue + requestTime;
         self.title = [NSString stringWithFormat:@"%.f+%.fms",self.shijiancha-requestTime,requestTime];
         NSLog(@"origin %.f   requestTime %.f ",self.shijiancha-requestTime,requestTime);
@@ -165,10 +154,8 @@ static  NSDateFormatter *dateformatter (NSString *style){
         
     }];
     
-//    NSArray *trads = [XMLStoreService getTradeUrlsWithMarkId:[XMLStoreService markId]];
-//    for (TradModel *model in trads) {
-//        [self test:model.TradeUrl];
-//    }
+    NSThread *thread = [[NSThread alloc]initWithTarget:self selector:@selector(initTimer) object:nil];
+    [thread start];
     
     /*
     for (int i = 1; i<255; i++) {
@@ -197,34 +184,40 @@ static  NSDateFormatter *dateformatter (NSString *style){
     [XMLStoreService testStoreWithKeyChain:@"name2" password:@"1234562" AccessGroup:@"goup1"];
     [XMLStoreService testStoreWithKeyChain:@"name3" password:@"1234563" AccessGroup:@"goup1"];
     
-    NSArray *all = [XMLStoreService testGetAllItem];
-    NSArray *group = [XMLStoreService testGetAllItemWithAccountGoup:@"goup1"];
+//    NSArray *all = [XMLStoreService testGetAllItem];
+//    NSArray *group = [XMLStoreService testGetAllItemWithAccountGoup:@"goup1"];
     
-//    NSLog(@"%@ === %@",all,group);
 }
-- (void)test:(NSString *)url{
+- (void)initTimer{
+    
+ [NSTimer bk_scheduledTimerWithTimeInterval:10 block:^(NSTimer *timer) {
+      
+     [self sysTimeQueryRequest];
+     
+    } repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] run];
+}
+- (void)sysTimeQueryRequest{
     
     NSTimeInterval  start  =  CACurrentMediaTime();
-    [[XMLSysTimeQuery shared] RequestWithSysTimeQueryWithURL:url Blocks:^(id obj, NSString *code, NSString *message) {
+    [[XMLSysTimeQuery shared] RequestWithSysTimeQueryBlocks:^(NSString *systime, NSString *code, NSString *message) {
+        NSLog(@"system %@  code  %@  message %@",systime,code,message);
         NSTimeInterval end = CACurrentMediaTime();
-        if (![code isEqualToString:@"-1"]) {
-        NSLog(@"%@__requestTime %.f ",url,1000*(end-start));
+        NSDate *now = [NSDate date];
+        NSTimeInterval requestTime = 1000*(end-start);
+        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue;
+//        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue + requestTime/2.0;
+        self.title = [NSString stringWithFormat:@"%.f+%.fms",self.shijiancha,requestTime];
+       
+        NSLog(@"origin %.f   requestTime %.f ",self.shijiancha,requestTime);
+
+        if ([code isEqualToString:@"-101"]){
+            [self relogin];
         }
     }];
-}
-- (void)test2{
-    
-}
-- (void)test3{
-    
-}
-- (void)test4{
-    
-}
-- (void)test5{
-    
-}
 
+}
 - (IBAction)updatePrice:(id)sender{
     
     [self setPriceWithcode];
@@ -255,49 +248,6 @@ static  NSDateFormatter *dateformatter (NSString *style){
     return model.maxPrice;
     
 }
-#pragma mark --
-- (void)startRequestWithIndex:(NSInteger)index Code:(NSString *)codeid Price:(NSString *)price Amount:(NSString *)amount Count:(NSInteger)count{
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        if (![self shouldStartWithStartTime:self.startTime.text]) {
-            [NSThread sleepForTimeInterval:0.005];
-            NSLog(@"还没开始");
-            [self startRequestWithIndex:index Code:codeid Price:price Amount:amount Count:count];
-            if (_muArray.count) {
-                //            [_muArray removeObjectAtIndex:0];
-            }
-            //            [_muArray addObject:@"还没开始"];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSString *string = @"";
-                for (int i = 0; i<_muArray.count; i++) {
-                    string  = [NSString stringWithFormat:@"%@\n%@",string,_muArray[i]];
-                }
-                
-            });
-            
-            return;
-        }else{
-            
-            NSLog(@"时间到了");
-        }
-        
-        NSTimeInterval  start  =  CACurrentMediaTime();
-        
-        [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:codeid Price:price Amount:amount Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
-            NSTimeInterval end = CACurrentMediaTime();
-            
-            NSLog(@"code:%@ message:%@ price:%@  amout :%@  time: %f  count:%ld",code,message,price,amount,end-start,count);
-
-            [self  updateUIWithIndex:index Code:code message:message Count:count];
-            
-        }];
-        
-    });
-    
-}
-
 - (BOOL)shouldStartWithStartTime:(NSString *)time{
     
     if (time.length != 9) {
@@ -320,128 +270,15 @@ static  NSDateFormatter *dateformatter (NSString *style){
     
     NSTimeInterval startTimeInterval = startDate.timeIntervalSince1970;
 //    提前发起时间
-    NSTimeInterval early = 50;
+    NSTimeInterval early = 0;
     
     if (nowTimeInterval*1000 >= startTimeInterval*1000 + self.shijiancha - early) {
         
         return YES;
     }
-//    NSLog(@"time1  %f  time2 %f",nowTimeInterval *1000, startTimeInterval *1000+self.shijiancha);
-    
     
     return NO;
 }
-- (void)requestWithIndex:(NSInteger)index WithRect:(BOOL)rect{
-    
-    NSString *code;
-    NSString *price;
-    NSString *amount;
-    
-    switch (index) {
-        case 1:
-            code = self.code1.text;
-            price=  self.price1.text;
-            amount = self.amount1.text;
-            break;
-        case 2:
-            code = self.code2.text;
-            price=  self.price2.text;
-            amount = self.amount2.text;
-            break;
-        case 3:
-            code = self.code3.text;
-            price=  self.price3.text;
-            amount = self.amount3.text;
-            break;
-        case 4:
-            code = self.code4.text;
-            price=  self.price4.text;
-            amount = self.amount4.text;
-            break;
-        case 5:
-            code = self.code5.text;
-            price=  self.price5.text;
-            amount = self.amount5.text;
-            break;
-    }
-    if (rect) {
-        
-        switch (index) {
-            case 1:
-                [self.Activity1 startAnimating];
-                break;
-            case 2:
-                [self.Activity2 startAnimating];
-                break;
-            case 3:
-                [self.Activity3 startAnimating];
-                break;
-            case 4:
-                [self.Activity4 startAnimating];
-                break;
-            case 5:
-                [self.Activity5 startAnimating];
-                break;
-        }
-        [self startRequestWithIndex:index Code:code Price:price Amount:amount Count:1];
-    }else{
-        switch (index) {
-            case 1:
-                [self.Activity1 stopAnimating];
-                break;
-            case 2:
-                [self.Activity2 stopAnimating];
-                break;
-            case 3:
-                [self.Activity3 stopAnimating];
-                break;
-            case 4:
-                [self.Activity4 stopAnimating];
-                break;
-            case 5:
-                [self.Activity5 stopAnimating];
-                break;
-        }
-    }
-
-    
-}
-- (IBAction)buttonClick1:(UIButton *)sender{
-    
-    switch (sender.tag) {
-        case 1:
-            if (!self.code1.text.length || !self.price1.text.length || !self.amount1.text.length) {
-                return;
-            }
-            break;
-        case 2:
-            if (!self.code2.text.length || !self.price2.text.length || !self.amount2.text.length) {
-                return;
-            }
-            break;
-        case 3:
-            if (!self.code3.text.length || !self.price3.text.length || !self.amount3.text.length) {
-                return;
-            }
-            break;
-        case 4:
-            if (!self.code4.text.length || !self.price4.text.length || !self.amount4.text.length) {
-                return;
-            }
-            break;
-        case 5:
-            if (!self.code5.text.length || !self.price5.text.length || !self.amount5.text.length) {
-                return;
-            }
-            break;
-    }
-    
-    sender.selected = !sender.selected;
-    
-    [self  requestWithIndex:sender.tag WithRect:sender.selected];
-    
-}
-
 - (IBAction)buttonClick:(UIButton *)sender{
     switch (sender.tag) {
         case 1:
@@ -487,20 +324,15 @@ static NSTimeInterval  tieminterval = 0.001;
 
 static NSTimeInterval  nottieminterval = 0.001;
 
-- (void)shouldRequestAgainWhenLongTime:(NSTimeInterval)start{
-    
-    
-}
 static int reloginCount = 0;
 
 - (void)relogin{
     
-    NSLog(@"重新登录");
+    NSLog(@"重新登录 %d",reloginCount);
     
     UserInfoModel *model = [XMLStoreService currentUserModel];
     
     [[XMLEncryptStr shared] RequestWithName:model.account AndPassword:model.password MarkID:model.markId Blocks:^(id obj, NSString *code, NSString *message) {
-        
         NSLog(@"XMLEncryptStr code:%@ message:%@",code,message);
         if ([code isEqualToString:@"0"]) {
             [[XMLUserLogin shared] RequestWithName:model.account AndPassword:model.password Blocks:^(id obj, NSString *code, NSString *message) {
@@ -515,28 +347,9 @@ static int reloginCount = 0;
                         reloginCount = 0;
                     }
                 }
-                
             }];
-            
-        }else{
-            
-            
         }
     }];
-}
-- (void)requestStart1:(NSTimeInterval)startTime{
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(start1:) userInfo:@(startTime) repeats:YES];
-    
-}
-- (void)start1:(NSTimer *)timer{
-    
-    NSTimeInterval currentTime = [NSDate  timeIntervalSinceReferenceDate];
-    NSTimeInterval startTime = [(NSNumber *)timer.userInfo doubleValue];
-    if (currentTime - startTime > 300) {
-        NSLog(@"超市了");
-    }
-    NSLog(@"currentTime %.f  startTime %@",currentTime,timer.userInfo);
 }
 - (void)queue1nstimer{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -546,7 +359,6 @@ static int reloginCount = 0;
             });
         if ([self shouldStartWithStartTime:self.startTime.text]) {
             NSTimeInterval  start  =  CACurrentMediaTime();
-//            [self requestStart1:start];
             [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:self.code1.text Price:self.price1.text Amount:self.amount1.text Blocks:^(ResultOrder_SubmitModel *result, NSString *code, NSString *message) {
                 NSTimeInterval end = CACurrentMediaTime();
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -854,209 +666,16 @@ static int reloginCount = 0;
             }
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-//                self.logoLabel5.text = @"label";
                 [self.Activity5 stopAnimating];
             });
         }
     });
 }
 
-
-
-
-
-- (void)updateUIWithIndex:(NSInteger)index Code:(NSString *)code message:(NSString *)message Count:(NSInteger)count{
-    count ++;
-    if ([code isEqualToString:@"0"]) {
-        
-        switch (index) {
-            case 1:
-                self.btn1.selected = NO;
-                self.btn1.backgroundColor = [UIColor blueColor];
-                
-                break;
-            case 2:
-                self.btn2.selected = NO;
-                self.btn2.backgroundColor = [UIColor blueColor];
-                break;
-            case 3:
-                self.btn3.selected = NO;
-                self.btn3.backgroundColor = [UIColor blueColor];
-                break;
-            case 4:
-                self.btn4.selected = NO;
-                self.btn4.backgroundColor = [UIColor blueColor];
-                break;
-            case 5:
-                self.btn5.selected = NO;
-                self.btn5.backgroundColor = [UIColor blueColor];
-                break;
-
-        }
-        switch (index) {
-            case 1:
-                [self.Activity1 stopAnimating];
-                break;
-            case 2:
-                [self.Activity2 stopAnimating];
-                break;
-            case 3:
-                [self.Activity3 stopAnimating];
-                break;
-            case 4:
-                [self.Activity4 stopAnimating];
-                break;
-            case 5:
-                [self.Activity5 stopAnimating];
-                break;
-        }
-        
-    }else{
-        
-        
-        switch (index) {
-            case 1:
-                [self uploadWithIndex:index Rect:self.btn1.selected Count:count];
-                break;
-            case 2:
-                [self uploadWithIndex:index Rect:self.btn2.selected Count:count];
-
-                break;
-            case 3:
-                [self uploadWithIndex:index Rect:self.btn3.selected Count:count];
-
-                break;
-            case 4:
-                [self uploadWithIndex:index Rect:self.btn4.selected Count:count];
-
-                break;
-            case 5:
-                [self uploadWithIndex:index Rect:self.btn5.selected Count:count];
-
-                break;
-                
-        }
-        
-        
-        
-    }
-    
-    
-    
-    
-};
-- (void)uploadWithIndex:(NSInteger)index Rect:(BOOL)rect Count:(NSInteger)count{
-   
-    NSString *code;
-    NSString *price;
-    NSString *amount;
-    
-    switch (index) {
-        case 1:
-            code = self.code1.text;
-            price=  self.price1.text;
-            amount = self.amount1.text;
-            break;
-        case 2:
-            code = self.code2.text;
-            price=  self.price2.text;
-            amount = self.amount2.text;
-            break;
-        case 3:
-            code = self.code3.text;
-            price=  self.price3.text;
-            amount = self.amount3.text;
-            break;
-        case 4:
-            code = self.code4.text;
-            price=  self.price4.text;
-            amount = self.amount4.text;
-            break;
-        case 5:
-            code = self.code5.text;
-            price=  self.price5.text;
-            amount = self.amount5.text;
-            break;
-    }
-    
-    if (rect) {
-        
-        switch (index) {
-            case 1:
-                [self.Activity1 startAnimating];
-                break;
-            case 2:
-                [self.Activity2 startAnimating];
-                break;
-            case 3:
-                [self.Activity3 startAnimating];
-                break;
-            case 4:
-                [self.Activity4 startAnimating];
-                break;
-            case 5:
-                [self.Activity5 startAnimating];
-                break;
-        }
-        [self startRequestWithIndex:index Code:code Price:price Amount:amount Count:count];
-    }else{
-        switch (index) {
-            case 1:
-                [self.Activity1 stopAnimating];
-                break;
-            case 2:
-                [self.Activity2 stopAnimating];
-                break;
-            case 3:
-                [self.Activity3 stopAnimating];
-                break;
-            case 4:
-                [self.Activity4 stopAnimating];
-                break;
-            case 5:
-                [self.Activity5 stopAnimating];
-                break;
-        }
-    }
-}
-
-
-- (void)requestWithCode:(NSString *)code AndPrice:(NSString *)price amount:(NSString *)amount{
-    
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSTimeInterval  start  =  CACurrentMediaTime();
-        
-        [[XMLOrderSubmit shared] RequestWithBuy_Sell:@"1" commodityID:code Price:price Amount:amount Blocks:^(id obj, NSString *code, NSString *message) {
-            NSTimeInterval end = CACurrentMediaTime();
-            
-            NSLog(@"code:%@  price:%@  amout :%@  time: %f",code,price,amount,end-start);
-            
-            if ([code isEqualToString:@"0"]) {
-                
-                [ZTUntil showErrorHUDViewAtView:self.view WithTitle:@"ok"];
-                
-            }else{
-                [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
-            }
-        }];
-        
-    });
-    
-   
-
-}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self.view endEditing:YES];
-//    for (int i = 0; i<10; i++) {
-//        
-//        NSString *amount = [NSString stringWithFormat:@"%d",i];
-//        
-//        [self requestWithCode:@"605005" AndPrice:@"52" amount:amount];
-//        
-//    }
+
 }
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     
