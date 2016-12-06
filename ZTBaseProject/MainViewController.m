@@ -21,7 +21,6 @@
 #import "XMLEncryptStrTest.h"
 #import "XMLEncryptStr.h"
 
-
 //model
 #import "CommodityModel.h"
 #import "TradModel.h"
@@ -132,7 +131,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
     [[XMLSysTimeQuery shared] RequestWithSysTimeQueryBlocks:^(NSString *systime, NSString *code, NSString *message) {
         NSTimeInterval end = CACurrentMediaTime();
         NSDate *now = [NSDate date];
-        NSTimeInterval requestTime = 1000/2.0*(end-start);
+        NSTimeInterval requestTime = 1000*(end-start);
 //        NSTimeInterval requestTime = 0;
         self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue + requestTime;
         self.title = [NSString stringWithFormat:@"%.f+%.fms",self.shijiancha-requestTime,requestTime];
@@ -190,7 +189,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
 }
 - (void)initTimer{
     
- [NSTimer bk_scheduledTimerWithTimeInterval:60 block:^(NSTimer *timer) {
+ [NSTimer bk_scheduledTimerWithTimeInterval:10 block:^(NSTimer *timer) {
       
      [self sysTimeQueryRequest];
      
@@ -205,7 +204,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
         NSLog(@"system %@  code  %@  message %@",systime,code,message);
         NSTimeInterval end = CACurrentMediaTime();
         NSDate *now = [NSDate date];
-        NSTimeInterval requestTime = 1000*(end-start);
+        NSTimeInterval requestTime = 1000/2.0*(end-start);
         self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue - requestTime/2.0;
         
 //        self.shijiancha = now.timeIntervalSince1970*1000 - systime.doubleValue + requestTime/2.0;
@@ -271,7 +270,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
     
     NSTimeInterval startTimeInterval = startDate.timeIntervalSince1970;
 //    提前发起时间
-    NSTimeInterval early = 0;
+    NSTimeInterval early = 100;
     
     if (nowTimeInterval*1000 >= startTimeInterval*1000 + self.shijiancha - early) {
         
