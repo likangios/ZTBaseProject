@@ -189,7 +189,7 @@ static  NSDateFormatter *dateformatter (NSString *style){
 }
 - (void)initTimer{
     
- [NSTimer bk_scheduledTimerWithTimeInterval:10 block:^(NSTimer *timer) {
+ [NSTimer bk_scheduledTimerWithTimeInterval:6 block:^(NSTimer *timer) {
       
      [self sysTimeQueryRequest];
      
@@ -270,7 +270,8 @@ static  NSDateFormatter *dateformatter (NSString *style){
     
     NSTimeInterval startTimeInterval = startDate.timeIntervalSince1970;
 //    提前发起时间
-    NSTimeInterval early = 100;
+    
+    NSTimeInterval early = 50;
     
     if (nowTimeInterval*1000 >= startTimeInterval*1000 + self.shijiancha - early) {
         
