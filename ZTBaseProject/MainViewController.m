@@ -189,8 +189,8 @@ static  NSDateFormatter *dateformatter (NSString *style){
 }
 - (void)initTimer{
     
- [NSTimer bk_scheduledTimerWithTimeInterval:6 block:^(NSTimer *timer) {
-      
+ [NSTimer bk_scheduledTimerWithTimeInterval:20 block:^(NSTimer *timer) {
+     
      [self sysTimeQueryRequest];
      
     } repeats:YES];

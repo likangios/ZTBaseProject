@@ -802,7 +802,7 @@
 					615D01CF1C91A1A8001EF35C = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = GDGZ2H4K6A;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -1134,8 +1134,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ZTBaseProject/ZTBaseProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kang Li (4Z9ZCQB5XG)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kang Li (4Z9ZCQB5XG)";
-				DEVELOPMENT_TEAM = GDGZ2H4K6A;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ZTBaseProject/ZT.pch;
 				INFOPLIST_FILE = ZTBaseProject/Info.plist;
@@ -1148,8 +1148,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9424a2d7-6a66-4466-84e5-6eabae07f34b";
-				PROVISIONING_PROFILE_SPECIFIER = testProjectDevelopment;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZTBaseProject/ZTBaseProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1165,8 +1165,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ZTBaseProject/ZTBaseProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: iCan Network Technology Inc. (GDGZ2H4K6A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: iCan Network Technology Inc. (GDGZ2H4K6A)";
-				DEVELOPMENT_TEAM = GDGZ2H4K6A;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ZTBaseProject/ZT.pch;
 				INFOPLIST_FILE = ZTBaseProject/Info.plist;
@@ -1178,8 +1178,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lk.ZTBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "872c0af9-f3ea-454d-8744-f006ff705c94";
-				PROVISIONING_PROFILE_SPECIFIER = testProjectHoc;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZTBaseProject/ZTBaseProject-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;

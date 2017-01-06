@@ -48,26 +48,26 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.viewDisplayCount += 1;
-    if ([self IsFirstTimeDisplay]) {
-        
-        if (!self.phoneTextfield.text.length||!self.passwordTextfield.text.length) {
-            return;
-        }
-        self.view.userInteractionEnabled = NO;
-        [ZTUntil showHUDAddedTo:self.view];
-        [[XMLIsLogin shared] Request:^(id obj, NSString *code, NSString *message) {
-            [ZTUntil hideAllHUDsForView:self.view];
-            self.view.userInteractionEnabled = YES;
-            if ([code isEqualToString:@"0"]) {
-                MarkViewController *login = [[MarkViewController alloc]initWithNibName:@"MarkViewController" bundle:nil];
-                [self.navigationController pushViewController:login animated:YES];
-            }else{
-                [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
-            }
-            
-        }];
-    }
+//    self.viewDisplayCount += 1;
+//    if ([self IsFirstTimeDisplay]) {
+//        
+//        if (!self.phoneTextfield.text.length||!self.passwordTextfield.text.length) {
+//            return;
+//        }
+//        self.view.userInteractionEnabled = NO;
+//        [ZTUntil showHUDAddedTo:self.view];
+//        [[XMLIsLogin shared] Request:^(id obj, NSString *code, NSString *message) {
+//            [ZTUntil hideAllHUDsForView:self.view];
+//            self.view.userInteractionEnabled = YES;
+//            if ([code isEqualToString:@"0"]) {
+//                MarkViewController *login = [[MarkViewController alloc]initWithNibName:@"MarkViewController" bundle:nil];
+//                [self.navigationController pushViewController:login animated:YES];
+//            }else{
+//                [ZTUntil showErrorHUDViewAtView:self.view WithTitle:message];
+//            }
+//            
+//        }];
+//    }
 
 }
 

@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"title";
-    
     NSArray *ids =@[@64,@158,@1,@3,@10,
                     @4,@15,@19,@9,
                     @28,@30,@33,@34,
